@@ -1,0 +1,41 @@
+.menu-item{
+	display: inline-block;
+	padding-top: 25px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 13pt;
+	color: white;
+}
+
+.right-side{
+	float: right;
+	padding-right: 20px;
+}
+
+.logo{
+	padding-left: 20px;
+	padding-right: 30px;
+	font-size: 24pt;
+	line-height: 15px;
+}
+
+.navbar{
+	height: 75px;
+	width: 100%;
+	background: #0B90E4;
+	background: #00B6D3;
+	background: -moz-linear-gradient(top, #00B6D3 0%, #0a93e3 100%);
+	background: -webkit-linear-gradient(top, #00B6D3 0%, #0a93e3 100%);
+	background: linear-gradient(to bottom, #00B6D3 0%, #0a93e3 100%);
+	font-size: 17pt;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: fixed;
+}
+
+.sign-up-btn{
+	padding-top: 5px;
+	background-color: white;
+	height: 40px;
+	color: #ff29a3;
+	border-radius: 10px;
+}
