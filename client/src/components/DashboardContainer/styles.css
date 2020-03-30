@@ -1,0 +1,65 @@
+.dashboard-container{
+	max-width: 1200px;
+	box-shadow: 0 4px 70px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+
+	display: inline-block;
+	z-index: -1;
+
+}
+
+.dashboard-menu-container{
+	min-width: 200px;
+	border-bottom: 10px solid #ec1092;
+	display: flex;
+	height: 330px;
+	box-shadow: 0 4px 70px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+	z-index: -1;
+	top: 100px;
+	position: sticky;
+	margin-right: 30px;
+	margin-top: 70%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 30px;
+}
+
+.dashboard-sticky-container{
+	height: 5px;
+	top: 100px;
+	position: sticky;
+}
+
+.dashboard-content{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+
+}
+
+.dashboard-menu{
+	margin-top: 20px;
+}
+
+.dashboard-menu-item-container{
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 50px;
+	margin-bottom: 10px;
+}
+
+.dashboard{
+	top: 0px;
+	height: 100%;
+	font-weight: 700;
+	font-size: 14px;
+	width: 100%;
+}
+
+.dashboard-title{
+	padding-left: 30px;
+}
+
+.selected{
+	background-color: #eeeeee;
+}

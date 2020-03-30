@@ -52,7 +52,7 @@ export default class Dashboard extends React.Component{
 		
 		console.log(singleCard);
 		return (
-
+			
 			<div className="dashboard-card-container">{singleCard}</div>)
 
 

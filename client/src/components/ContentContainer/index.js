@@ -1,12 +1,11 @@
 import React from 'react';
 import './styles.css';
-import Container from '../Container'
-import Dashboard from '../Dashboard'
+import DashboardContainer from '../DashboardContainer'
 
 export default function ContentContainer(){
 	return(
 		<div className="content-container">
-			<Container/>
+			<DashboardContainer/>
 		</div>
 
 		)
