@@ -1,10 +1,15 @@
-.dashboard-container{
-	max-width: 1200px;
-	box-shadow: 0 4px 70px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
 
-	display: inline-block;
-	z-index: -1;
+.dashboard-content{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
 
+}
+
+.dashboard-sticky-container{
+	height: 5px;
+	top: 100px;
+	position: sticky;
 }
 
 .dashboard-menu-container{
@@ -22,19 +27,6 @@
 	align-items: center;
 	flex-direction: column;
 	padding-top: 30px;
-}
-
-.dashboard-sticky-container{
-	height: 5px;
-	top: 100px;
-	position: sticky;
-}
-
-.dashboard-content{
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-
 }
 
 .dashboard-menu{
@@ -62,4 +54,13 @@
 
 .selected{
 	background-color: #eeeeee;
+}
+
+.dashboard-container{
+	max-width: 1200px;
+	box-shadow: 0 4px 70px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+
+	display: inline-block;
+	z-index: -1;
+	padding-top: 100px;
 }
