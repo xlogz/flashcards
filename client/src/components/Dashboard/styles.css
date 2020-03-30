@@ -1,0 +1,8 @@
+.dashboard-card-container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding-left: 50px;
+	padding-right: 20px;
+	justify-content: space-around;
+}

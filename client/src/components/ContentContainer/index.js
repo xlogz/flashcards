@@ -5,10 +5,8 @@ import Dashboard from '../Dashboard'
 
 export default function ContentContainer(){
 	return(
-		<div className="container">
-			<Container>
-				<Dashboard/>
-			</Container>
+		<div className="content-container">
+			<Container/>
 		</div>
 
 		)
