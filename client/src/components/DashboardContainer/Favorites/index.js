@@ -5,7 +5,7 @@ import CardsContainer from '../../CardsContainer';
 
 class Favorites extends React.Component{
 render(){
-	return(<CardsContainer/>)
+	return(<div className="container"><CardsContainer/></div>)
 }
 }
 

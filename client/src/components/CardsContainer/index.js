@@ -50,14 +50,14 @@ export default class CardContainer extends React.Component{
 		
 		const singleCard = cards.map((card,index)=>{
 			return (
-						<Switch>
+						
 			<Link to={'/cards/' + index} >
 			<div>
 				<Card id={index} title={card.title} cardcount={card.cardcount} highestScore={card.highestScore}/>
 			
 			</div>
 			</Link>
-			</Switch>
+		
 
 		)})
 		

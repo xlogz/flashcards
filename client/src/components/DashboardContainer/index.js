@@ -16,7 +16,7 @@ import CardPage from '../CardPage';
 export default function Container(){
 	return(
 		<div className="dashboard-content">
-			<Router>
+		
 				<div className="dashboard-sticky-container">
 					<div className="dashboard-menu-container">
 						<div className="dashboard">
@@ -42,15 +42,15 @@ export default function Container(){
 						</div>
 					</div>
 				</div>
-				<div className="dashboard-container">
+				<div className="dashboard-content-container">
 					<Switch>
 						
 
-						<Route exact path="/cards" exact>
+						<Route exact path="/cards">
 							<Cards/>
 						</Route>
 
-						<Route path="/cards/:idNumber">
+						<Route exact path="/cards/:idNumber">
 							<CardPage/>
 						</Route>
 
@@ -69,7 +69,7 @@ export default function Container(){
 					</Switch>
 
 				</div>
-			</Router>
+			
 		</div>
 		)
 }
