@@ -1,6 +1,12 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import Card from '../Card';
-import './styles.css'
+import './styles.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 let cards = [
 		{title: 'Random Card',
@@ -38,23 +44,32 @@ let cards = [
 	]
 
 
-export default class Dashboard extends React.Component{
-	constructor(props){
-		super(props);
-
-	}
+export default class CardContainer extends React.Component{
 
 	render(){
 		
-		const singleCard = cards.map(card=>{
-			return <Card title={card.title} cardcount={card.cardcount} highestScore={card.highestScore}/>
-		})
+		const singleCard = cards.map((card,index)=>{
+			return (
+						<Switch>
+			<Link to={'/cards/' + index} >
+			<div>
+				<Card id={index} title={card.title} cardcount={card.cardcount} highestScore={card.highestScore}/>
+			
+			</div>
+			</Link>
+			</Switch>
+
+		)})
 		
 		console.log(singleCard);
 		return (
+			<Fragment>
 			
-			<div className="dashboard-card-container">{singleCard}</div>)
-
+			
+			<div className="dashboard-card-container">{singleCard}</div>
+			</Fragment>
+			)
+			
 
 
 	}
