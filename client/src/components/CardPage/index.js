@@ -14,12 +14,19 @@ render(){
 		<div className="card-page-container">
 			<div className="card-page-content">
 				<div className="card">
-					What is it called when you can only access a variable within a functions environment?
+					<div className="card-text">
+						What is it called when you can only access a variable within a functions environment?
+					</div>
+					
 
 				</div>
 				<div className="card-page-answer-input">
-					<input type="text" placeholder="Answer"></input>
+					<input type="text" className="answer-input" required=" "/>
+						<label>Answer</label>
+						<span></span>
+					
 					</div>
+					
 				<div className="answers">
 					<button className="card-page-submit-btn">Submit</button>
 				</div>
