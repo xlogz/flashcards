@@ -20,11 +20,24 @@ export default class Card extends React.Component{
 			<Fragment>
 
 			<Tilt className="Tilt dashboard-card" key={this.props.key} options={{ max : 25 }} style={{ height: 225, width: 450 }} >
+
 				<div className="Tilt-inner" id={this.props.tabIndex} >
 					<div className="dashboard-card-title">{this.props.title}</div>
 					<div className="dashboard-card-count"># of cards: {this.props.cardcount}</div>
 					<div className="dashboard-card-highscore">Highest Score: {this.props.highestScore}</div>
 
+				</div>
+				<div className="lines">
+					<div className="lines-blue"></div>
+					<div className="lines-red"></div>
+					<div className="lines-red"></div>
+					<div className="lines-red"></div>
+					<div className="lines-red"></div>
+					<div className="lines-red"></div>
+					<div className="lines-red"></div>
+					<div className="lines-red"></div>
+					<div className="lines-red"></div>
+					
 				</div>
 			</Tilt>
 			</Fragment>

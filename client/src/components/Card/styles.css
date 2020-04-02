@@ -10,6 +10,7 @@
 	flex-direction: column;
 	z-index: 2;
 	cursor: pointer;
+	position: relative;
 }
 
 .Tilt-inner{
@@ -27,17 +28,42 @@
 	color: black;
 	font-family: 'Kalam', cursive;
 	font-size: 36px;
-
+	z-index: 10;
 }
 
 .dashboard-card-count{
 	color: black;
 	font-family: 'Indie Flower', cursive;
 	font-size: 18px;
+	z-index: 10;
 }
 
 .dashboard-card-highscore{
 	color: black;
 	font-family: 'Indie Flower', cursive;
 	font-size: 18px;
+	z-index: 10;
+}
+
+.lines{
+	position: absolute;
+	overflow:hidden;
+}
+
+.lines-blue{
+	background-color: blue;
+	height: 1px;
+	width: 450px;
+	margin-top: 20px;
+	z-index: -1;
+	opacity: .2;
+}
+
+.lines-red{
+	background-color: #ec1092;
+	height: 1px;
+	width: 450px;
+	margin-top: 20px;
+	z-index: -1;
+	opacity: .2;
 }
