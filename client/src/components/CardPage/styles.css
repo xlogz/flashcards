@@ -4,22 +4,26 @@
 	height: 100%;
 	display: flex;
 	z-index: 0;
-	padding-top: 100px;
 	min-width: 100%;
 	justify-content: center;
 	align-items: center;
 	flex-flow: column;
 }
 
+.dashboard-content-container .container{
+	padding-top: 5%;
+}
 .card-page-container{
-
+	padding-bottom: 5%;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 .card{
 	max-width: 600px;
 	box-shadow: 0 4px 70px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
 	height: 100%;
-	z-index: 0;
+	z-index: -3;
 	width: 100%;
 	min-height: 300px;
 	display: flex;
@@ -41,6 +45,7 @@
 	float: right;
 	position: relative;
 	top: -40px;
+	left: 14px;
 	width: 100px;
 	height: 40px;
 	background-color: #0a93e3;
@@ -101,6 +106,7 @@
 	font-size: 12px;
 	color: #656565;
 	transition: .15s;
+	border-bottom-color: #ed008c;
 }
 
 .card-page-answer-input input[type="text"]:invalid{
@@ -108,4 +114,8 @@
 	border-bottom: 1px solid black;
 	box-shadow: 0px 0px 0px white;
 	text-shadow: 0;
+}
+
+html{
+	overflow-y: scroll;
 }

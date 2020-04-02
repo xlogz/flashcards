@@ -7,3 +7,20 @@
 	justify-content: space-around;
 }
 
+.dashboard-card-container a{
+	text-decoration: none;
+}
+
+.card .card-text{
+	font-size: 14;
+	font-weight: bold;
+	color: black;
+}
+
+.card-page-answer-input{
+	
+}
+
+.answers{
+	
+}

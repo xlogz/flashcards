@@ -32,6 +32,10 @@ body{
   color: #61dafb;
 }
 
+#root{
+  height: 100%;
+}
+
 
 
 @keyframes App-logo-spin {

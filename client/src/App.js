@@ -10,8 +10,9 @@ export default function SimpleContainer() {
   return (
     
     <React.Fragment>
-    <NavBar/>
     <Router>
+    <NavBar/>
+    
     	<ContentContainer/>
     </Router>
     </React.Fragment>
