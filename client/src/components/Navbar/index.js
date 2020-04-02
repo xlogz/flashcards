@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css';
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
 	return (
@@ -9,13 +10,13 @@ export default function NavBar() {
                 Quizme
             </div>
             <div className="menu-item">
-                Home
+                <Link to="/home">Home</Link>
             </div>
             <div className="menu-item">
-                Search
+                <Link to="/search">Search</Link>
             </div>
             <div className="menu-item">
-                Flashcards
+                <Link to="/flashcards">Flashcards</Link>
             </div>
 
             <div className="right-side">

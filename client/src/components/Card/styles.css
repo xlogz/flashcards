@@ -21,3 +21,23 @@
 	flex-direction: column;
 
 }
+
+.dashboard-card-title{
+	font-weight: 800;
+	color: black;
+	font-family: 'Kalam', cursive;
+	font-size: 36px;
+
+}
+
+.dashboard-card-count{
+	color: black;
+	font-family: 'Indie Flower', cursive;
+	font-size: 18px;
+}
+
+.dashboard-card-highscore{
+	color: black;
+	font-family: 'Indie Flower', cursive;
+	font-size: 18px;
+}

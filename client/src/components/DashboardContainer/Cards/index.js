@@ -10,8 +10,11 @@ render(){
 
 	return(
 		<Fragment>
-		<div></div>
-		<CardsContainer/>
+		<div className="container">
+			<CardsContainer/>
+
+		</div>
+		
 		</Fragment>)
 }
 }

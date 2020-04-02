@@ -16,23 +16,23 @@ import CardPage from '../CardPage';
 export default function Container(){
 	return(
 		<div className="dashboard-content">
-			<Router>
+		
 				<div className="dashboard-sticky-container">
 					<div className="dashboard-menu-container">
 						<div className="dashboard">
 							<div className="dashboard-title">Dashboard</div>
 							<div className="dashboard-menu">
-								<Link to="/folders">
+								<Link to="/home/folders">
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Folders</div>
 									</div>
 								</Link>
-									<Link to="/cards">
+									<Link to="/home/cards">
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Cards</div>
 									</div>
 									</Link>
-									<Link to="/favorites">
+									<Link to="/home/favorites">
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Favorites</div>
 									</div>
@@ -42,24 +42,24 @@ export default function Container(){
 						</div>
 					</div>
 				</div>
-				<div className="dashboard-container">
+				<div className="dashboard-content-container">
 					<Switch>
 						
 
-						<Route exact path="/cards" exact>
+						<Route exact path="/home/cards">
 							<Cards/>
 						</Route>
 
-						<Route path="/cards/:idNumber">
+						<Route exact path="/home/cards/:idNumber">
 							<CardPage/>
 						</Route>
 
-						<Route path="/favorites">
+						<Route path="/home/favorites">
 							<Favorites/>
 						</Route>
 
 
-						<Route path="/folders">
+						<Route path="/home/folders">
 							<Folders/>
 						</Route>
 
@@ -69,7 +69,7 @@ export default function Container(){
 					</Switch>
 
 				</div>
-			</Router>
+			
 		</div>
 		)
 }
