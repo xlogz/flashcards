@@ -53,7 +53,7 @@
 	padding-left: 30px;
 }
 
-.selected{
+.selected div{
 	background-color: #eeeeee;
 }
 
@@ -77,4 +77,14 @@
 	padding-top: 100px;
 	width: 100%;
 	margin-right: 50px;
+}
+
+.dashboard-menu a{
+	text-decoration: none;
+	color: black;
+	font-weight: 500;
+}
+
+.dashboard-menu a:hover{
+	color: #0b90e4;
 }

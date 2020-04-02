@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from "react-router-dom";
 
 import Cards from "./Cards";
@@ -22,21 +22,21 @@ export default function Container(){
 						<div className="dashboard">
 							<div className="dashboard-title">Dashboard</div>
 							<div className="dashboard-menu">
-								<Link to="/home/folders">
+								<NavLink to="/home/folders" activeClassName="selected">
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Folders</div>
 									</div>
-								</Link>
-									<Link to="/home/cards">
+								</NavLink>
+									<NavLink to="/home/cards" activeClassName="selected">
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Cards</div>
 									</div>
-									</Link>
-									<Link to="/home/favorites">
+									</NavLink>
+									<NavLink to="/home/favorites" activeClassName="selected">
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Favorites</div>
 									</div>
-									</Link>
+									</NavLink>
 
 							</div>
 						</div>
