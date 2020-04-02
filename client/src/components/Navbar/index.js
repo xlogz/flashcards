@@ -6,6 +6,7 @@ export default function NavBar() {
 	return (
 
 		<div className="navbar">
+            <div className="navbar-content">
             <div className="logo menu-item">
                 Quizme
             </div>
@@ -29,7 +30,7 @@ export default function NavBar() {
                 </div>
 
             </div>
-
+            </div>
 
 		</div>
 			

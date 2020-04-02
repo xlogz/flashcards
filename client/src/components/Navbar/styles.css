@@ -31,6 +31,7 @@
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	position: fixed;
 	z-index: 99;
+	width: 100%;
 }
 
 .sign-up-btn{
@@ -39,4 +40,10 @@
 	height: 40px;
 	color: #ff29a3;
 	border-radius: 10px;
+}
+
+.menu-item a{
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
 }
