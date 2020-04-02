@@ -44,8 +44,9 @@
 .card-page-submit-btn{
 	float: right;
 	position: relative;
-	top: -40px;
-	left: 14px;
+	margin-top: 50px;
+	left:25px;
+	top: -30px;
 	width: 100px;
 	height: 40px;
 	background-color: #0a93e3;
@@ -79,7 +80,7 @@
 }
 
 .card-page-answer-input input[type="text"]{
-	width: 300px;
+	width: 625px;
 	height: 40px;
 	background-color: transparent;
 	border: none;

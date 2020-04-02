@@ -24,10 +24,11 @@ render(){
 							<input type="text" className="answer-input" required=" "/>
 								<label>Answer</label>
 								<span></span>
+							<div className="answers">
+								<button className="card-page-submit-btn">Submit</button>
 							</div>
-						<div className="answers">
-							<button className="card-page-submit-btn">Submit</button>
 						</div>
+						
 					</div>
 
 				</div>
