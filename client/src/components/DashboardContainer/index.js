@@ -22,21 +22,21 @@ export default function Container(){
 						<div className="dashboard">
 							<div className="dashboard-title">Dashboard</div>
 							<div className="dashboard-menu">
-								<NavLink to="/home/folders" activeClassName="selected">
+								<NavLink to="/home/folders" exact activeClassName="selected">
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Folders</div>
 									</div>
 								</NavLink>
-									<NavLink to="/home/cards" activeClassName="selected">
-									<div className="dashboard-menu-item-container">
-										<div className="dashboard-menu-item">Cards</div>
-									</div>
-									</NavLink>
-									<NavLink to="/home/favorites" activeClassName="selected">
-									<div className="dashboard-menu-item-container">
-										<div className="dashboard-menu-item">Favorites</div>
-									</div>
-									</NavLink>
+								<NavLink to="/home/cards" activeClassName="selected">
+								<div className="dashboard-menu-item-container">
+									<div className="dashboard-menu-item">Cards</div>
+								</div>
+								</NavLink>
+								<NavLink to="/home/favorites" activeClassName="selected">
+								<div className="dashboard-menu-item-container">
+									<div className="dashboard-menu-item">Favorites</div>
+								</div>
+								</NavLink>
 
 							</div>
 						</div>
@@ -60,6 +60,9 @@ export default function Container(){
 
 
 						<Route path="/home/folders">
+							<Folders/>
+						</Route>
+						<Route path="/home/">
 							<Folders/>
 						</Route>
 

@@ -8,7 +8,8 @@
 }
 
 body{
-  background: black;
+  background-color: #0a93e3;
+  opacity: .5;
 }
 
 @media (prefers-reduced-motion: no-preference) {

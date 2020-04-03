@@ -11,7 +11,7 @@ export default function NavBar() {
                 Quizme
             </div>
             <div className="menu-item">
-                <Link to="/home">Home</Link>
+                <Link to="/home/folders">Home</Link>
             </div>
             <div className="menu-item">
                 <Link to="/search">Search</Link>

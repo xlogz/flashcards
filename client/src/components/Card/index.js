@@ -27,7 +27,7 @@ export default class Card extends React.Component{
 					<div className="dashboard-card-highscore">Highest Score: {this.props.highestScore}</div>
 
 				</div>
-				<div className="lines">
+				{/*<div className="lines">
 					<div className="lines-blue"></div>
 					<div className="lines-red"></div>
 					<div className="lines-red"></div>
@@ -38,7 +38,7 @@ export default class Card extends React.Component{
 					<div className="lines-red"></div>
 					<div className="lines-red"></div>
 					
-				</div>
+				</div>*/}
 			</Tilt>
 			</Fragment>
 			)

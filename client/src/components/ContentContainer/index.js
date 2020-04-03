@@ -12,6 +12,8 @@ import FlashcardsContainer from '../FlashcardsContainer'
 
 export default function ContentContainer(){
 	return(
+		<React.Fragment>
+		<div className="bg"></div>
 		<div className="content-container">
 			<Switch>
 				<Route path="/home">
@@ -30,6 +32,7 @@ export default function ContentContainer(){
 			</Switch>
 			
 		</div>
+		</React.Fragment>
 
 		)
 }

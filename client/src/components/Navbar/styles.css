@@ -35,11 +35,19 @@
 }
 
 .sign-up-btn{
-	padding-top: 5px;
+	float: right;
+	position: relative;
+	width: 75px;
+	height: 30px;
 	background-color: white;
-	height: 40px;
-	color: #ff29a3;
-	border-radius: 10px;
+	border-radius: 5px;
+	color: #ec1092;
+	border: none;
+	font-size: 16px;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-right: 0;
+	margin-top: 15px;
 }
 
 .menu-item a{
