@@ -10,6 +10,7 @@
 	height: 5px;
 	top: 100px;
 	position: sticky;
+
 }
 
 .dashboard-menu-container{
@@ -30,6 +31,7 @@
 	padding-top: 30px;
 	margin-left: 50px;
 	background-color: white;
+	border-radius: 5px;
 }
 
 .dashboard-menu{
@@ -75,6 +77,7 @@
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
+	border-radius: 5px;
 }
 
 

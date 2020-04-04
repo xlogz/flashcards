@@ -3,7 +3,7 @@ import './styles.css';
 import Tilt from 'react-tilt';
 import Flip from 'react-reveal/Flip';
 import UndoIcon from '@material-ui/icons/Undo';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -27,14 +27,8 @@ export default class Card extends React.Component{
 			 contents = (
 
 			 	<Tilt className="Tilt dashboard-card-two" key={this.props.key} options={{ max : 25 }} style={{ height: 225, width: 450 }}>
-			 				<div className="dashboard-card-return" onClick={this.handleClick}> <UndoIcon/> </div>
-						<div className="Tilt-inner" id={this.props.tabIndex}>
-
-							<button className="dashboard-card-edit-btn"> Edit</button>
-							<button className="dashboard-card-quiz-btn"> Quizme </button>
-
-						</div>
-						{/*<div className="lines">
+			 				{/*<div className="dashboard-card-return" onClick={this.handleClick}> <UndoIcon/> </div>*/}
+			 				<div className="lines">
 							<div className="lines-blue"></div>
 							<div className="lines-red"></div>
 							<div className="lines-red"></div>
@@ -45,7 +39,14 @@ export default class Card extends React.Component{
 							<div className="lines-red"></div>
 							<div className="lines-red"></div>
 							
-						</div>*/}
+						</div>
+						<div className="Tilt-inner" id={this.props.tabIndex} onClick={this.handleClick}>
+
+							<button className="dashboard-card-edit-btn"> Edit</button>
+							<Link to={'/cards/' + this.props.key} ><button className="dashboard-card-quiz-btn"> Quizme </button></Link>
+
+						</div>
+						
 
 					</Tilt>
 
