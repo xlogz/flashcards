@@ -22,7 +22,7 @@ export default function NavBar() {
 
             <div className="right-side">
                 <div className="login-link menu-item">
-                    Login
+                    <Link to="/login">Login</Link>
                 </div>
                 <div className="sign-up-btn menu-item">
 
