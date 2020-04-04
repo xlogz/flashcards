@@ -1,3 +1,7 @@
+html{
+	height: 100%;
+}
+
 body{
 	height: 100%;
 
@@ -16,4 +20,8 @@ body{
 	background: -webkit-linear-gradient(top, #0a93e3, #0988cd);
 	background: linear-gradient(to bottom, #0a93e3, #0988cd);*/
 	background-position: fixed;
+}
+
+.content-container{
+	height: 100%;
 }
