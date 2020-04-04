@@ -84,7 +84,6 @@
 .dashboard-content-container{
 	max-width: 1200px;
 	background-color: transparent;
-	height: 100%;
 	display: inline-block;
 	z-index: 0;
 	padding-top: 100px;

@@ -24,7 +24,8 @@ render(){
 				<button className="folder-add-new-btn">New Folder</button>
 	    	</div>
 	    	<br/>
-    		<CardsContainer/>
+    		<CardsContainer category="Development"/>
+    	{/* Should be folders props*/}
     	</div>
 		</Fragment>
 
