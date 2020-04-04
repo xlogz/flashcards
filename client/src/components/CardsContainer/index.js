@@ -11,44 +11,141 @@ import {
 let cards = [
 		{title: 'Random Card',
 		 cardcount: 15,
-		 highestScore: 100
+		 highestScore: 100,
+		 tags: 'sports'
 		},
 		{title: 'Random Card',
 		 cardcount: 15,
-		 highestScore: 100
+		 highestScore: 100,
+		 tags: 'sports'
 		},
 		{title: 'Random Card',
 		 cardcount: 15,
-		 highestScore: 100
+		 highestScore: 100,
+		 tags: 'sports'
 		},
 		{title: 'Random Card',
 		 cardcount: 15,
-		 highestScore: 100
+		 highestScore: 100,
+		 tags: 'sports'
 		},
 		{title: 'Random Card',
 		 cardcount: 15,
-		 highestScore: 100
+		 highestScore: 100,
+		 tags: 'sports'
 		},
 		{title: 'Random Card',
 		 cardcount: 15,
-		 highestScore: 100
+		 highestScore: 100,
+		 tags: 'sports'
 		},
 		{title: 'Random Card',
 		 cardcount: 15,
-		 highestScore: 100
+		 highestScore: 100,
+		 tags: 'sports'
 		},
 		{title: 'Random Card',
 		 cardcount: 15,
-		 highestScore: 100
+		 highestScore: 100,
+		 tags: 'sports'
+		},
+
+
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'cooking'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'cooking'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'cooking'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'cooking'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'cooking'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'cooking'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'cooking'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'cooking'
+		},
+
+
+
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'science'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'science'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'science'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'science'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'science'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'science'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'science'
+		},
+		{title: 'Random Card',
+		 cardcount: 15,
+		 highestScore: 100,
+		 tags: 'science'
 		}
 	]
 
 
 export default class CardContainer extends React.Component{
+	constructor(props){
+		super(props);
+	}
 
 	render(){
 		
 		const singleCard = cards.map((card,index)=>{
+			if(card.tags === this.props.category)
 			return (
 						
 			// <Link to={'/cards/' + index} >
