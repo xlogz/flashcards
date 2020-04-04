@@ -14,9 +14,16 @@
 	padding-top: 5%;
 }
 .card-page-container{
-	padding-bottom: 5%;
 	padding-left: 50px;
 	padding-right: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 100px;
+	box-sizing: border-box;
+}
+
+.card-page-container .container{
+	padding-bottom: 10%;
 }
 
 .card{

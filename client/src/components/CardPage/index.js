@@ -11,8 +11,9 @@ render(){
 
 	return(
 		<Fragment>
-		<div className="container">
-			<div className="card-page-container">
+		
+		<div className="card-page-container">
+			<div className="container">
 				<div className="card-page-content">
 					<div>
 						<div className="card">

@@ -13,7 +13,7 @@ import Folders from "./Folders";
 import Favorites from "./Favorites";
 import CardPage from '../CardPage';
 
-export default function Container(){
+export default function Container(props){
 	return(
 		<div className="dashboard-content">
 		
@@ -22,7 +22,7 @@ export default function Container(){
 						<div className="dashboard">
 							<div className="dashboard-title">Dashboard</div>
 							<div className="dashboard-menu">
-								<NavLink to="/home/folders" exact activeClassName="selected">
+								<NavLink to="/home/folders" className={props === '/home' ? 'selected' : 'notActive'} exact activeClassName="selected">
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Folders</div>
 									</div>
@@ -48,10 +48,6 @@ export default function Container(){
 
 						<Route exact path="/home/cards">
 							<Cards/>
-						</Route>
-
-						<Route exact path="/home/cards/:idNumber">
-							<CardPage/>
 						</Route>
 
 						<Route path="/home/favorites">

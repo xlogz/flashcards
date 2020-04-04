@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/xlogz/savergoal#readme",
   "dependencies": {
+    "@material-ui/core": "^4.9.8",
     "concurrently": "^5.1.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.3",

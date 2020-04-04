@@ -9,6 +9,7 @@ import {
 import DashboardContainer from '../DashboardContainer';
 import SearchContainer from '../SearchContainer'
 import FlashcardsContainer from '../FlashcardsContainer'
+import CardPage from '../CardPage'
 
 export default function ContentContainer(){
 	return(
@@ -28,6 +29,9 @@ export default function ContentContainer(){
 				<Route path="/flashcards">
 					<FlashcardsContainer/>
 				</Route> 
+				<Route exact path="/cards/:idNumber">
+					<CardPage/>
+				</Route>
 
 			</Switch>
 			

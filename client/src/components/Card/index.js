@@ -1,45 +1,96 @@
 import React,{ Fragment } from 'react';
-import './styles.css';import Flip from 'react-reveal/Flip';
+import './styles.css';
 import Tilt from 'react-tilt';
+import Flip from 'react-reveal/Flip';
+import UndoIcon from '@material-ui/icons/Undo';
+
 
 
 
 export default class Card extends React.Component{
-	constructor(props){
-		super(props);
-		this.handleClick = this.handleClick.bind(this);
+    constructor(props) {
+        super(props);
+        this.state = { show: false };
+        this.handleClick = this.handleClick.bind(this);
+    }
 
-	}
-	handleClick(event){
-		event.preventDefault();
-		console.log('hi');
-	}
+    handleClick() {
+        this.setState({ show: !this.state.show });
+        console.log('card clicked');
+        console.log('show state: ' + this.state.show);
+    }
 
 	render(){
+		let contents = "";
+		if(this.state.show === true){
+			console.log('show is true');
+			 contents = (
+
+			 	<Tilt className="Tilt dashboard-card-two" key={this.props.key} options={{ max : 25 }} style={{ height: 225, width: 450 }}>
+			 				<div className="dashboard-card-return" onClick={this.handleClick}> <UndoIcon/> </div>
+						<div className="Tilt-inner" id={this.props.tabIndex}>
+
+							<button className="dashboard-card-edit-btn"> Edit</button>
+							<button className="dashboard-card-quiz-btn"> Quizme </button>
+
+						</div>
+						{/*<div className="lines">
+							<div className="lines-blue"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							
+						</div>*/}
+
+					</Tilt>
+
+
+
+				
+				)
+			}else{
+				console.log('show is false');
+				 contents = (
+					<Tilt className="Tilt dashboard-card-one" key={this.props.key} options={{ max : 15 }} style={{ height: 225, width: 450 }}>
+
+						<div className="Tilt-inner" id={this.props.tabIndex} onClick={this.handleClick} >
+							<div className="dashboard-card-title">{this.props.title}</div>
+							<div className="dashboard-card-count"># of cards: {this.props.cardcount}</div>
+							<div className="dashboard-card-highscore">Highest Score: {this.props.highestScore}</div>
+
+						</div>
+						{/*<div className="lines">
+							<div className="lines-blue"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							<div className="lines-red"></div>
+							
+						</div>*/}
+
+					</Tilt>
+					)
+			}
+		
 		return(
 			<Fragment>
+			<div className="card-flip-container">
+				<Flip left opposite spy={this.state.show} exit={false} className="flip-card">
+					{ contents }
+				</Flip>
+			</div>
 
-			<Tilt className="Tilt dashboard-card" key={this.props.key} options={{ max : 25 }} style={{ height: 225, width: 450 }} >
 
-				<div className="Tilt-inner" id={this.props.tabIndex} >
-					<div className="dashboard-card-title">{this.props.title}</div>
-					<div className="dashboard-card-count"># of cards: {this.props.cardcount}</div>
-					<div className="dashboard-card-highscore">Highest Score: {this.props.highestScore}</div>
 
-				</div>
-				{/*<div className="lines">
-					<div className="lines-blue"></div>
-					<div className="lines-red"></div>
-					<div className="lines-red"></div>
-					<div className="lines-red"></div>
-					<div className="lines-red"></div>
-					<div className="lines-red"></div>
-					<div className="lines-red"></div>
-					<div className="lines-red"></div>
-					<div className="lines-red"></div>
-					
-				</div>*/}
-			</Tilt>
 			</Fragment>
 			)
 		
