@@ -46,13 +46,7 @@ export default class Card extends React.Component{
 							<Link to={'/cards/' + this.props.key} ><button className="dashboard-card-quiz-btn"> Quizme </button></Link>
 
 						</div>
-						
-
 					</Tilt>
-
-
-
-				
 				)
 			}else{
 				console.log('show is false');
