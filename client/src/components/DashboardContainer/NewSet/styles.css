@@ -1,0 +1,44 @@
+.newset-container{
+	display: flex;
+	justify-content: center;
+	padding-bottom: 50px;
+}
+
+.newset-container input{
+	width: 300px;
+	height: 30px;
+	border-radius: 3px;
+	border: 1px solid black;
+}
+
+.newset-container hr{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	opacity: .1;
+}
+
+.input-spacer{
+	width: 50px;
+	display: inline-block;
+}
+
+.new-set-submit-btn{
+	position: relative;
+	float: right;
+}
+
+.newset-container .newset-select-css{
+	width: 300px;
+	display: inline-block;
+	height: 30px;
+}
+
+
+.newset-container input{
+	border: 0;
+	border-bottom: 1px solid black;
+}
+
+.title-folder-header{
+	margin-bottom: 100px;
+}
