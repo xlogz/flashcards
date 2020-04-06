@@ -7,14 +7,23 @@ class FlashcardsContainer extends React.Component{
 		return(
 			<div className="flashcards-container">
 				<div className="container">
-					<div>
-					Sports<CardsContainer category="sports"/></div>
+					<div className="flashcard-category">
 
-					<div>
-					Science<CardsContainer category="science"/></div>
+					<div className="flashcard-category-title">
+						Sports
+					</div>
+					<CardsContainer category="sports"/></div>
 
-					<div>
-					Cooking<CardsContainer category="cooking"/></div>
+					<div className="flashcard-category">
+					<div className="flashcard-category-title">
+						Science
+					</div>
+					<CardsContainer category="science"/></div>
+
+					<div className="flashcard-category">
+					<div className="flashcard-category-title">
+						Cooking
+					</div><CardsContainer category="cooking"/></div>
 				</div>
 
 
