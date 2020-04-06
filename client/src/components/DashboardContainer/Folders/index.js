@@ -13,18 +13,16 @@ render(){
 			<div className="dashboard-folder-title-container">
 				<div>
 					<select className="select-css">
-							<option value="Development">Development</option>
+							<option value="Sports">Sports</option>
 							<option value="Cooking">Cooking</option>
-							<option value="Art">Art</option>
-							<option value="Math">Math</option>
-							<option value="Design">Design</option>
+							<option value="Science">Science</option>
 
 					</select>
 				</div>
 				<button className="folder-add-new-btn">New Folder</button>
 	    	</div>
 	    	<br/>
-    		<CardsContainer category="Development"/>
+    		<CardsContainer folder="sports"/>
     	{/* Should be folders props*/}
     	</div>
 		</Fragment>

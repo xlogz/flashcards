@@ -12,6 +12,12 @@ import Cards from "./Cards";
 import Folders from "./Folders";
 import Favorites from "./Favorites";
 import CardPage from '../CardPage';
+import NewSet from './NewSet';
+
+
+import PostAddIcon from '@material-ui/icons/PostAdd';
+
+
 
 export default function Container(props){
 	return(
@@ -38,6 +44,12 @@ export default function Container(props){
 								</div>
 								</NavLink>
 
+								<NavLink to="/home/newcard" activeClassName="selected">
+								<div className="dashboard-menu-item-container">
+									<div className="dashboard-menu-item"><PostAddIcon/></div>
+								</div>
+								</NavLink>
+
 							</div>
 						</div>
 					</div>
@@ -50,16 +62,20 @@ export default function Container(props){
 							<Cards/>
 						</Route>
 
-						<Route path="/home/favorites">
+						<Route exact path="/home/favorites">
 							<Favorites/>
 						</Route>
 
 
-						<Route path="/home/folders">
+						<Route exact path="/home/folders">
 							<Folders/>
 						</Route>
-						<Route path="/home/">
+						<Route exact path="/home/">
 							<Folders/>
+						</Route>
+
+						<Route exact path="/home/newcard">
+							<NewSet/>
 						</Route>
 
 						<Route path="/">
