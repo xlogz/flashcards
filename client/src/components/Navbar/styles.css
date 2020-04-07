@@ -63,8 +63,8 @@
 .navbar-new-set{
 	height: 40px;
 	width: 40px;
-	background-color: goldenrod;
-	color: white;
+	background-color: white;
+	color: #ec1092;
 	border-radius: 40px;
 	display: inline-block;
 	padding-top: 8px;
