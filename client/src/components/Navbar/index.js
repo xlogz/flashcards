@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css';
 import { Link } from "react-router-dom";
+import PostAddIcon from '@material-ui/icons/PostAdd';
 
 export default function NavBar() {
 	return (
@@ -14,13 +15,15 @@ export default function NavBar() {
                 <Link to="/home/folders">Home</Link>
             </div>
             <div className="menu-item">
-                <Link to="/search">Search</Link>
-            </div>
-            <div className="menu-item">
                 <Link to="/flashcards">Flashcards</Link>
             </div>
+            <div className="menu-item">
+                <Link to="/search">Search</Link>
+            </div>
+            
 
             <div className="right-side">
+                <div className="navbar-new-set"><PostAddIcon/></div>
                 <div className="login-link menu-item">
                     <Link to="/login">Login</Link>
                 </div>
