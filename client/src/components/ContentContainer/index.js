@@ -11,6 +11,8 @@ import SearchContainer from '../SearchContainer'
 import FlashcardsContainer from '../FlashcardsContainer'
 import CardPage from '../CardPage'
 import Login from '../Authentication/Login';
+import SignUp from '../Authentication/SignUp';
+
 
 export default function ContentContainer(){
 	return(
@@ -35,6 +37,9 @@ export default function ContentContainer(){
 				</Route>
 				<Route exact path="/login">
 					<Login/>
+				</Route>
+				<Route exact path="/signup">
+					<SignUp/>
 				</Route>
 
 			</Switch>
