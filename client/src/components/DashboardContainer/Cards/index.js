@@ -11,7 +11,7 @@ render(){
 	return(
 		<Fragment>
 		<div className="container">
-			<CardsContainer/>
+			<CardsContainer owner="logan"/>
 
 		</div>
 		

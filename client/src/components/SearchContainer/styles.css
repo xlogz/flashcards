@@ -17,3 +17,34 @@
 .search-container .container{
 	height: calc(100% - 75px);
 }
+
+.search-create-new-btn{
+	width: 400px;
+	height: 40px;
+	background-color: #0a93e3;
+	border-radius: 5px;
+	color: white;
+	border: none;
+	font-size: 16px;
+}
+
+.search-submit-btn{
+		width: 100px;
+	height: 40px;
+	background-color: #0a93e3;
+	border-radius: 5px;
+	color: white;
+	border: none;
+	font-size: 16px;
+	margin-left: 50px;
+}
+
+.search-content input{
+	border: 0;
+	border-bottom: 1px solid black;
+	width: 300px;
+}
+
+.search-container-spacer{
+	height: 100px;
+}
