@@ -3,9 +3,19 @@ import './styles.css';
 import CardsContainer from '../CardsContainer';
 
 class CardPage extends React.Component{
+	constructor(props){
+		super(props);
+	}
 componentDidMount(){
-	console.log(this.props.match);
+	console.log(this.props.location);
 }
+
+componentWillReceiveProps(nextProps) {
+	console.log(nextProps);
+    if (nextProps.location !== this.props.location) {
+      this.setState({ prevPath: this.props.location })
+    }
+  }
 
 render(){
 
