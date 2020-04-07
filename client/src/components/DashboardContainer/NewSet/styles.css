@@ -36,7 +36,7 @@
 
 .newset-container input{
 	border: 0;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #ec1092;
 }
 
 .title-folder-header{
@@ -51,6 +51,8 @@ float: right;
 .new-card-header{
 	font-size: 24px;
 	margin-bottom: 100px;
+	font-family: "Roboto";
+	color: #0a93e3;
 }
 
 .new-set-add-card-btn{
@@ -88,3 +90,7 @@ float: right;
 	margin-bottom:100px;
 }
 
+.newset-container .select-css{
+	width: 300px;
+	display: inline-block;
+}

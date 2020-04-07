@@ -17,10 +17,10 @@ export default class NewSet extends React.Component{
 				<div className="container">
 					<div className="newset-container">
 						<form>	<div className="title-folder-header">
-									<div className="new-card-header">Add a new set of cards</div>
+									<div className="new-card-header">New Set of Cards:</div>
 							    	 <input type="text" name="name" placeholder="Title"/> <div className="input-spacer">&nbsp;</div>
 
-							    	 <select className="newset-select-css">
+							    	 <select className="select-css">
 										<option value="Sports">Sports</option>
 										<option value="Cooking">Cooking</option>
 										<option value="Science">Science</option>
