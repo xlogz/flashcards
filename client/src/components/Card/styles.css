@@ -58,7 +58,7 @@
 }
 
 .dashboard-card-one:hover .dashboard-card-edit-btn:hover{
-	color: #2facf5;
+	color: gold;
 /*	color: gold;*/
 	z-index: 999;
 }
