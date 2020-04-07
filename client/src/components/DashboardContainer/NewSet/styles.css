@@ -49,9 +49,11 @@ float: right;
 }
 
 .new-card-header{
-	font-size: 24px;
+	position: relative;
+	top: 50px;
+	font-size: 64px;
 	margin-bottom: 100px;
-	font-family: "Roboto";
+	font-family: "Roboto Medium";
 	color: #0a93e3;
 }
 
@@ -93,4 +95,17 @@ float: right;
 .newset-container .select-css{
 	width: 300px;
 	display: inline-block;
+}
+
+/*.newset-yellow-bg{
+	background-color: gold;
+	width: 100%;
+	height: 150px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}*/
+
+.newset-outer-container .container{
+	padding-top: 0px;
+
 }

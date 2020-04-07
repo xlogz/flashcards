@@ -13,11 +13,12 @@ export default class NewSet extends React.Component{
 
 	render(){
 		return(
-			<div className="">
-				<div className="container">
+			<div className="newset-outer-container">
+				<div className="container"><div className="newset-yellow-bg">&nbsp;</div>
 					<div className="newset-container">
+
 						<form>	<div className="title-folder-header">
-									<div className="new-card-header">New Set of Cards:</div>
+									<div className="new-card-header">New Set of Cards</div>
 							    	 <input type="text" name="name" placeholder="Title"/> <div className="input-spacer">&nbsp;</div>
 
 							    	 <select className="select-css">
