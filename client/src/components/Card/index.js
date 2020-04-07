@@ -4,6 +4,8 @@ import Tilt from 'react-tilt';
 import Flip from 'react-reveal/Flip';
 import UndoIcon from '@material-ui/icons/Undo';
 import { Link } from 'react-router-dom';
+import EditIcon from '@material-ui/icons/Edit';
+
 
 
 
@@ -41,8 +43,6 @@ export default class Card extends React.Component{
 							
 						</div>
 						<div className="Tilt-inner" id={this.props.tabIndex} onClick={this.handleClick}>
-
-							<button className="dashboard-card-edit-btn"> Edit</button>
 							<Link to={'/cards/' + this.props.key} ><button className="dashboard-card-quiz-btn"> Quizme </button></Link>
 
 						</div>
@@ -54,6 +54,7 @@ export default class Card extends React.Component{
 					<Tilt className="Tilt dashboard-card-one" key={this.props.key} options={{ max : 15 }} style={{ height: 225, width: 450 }}>
 
 						<div className="Tilt-inner" id={this.props.tabIndex} onClick={this.handleClick} >
+							<div className="dashboard-card-edit-btn"><EditIcon/></div>
 							<div className="dashboard-card-title">{this.props.title}</div>
 							<div className="dashboard-card-count"># of cards: {this.props.cardcount}</div>
 							<div className="dashboard-card-highscore">Highest Score: {this.props.highestScore}</div>

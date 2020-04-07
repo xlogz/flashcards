@@ -52,6 +52,16 @@
 /*	color: gold;*/
 }
 
+.dashboard-card-one:hover .dashboard-card-edit-btn{
+	color: #cccccc;
+/*	color: gold;*/
+}
+
+.dashboard-card-one:hover .dashboard-card-edit-btn:hover{
+	color: #2facf5;
+/*	color: gold;*/
+	z-index: 999;
+}
 
 
 .dashboard-card-count{
@@ -101,7 +111,7 @@
 }
 
 .dashboard-card-edit-btn{
-	position: relative;
+/*	position: relative;
 	z-index: 99;
 	float: right;
 	position: relative;
@@ -113,8 +123,32 @@
 	border-radius: 5px;
 	color: #0a93e3;
 	background-color: white;
-	font-size: 16px;
+	font-size: 16px;*/
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-right: 10px;
+	padding-top: 10px;
+	color: white;
 }
+
+.dashboard-card-quiz-btn:hover{
+	background-color: #2facf5;
+	cursor: pointer;
+
+}
+
+
+.dashboard-card-quiz-btn:active{
+}
+
+.dashboard-card-edit-btn:hover{
+	color: #2facf5;
+	cursor: pointer;
+}
+
+
+
 
 
 .dashboard-card-quiz-btn{
@@ -139,25 +173,7 @@
 
 }
 
-.dashboard-card-quiz-btn:hover{
-	background-color: #2facf5;
-	cursor: pointer;
 
-}
-
-.dashboard-card-quiz-btn:active{
-	padding: 0;
-}
-
-.dashboard-card-edit-btn:hover{
-	background-color: #2facf5;
-	color: white;
-	cursor: pointer;
-}
-
-.dashboard-card-edit-btn:active{
-	padding: 0;
-}
 
 .dashboard-card-return{
 	position: absolute;
