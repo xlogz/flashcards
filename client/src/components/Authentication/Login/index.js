@@ -13,8 +13,14 @@ export default class Login extends React.Component{
 		return(
 			<div className="center-container">
 				<div className="login-container">
+
+					<div className="login-header-bar">
+						Sign In
+					</div>
+					<div className="login-header-spacer">&nbsp;</div>
+					<div className="login-header-spacer">&nbsp;</div>
 					<form>
-					    
+					    	
 						     
 						     <input type="text" name="name" placeholder="Username or Email"/>
 					     
@@ -24,7 +30,7 @@ export default class Login extends React.Component{
 						     <input type="text" name="name" placeholder="Password"/>
 						     <br/>
 					     
-					  	<input type="submit" value="Submit" />
+					  	<input type="submit" value="Submit" className="login-btn"/>
 					</form>
 				</div>
 			</div>
