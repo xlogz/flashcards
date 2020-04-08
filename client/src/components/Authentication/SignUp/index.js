@@ -30,7 +30,7 @@ export default class SignUp extends React.Component{
 			usernameElement.style.left = "0px";
 			usernameElement.style.top = "-20px";
 			usernameElement.style.fontSize = "12px";
-			usernameElement.style.color = "black";
+			usernameElement.style.color = "#ec1092";
 		}else{
 			usernameElement.style.position = "absolute";
 			usernameElement.style.left = "0px";
@@ -50,7 +50,7 @@ export default class SignUp extends React.Component{
 			emailElement.style.left = "0px";
 			emailElement.style.top = "-20px";
 			emailElement.style.fontSize = "12px";
-			emailElement.style.color = "black";
+			emailElement.style.color = "#ec1092";
 		}else{
 			emailElement.style.position = "absolute";
 			emailElement.style.left = "0px";
@@ -74,7 +74,7 @@ export default class SignUp extends React.Component{
 			passwordElement.style.left = "0px";
 			passwordElement.style.top = "-20px";
 			passwordElement.style.fontSize = "12px";
-			passwordElement.style.color = "black";
+			passwordElement.style.color = "#ec1092";
 		}else{
 			passwordElement.style.position = "absolute";
 			passwordElement.style.left = "0px";
@@ -163,7 +163,7 @@ export default class SignUp extends React.Component{
 								<div className="sign-up-form-password-label">
 							    	<input type="password" name="password" required=" " onChange={this.passwordChange} pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"/>
 							     	<div className="label-wrapper">
-						    	 		<label>Password</label>
+						    	 		<label>Password</label><div className="password-rules">At least one upper case, lower case, #</div>
 						    	 	</div>
 							    </div>
 								<div className="sign-up-errors-container">

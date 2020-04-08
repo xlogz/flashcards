@@ -2,7 +2,7 @@
 	width: 450px;
 	z-index: 99;
 	background-color: white;
-	height: 500px;
+	height: 550px;
 	border-radius: 10px;
 	display: flex;
 	align-items: center;
@@ -35,7 +35,6 @@ font-size: 42px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 align-items: center;
-
 }
 
 .login-container form{
@@ -49,14 +48,14 @@ align-items: center;
 	margin-bottom: 20px;
 	width: 200px;
 	border: 0;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #c3c3c3;
 }
 
 .login-container input{
 	margin-bottom: 30px;
 	width: 200px;
 	border: 0;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #c3c3c3;
 
 }
 
@@ -75,3 +74,65 @@ align-items: center;
 	font-size: 16px;
 }
 
+.log-in-form-username-label,.log-in-form-password-label{
+	position: relative;
+}
+
+.log-in-form-password-label > .label-wrapper > label{
+	position: absolute;
+	left: 0;
+	top: -8px;
+	transition: all.15s;
+	color: #c3c3c3;
+	pointer-events: none;
+}
+
+.log-in-form-username-label > .label-wrapper > label{
+	position: absolute;
+	left: 0;
+	top: -8px;
+	transition: all.15s;
+	color: #c3c3c3;
+	pointer-events: none;
+}
+
+
+.log-in-form-password-label > input[type="password"]:focus,
+.log-in-form-password-label >input[type="password"]:valid {
+	border-bottom: 1px solid black;
+}
+
+.log-in-form-username-label > input[type="text"]:focus,
+.log-in-form-username-label >input[type="text"]:valid {
+	border-bottom: 1px solid black;
+}
+
+
+
+.log-in-form-password-label  input:focus + .label-wrapper > label,
+.log-in-form-password-label  input:valid + .label-wrapper > label{
+	top: -20px;
+	font-size: 12px;
+	color: #ec1092;
+}
+
+.log-in-form-password-label  input:invalid {
+	box-shadow: 0px 0px 0px 0px black;
+	border-bottom: 1px solid #c3c3c3;
+}
+
+
+
+
+
+.log-in-form-username-label  input:focus + .label-wrapper > label,
+.log-in-form-username-label  input:valid + .label-wrapper > label{
+	top: -20px;
+	font-size: 12px;
+	color: #ec1092;
+}
+
+.log-in-form-username-label  input:invalid {
+	box-shadow: 0px 0px 0px 0px black;
+	border-bottom: 1px solid #c3c3c3;
+}

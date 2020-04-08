@@ -70,7 +70,7 @@ height: 50px;
 	background-color: transparent;
 	position: absolute;
 	z-index: 99;
-	border-bottom: 1px solid #ec1092;
+	border-bottom: 1px solid #c3c3c3;
 	height: 20px;
 }
 
@@ -78,7 +78,7 @@ height: 50px;
 	background-color: transparent;
 	position: absolute;
 	z-index: 99;
-	border-bottom: 1px solid #ec1092;
+	border-bottom: 1px solid #c3c3c3;
 	height: 20px;
 }
 
@@ -86,7 +86,7 @@ height: 50px;
 	background-color: transparent;
 	position: absolute;
 	z-index: 99;
-	border-bottom: 1px solid #ec1092;
+	border-bottom: 1px solid #c3c3c3;
 	box-sizing: border-box;
 
 }
@@ -95,21 +95,26 @@ height: 50px;
 
 .sign-up-form-username-label input:invalid{
 	box-shadow: 0px 0px;
-	border-bottom: 2px solid red;
+	border-bottom: 1px solid #c3c3c3;
 	top: 1px;
 }
 
 .sign-up-form-email-label input:invalid{
 	box-shadow: 0px 0px;
-	border-bottom: 2px solid red;
+	border-bottom: 1px solid #c3c3c3;
 }
 
 .sign-up-form-password-label input:invalid{
 	box-shadow: 0px 0px;
-	border-bottom: 2px solid red;
+	border-bottom: 1px solid #c3c3c3;
 ;}
 
-
+.password-rules{
+	font-size: 12px;
+	position: absolute;
+	top: 20px;
+	color: grey;
+}
 
 
 .label-wrapper label{
@@ -125,7 +130,7 @@ height: 50px;
 	left: 0;
 	top: -20px;
 	font-size: 12px;
-	color: #656565;
+	color: #ec1092;
 	z-index: 0;
 }
 
@@ -135,7 +140,7 @@ height: 50px;
 	left: 0;
 	top: -20px;
 	font-size: 12px;
-	color: #656565;
+	color: #ec1092;
 	z-index: 0;
 }
 
@@ -145,7 +150,7 @@ height: 50px;
 	left: 0;
 	top: -20px;
 	font-size: 12px;
-	color: #656565;
+	color: #ec1092;
 	z-index: 0;
 }
 
@@ -162,20 +167,17 @@ height: 50px;
 .sign-up-form-username-label input:focus,
 .sign-up-form-username-label input:valid
 {
-
-	border-bottom: 1px solid #ec1092;
+	border-bottom: 1px solid black;
 }
 
 .sign-up-form-email-label input:focus,
 .sign-up-form-email-label input:valid{
-
-	border-bottom: 1px solid #ec1092;
+	border-bottom: 1px solid black;
 }
 
 .sign-up-form-password-label input:focus,
 .sign-up-form-password-label input:valid{
-
-	border-bottom: 1px solid #ec1092;
+	border-bottom: 1px solid black;
 }
 
 
