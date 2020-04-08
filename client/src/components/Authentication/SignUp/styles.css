@@ -1,0 +1,254 @@
+.sign-up-errors-username, .sign-up-errors-email, .sign-up-errors-password{
+	color: red;
+	font-size: 12px;
+	position: relative;
+	top: -10px;
+}
+
+.sign-up-errors-container{
+	position: relative;
+}
+
+
+.register-form {
+	position: relative;
+	height: 300px;
+}
+
+.register-form label:nth-child(0){
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+.sign-up-form-username-label{
+position: relative;
+height: 50px;
+}
+
+.sign-up-form-email-label{
+position: relative;
+height: 50px;
+}
+
+.sign-up-form-password-label{
+position: relative;
+height: 50px;
+}
+
+
+.sign-up-form-username-label > .label-wrapper > label{
+	position: absolute;
+	left: 0;
+	top: -5px;
+	transition: all.15s;
+	color: #c3c3c3;
+	pointer-events: none;
+}
+
+.sign-up-form-email-label > .label-wrapper > label{
+	position: absolute;
+	left: 0;
+	top: -5px;
+	transition: all.15s;
+	color: #c3c3c3;
+	pointer-events: none;
+}
+
+.sign-up-form-password-label > .label-wrapper > label{
+	position: absolute;
+	left: 0;
+	top: -8px;
+	transition: all.15s;
+	color: #c3c3c3;
+	pointer-events: none;
+}
+
+
+.sign-up-form-username-label input{
+	background-color: transparent;
+	position: absolute;
+	z-index: 99;
+	border-bottom: 1px solid #ec1092;
+	height: 20px;
+}
+
+.sign-up-form-email-label input{
+	background-color: transparent;
+	position: absolute;
+	z-index: 99;
+	border-bottom: 1px solid #ec1092;
+	height: 20px;
+}
+
+.sign-up-form-password-label input{
+	background-color: transparent;
+	position: absolute;
+	z-index: 99;
+	border-bottom: 1px solid #ec1092;
+	box-sizing: border-box;
+
+}
+
+
+
+.sign-up-form-username-label input:invalid{
+	box-shadow: 0px 0px;
+	border-bottom: 2px solid red;
+	top: 1px;
+}
+
+.sign-up-form-email-label input:invalid{
+	box-shadow: 0px 0px;
+	border-bottom: 2px solid red;
+}
+
+.sign-up-form-password-label input:invalid{
+	box-shadow: 0px 0px;
+	border-bottom: 2px solid red;
+;}
+
+
+
+
+.label-wrapper label{
+	position: absolute;
+}
+
+
+
+.sign-up-form-username-label input:focus + .label-wrapper > label,
+.sign-up-form-username-label input:valid + .label-wrapper >  label
+{
+	position: absolute;
+	left: 0;
+	top: -20px;
+	font-size: 12px;
+	color: #656565;
+	z-index: 0;
+}
+
+.sign-up-form-email-label input:focus + .label-wrapper >  label,
+.sign-up-form-email-label input:valid + .label-wrapper >  label{
+	position: absolute;
+	left: 0;
+	top: -20px;
+	font-size: 12px;
+	color: #656565;
+	z-index: 0;
+}
+
+.sign-up-form-password-label input:focus + .label-wrapper >  label,
+.sign-up-form-password-label input:valid + .label-wrapper >  label{
+	position: absolute;
+	left: 0;
+	top: -20px;
+	font-size: 12px;
+	color: #656565;
+	z-index: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+.sign-up-form-username-label input:focus,
+.sign-up-form-username-label input:valid
+{
+
+	border-bottom: 1px solid #ec1092;
+}
+
+.sign-up-form-email-label input:focus,
+.sign-up-form-email-label input:valid{
+
+	border-bottom: 1px solid #ec1092;
+}
+
+.sign-up-form-password-label input:focus,
+.sign-up-form-password-label input:valid{
+
+	border-bottom: 1px solid #ec1092;
+}
+
+
+
+
+
+
+
+
+
+.sign-up-container{
+	width: 450px;
+	z-index: 99;
+	background-color: white;
+	height: 500px;
+	padding-bottom: 50px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
+	box-shadow: 0 4px 70px 0 rgba(0, 0, 0, 0.4), 0 6px 30px 0 rgba(0, 0, 0, .4);
+}
+
+
+.sign-up-header-bar{
+background-color: gold;
+width: 100%;
+display: flex;
+justify-content: center;
+height: 200px;
+color: white;
+font-weight: bold;
+font-size: 42px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+align-items: center;
+}
+
+.sign-up-container input{
+	margin-bottom: 20px;
+	width: 200px;
+	border: 0;
+	border-bottom: 1px solid black;
+}
+
+.sign-up-container input{
+	margin-bottom: 30px;
+	width: 200px;
+	border: 0;
+	border-bottom: 1px solid black;
+
+}
+
+.sign-up-container:nth-child(2){
+	margin-bottom: 100px;
+}
+
+.sign-up-header-spacer{
+	height: 100px;
+}
+
+
+.sign-up-submit-btn{
+	width: 100px;
+	height: 40px;
+	background-color: #0a93e3;
+	border-radius: 5px;
+	color: white;
+	border: none;
+	font-size: 16px;
+}
+
+.sign-up-button-container{
+	margin-top: 20px;
+}
