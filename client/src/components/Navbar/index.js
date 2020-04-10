@@ -9,9 +9,6 @@ export default class NavBar extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {
-
-        }
     }
 
     handleClick(){
@@ -23,6 +20,41 @@ export default class NavBar extends React.Component {
     }
 
     render(){
+
+        const loginSignUp =  (
+                <div>
+                <div className="login-link menu-item">
+                    <Link to="/login">Login</Link>
+                </div>
+
+                <Link to="/signup">
+                    <div className="sign-up-btn menu-item">
+
+                    Sign Up
+
+                    </div>
+                </Link>
+                </div>);
+
+
+        const newCard = (
+            <div>
+                <div className="navbar-new-set">
+                    <Link to="/home/newcard">
+                        <PostAddIcon/>
+                    </Link>
+                </div>
+                <div className="menu-item">
+                    Logout
+                </div>
+            </div>)
+
+        const folders = (
+            <Link to="/home/folders">Home</Link>
+            )
+        const frontPage = (
+            <Link to="/home/">Home</Link>)
+
         return (
 
         <div className="navbar">
@@ -31,7 +63,7 @@ export default class NavBar extends React.Component {
                 Quizme
             </div>
             <div className="menu-item">
-                <Link to="/home/folders">Home</Link>
+                {this.props.loggedIn ? folders : frontPage}
             </div>
             <div className="menu-item">
                 <Link to="/flashcards">Flashcards</Link>
@@ -45,17 +77,8 @@ export default class NavBar extends React.Component {
             
 
             <div className="right-side">
-                <div className="navbar-new-set"><Link to="/home/newcard"><PostAddIcon/></Link></div>
-                <div className="login-link menu-item">
-                    <Link to="/login">Login</Link>
-                </div>
-                <Link to="/signup">
-                <div className="sign-up-btn menu-item">
-
-                    Sign Up
-
-                </div>
-                </Link>
+                { this.props.loggedIn && newCard}
+                { !this.props.loggedIn && loginSignUp}
 
             </div>
             </div>
