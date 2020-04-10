@@ -21,7 +21,7 @@ export default class NewSet extends React.Component{
 									<div className="new-card-header">New Set of Cards</div>
 							    	 <input type="text" name="name" placeholder="Title"/> <div className="input-spacer">&nbsp;</div>
 
-							    	 <select className="select-css">
+							    	 <select className="select-dropdown">
 										<option value="Sports">Sports</option>
 										<option value="Cooking">Cooking</option>
 										<option value="Science">Science</option>

@@ -12,7 +12,7 @@ render(){
 		<div  className="container">
 			<div className="dashboard-folder-title-container">
 				<div>
-					<select className="select-css">
+					<select className="select-dropdown">
 							<option value="Sports">Sports</option>
 							<option value="Cooking">Cooking</option>
 							<option value="Science">Science</option>
