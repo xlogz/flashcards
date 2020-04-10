@@ -26,7 +26,7 @@ controller.signUp = function( req, res){
 				res.send(errors);
 			}else{
 				console.log("No username found. Creating new account");
-				var user = new User(req.body);
+				let user = new User(req.body);
 				user.setPassword(req.body.password);
 				user.save();
 				res.send(user);
@@ -39,7 +39,23 @@ controller.signUp = function( req, res){
 	})
 }
 
-
+controller.signIn = function(req, res){
+	let errors = {};
+	let results = {};
+	User.find({username: req.body.username}).then(user => {
+		if(user[0]){
+			const correctPassword = user[0].validatePassword(req.body.password);
+			console.log('Correct password: ' + correctPassword);
+			results.validPassword = correctPassword
+			res.send(results);
+		}else{
+			console.log('User could not be found');
+			errors.noUsername = true;
+			res.send(errors);
+		}
+		
+	})
+}	
 
 
 module.exports = controller;

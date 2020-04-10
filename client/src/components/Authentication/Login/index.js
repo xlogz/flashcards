@@ -1,10 +1,15 @@
 import React from 'react';
+import axios from "axios";
+import Redirect from 'react-router-dom'
 import './styles.css';
 
 export default class Login extends React.Component{
 	state = {
 		username: "",
-		login: ""
+		password: "",
+		usernameError: "",
+		passwordError: "",
+		loggedIn: false
 	}
 
 	handleUsername = e  =>{
@@ -29,7 +34,7 @@ export default class Login extends React.Component{
 
 	handlePassword = e  =>{
 		const value = e.target.value;
-		this.setState({username : value});
+		this.setState({password: value});
 
 		// const usernameElement = document.getElementsByTagName("label")[2];
 		// if(value !== ""){
@@ -48,6 +53,36 @@ export default class Login extends React.Component{
 
 	}
 
+	handleLogin = (e) =>{
+		e.preventDefault();
+		const data = {username : this.state.username,
+					  password: this.state.password}
+		axios.put('/user/login', data).then(results => {
+			console.log(results);
+
+			if(results.data.noUsername){
+					this.setState({'usernameError' : 'Username could not be found'});	
+			}else{
+					this.setState({'usernameError' : ' '});	
+					if(results.data.validPassword){
+						this.setState({'loggedIn' : true})
+						this.setState({'passwordError' : ''})
+						console.log('You logged in!');
+						this.props.auth();
+					}else{
+						this.setState({'passwordError' : 'Incorrect Password'})
+					}
+			}
+			
+		
+			
+
+
+		});
+
+		
+	}
+
 	render(){
 		return(
 			<div className="center-container">
@@ -58,13 +93,14 @@ export default class Login extends React.Component{
 					</div>
 					<div className="login-header-spacer">&nbsp;</div>
 					<div className="login-header-spacer">&nbsp;</div>
-					<form>
+					<form onSubmit={this.handleLogin}>
 					    	
 						     <div className="log-in-form-username-label">
 						     	<input type="text" name="name" required=" " onChange={this.handleUsername}/>
 						     	<div className="label-wrapper">
 						     		<label>Username</label>
 						     	</div>
+						     	{this.state.usernameError}
 						     </div>
 					     
 					     <br/>
@@ -74,6 +110,7 @@ export default class Login extends React.Component{
 						     <div className="label-wrapper">
 						     	<label>Password</label>
 						     </div>
+						     {this.state.passwordError}
 						     <br/>
 
 					     </div>
