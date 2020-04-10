@@ -1,12 +1,6 @@
 import React,{Fragment} from 'react';
 import Card from '../Card';
 import './styles.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 
 let cards = [
 		{title: 'Random Card',

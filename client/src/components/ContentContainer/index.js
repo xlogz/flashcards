@@ -6,37 +6,38 @@ import {
   Route,
 } from "react-router-dom";
 
-import DashboardContainer from '../DashboardContainer';
-import SearchContainer from '../SearchContainer'
-import FlashcardsContainer from '../FlashcardsContainer'
+import DashboardPage from '../DashboardPage';
+import SearchPage from '../SearchPage'
+import FlashcardsPage from '../FlashcardsPage'
 import CardPage from '../CardPage'
 import Login from '../Authentication/Login';
 import SignUp from '../Authentication/SignUp';
 
 
-export default function ContentContainer(){
-	return(
+export default class ContentContainer extends React.Component{
+	render(){
+		return(
 		<React.Fragment>
 		<div className="bg"></div>
 		<div className="content-container">
 			<Switch>
 				<Route path="/home">
-					<DashboardContainer/>
+					<DashboardPage/>
 				</Route>
 				<Route exact path="/">
-					<DashboardContainer/>
+					<DashboardPage/>
 				</Route> 
 				<Route path="/search">
-					<SearchContainer/>
+					<SearchPage/>
 				</Route> 
 				<Route path="/flashcards">
-					<FlashcardsContainer/>
+					<FlashcardsPage/>
 				</Route> 
 				<Route exact path="/cards/:idNumber">
 					<CardPage/>
 				</Route>
 				<Route exact path="/login">
-					<Login/>
+					<Login auth={this.props.auth}/>
 				</Route>
 				<Route exact path="/signup">
 					<SignUp/>
@@ -48,4 +49,6 @@ export default function ContentContainer(){
 		</React.Fragment>
 
 		)
+	}
+	
 }

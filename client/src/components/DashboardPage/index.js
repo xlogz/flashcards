@@ -1,17 +1,13 @@
 import React from 'react';
 import './styles.css';
-import CardsContainer from '../CardsContainer';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   NavLink
 } from "react-router-dom";
-
 import Cards from "./Cards";
 import Folders from "./Folders";
 import Favorites from "./Favorites";
-import CardPage from '../CardPage';
 import NewSet from './NewSet';
 
 

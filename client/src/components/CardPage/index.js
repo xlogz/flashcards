@@ -1,6 +1,5 @@
 import React,{Fragment} from 'react';
 import './styles.css';
-import CardsContainer from '../CardsContainer';
 
 class CardPage extends React.Component{
 	constructor(props){
