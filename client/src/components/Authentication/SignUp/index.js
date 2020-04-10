@@ -84,41 +84,32 @@ export default class SignUp extends React.Component{
 		}
 	}
 
-	validateForm = () =>{
-		if(this.state.username.length > 2 && this.state.nameError !== ""){
-			this.setState({errors : this.state.errors - 1})
-			this.setState({usernameError: ""});
-
-		}
-		if(this.state.username.length <= 2){
-			if(this.state.usernameError === ""){
-				this.setState({usernameError: "Minimum length is 3 characters"});
-				this.setState({errors : this.state.errors + 1})
-			}
-		}else if(this.state.errors === 0){
-			return true
-		}else{
-			return false;
-		}
-	}
-
 	submitForm = e =>{
-		e.preventDefault();
-		let valid = this.validateForm();
-		if(this.state.errors.length===0){
-			const data = {	
-				name : this.state.name,
-				username : this.state.username,
-				email: this.state.email,
-				password: this.state.password
-			}
-				e.preventDefault();
-				console.log('submitting');
-				const result = axios.post('/user/signup',data);
-				console.log(result);
-		}else{
-			console.log('there are errors with your entries');
+
+
+		const data = {	
+			username : this.state.username,
+			email: this.state.email,
+			password: this.state.password
 		}
+		e.preventDefault();
+		axios.post('/user/signup',data).then(results => {
+			console.log(results);
+			if(results.data.usernameError){
+				this.setState({usernameError: results.data.usernameError});
+			}else{
+				this.setState({usernameError: ""});
+			}
+			if(results.data.emailError){
+				this.setState({emailError: results.data.emailError});
+			}else{
+				this.setState({emailError: ""});
+			}
+
+			if(Object.keys(results.data).length === 0){
+				console.log("Sign up was successful. Redirecting user to main page");
+			}
+		})
 
 		
 	}
@@ -139,25 +130,28 @@ export default class SignUp extends React.Component{
 						    	 	<input type="text" name="name" onChange={this.userNameChange} required=" "/>
 						    	 	<div className="label-wrapper">
 						    	 		<label>Username</label>
+						    	 		<div className="sign-up-errors-container">
+						     				<div className="sign-up-errors-username">
+						     				{this.state.usernameError}
+						     				</div>
+						     			</div>
 						    	 	</div>
 						    	 </div>
-						    	 <div className="sign-up-errors-container">
-						     		<div className="sign-up-errors-username">
-						     			{this.state.usernameError}
-						     		</div>
-						     	</div>
+						    	 
 						     	<br/>
 							    <div  className="sign-up-form-email-label">
 							     	<input type="email" name="email" required onChange={this.emailChange}/>
 							     	<div className="label-wrapper">
 						    	 		<label>Email</label>
+						    	 		<div className="sign-up-errors-container">
+						     				<div className="sign-up-errors-email">
+						     				{this.state.emailError}
+						     				</div>
+						     			</div>
+
 						    	 	</div>
 							    </div>
-							    <div className="sign-up-errors-container">
-						     		<div className="sign-up-errors-email">
-						     			{this.state.emailError}
-						     		</div>
-						     	</div>
+							    
 						     	<br/>
 						   		
 								<div className="sign-up-form-password-label">

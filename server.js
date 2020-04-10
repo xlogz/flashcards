@@ -1,16 +1,25 @@
-var express = require('express');
-var mongoose = require('mongoose');
+const express = require('express');
+const mongoose = require('mongoose');
+const User = require('./app/Models/User.js');
+const bodyParser = require("body-parser");
 
-var db = mongoose.connect(process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/saver', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, function(err) {
+
+const db = mongoose.connect(process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/flashcards', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, function(err) {
 	if (err) {
 		console.error('Could not connect to MongoDB!');
 		console.log(err);
 	}
 });
 
-var app = express();
+const app = express();
 
 app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.json())
+app.use(bodyParser.text({ type: 'text/html' }))
+app.use(bodyParser.text({ type: 'text/xml' }))
+app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+app.use(bodyParser.json({ type: 'application/*+json' }))
 
 app.get('/',
 function(req, res) {
@@ -21,3 +30,5 @@ const PORT = process.env.PORT || 3001;
 
 console.log('Application is running on port ' + PORT);
 app.listen(PORT);
+
+const routes = require('./app/Routes/Routes.js')(app);

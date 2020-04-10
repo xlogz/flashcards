@@ -255,3 +255,22 @@ align-items: center;
 .sign-up-button-container{
 	margin-top: 20px;
 }
+
+.sign-up-errors-container{
+	position: relative;
+}
+
+.sign-up-errors-username{
+	position: absolute;
+	top: -20px;
+	left: 70px;
+	width: 100%;
+
+}
+
+.sign-up-errors-email{
+	position: absolute;
+	top: -20px;
+	left: 45px;
+	width: 100%;
+}
