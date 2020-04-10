@@ -49,11 +49,13 @@ export default class NavBar extends React.Component {
                 <div className="login-link menu-item">
                     <Link to="/login">Login</Link>
                 </div>
+                <Link to="/signup">
                 <div className="sign-up-btn menu-item">
 
-                    <Link to="/signup">Sign Up</Link>
+                    Sign Up
 
                 </div>
+                </Link>
 
             </div>
             </div>
