@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios";
-import Redirect from 'react-router-dom'
+import { Redirect, Switch } from 'react-router-dom'
 import './styles.css';
 
 export default class Login extends React.Component{
@@ -9,7 +9,8 @@ export default class Login extends React.Component{
 		password: "",
 		usernameError: "",
 		passwordError: "",
-		loggedIn: false
+		loggedIn: false,
+		redirect: null
 	}
 
 	handleUsername = e  =>{
@@ -69,6 +70,8 @@ export default class Login extends React.Component{
 						this.setState({'passwordError' : ''})
 						console.log('You logged in!');
 						this.props.auth();
+						this.setState({redirect: true});
+						
 					}else{
 						this.setState({'passwordError' : 'Incorrect Password'})
 					}
@@ -84,6 +87,9 @@ export default class Login extends React.Component{
 	}
 
 	render(){
+		if(this.state.redirect){
+			return (<Redirect to="/home/"/>)
+		}
 		return(
 			<div className="center-container">
 				<div className="login-container">
