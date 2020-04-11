@@ -88,7 +88,10 @@ export default class Login extends React.Component{
 
 	render(){
 		if(this.state.redirect){
-			return (<Redirect to="/home/"/>)
+			return (<Redirect to={
+				{
+            	pathname: '/home',
+            	state: { fromLogin: true } } }/>)
 		}
 		return(
 			<div className="center-container">

@@ -12,29 +12,36 @@ import FlashcardsPage from '../FlashcardsPage'
 import CardPage from '../CardPage'
 import Login from '../Authentication/Login';
 import SignUp from '../Authentication/SignUp';
+import NotLoggedInPage from '../NotLoggedInPage';
+import FrontPage from '../FrontPage';
 
 
 export default class ContentContainer extends React.Component{
+	constructor(props){
+		super(props);
+	}
 	render(){
+
+
 		return(
 		<React.Fragment>
 		<div className="bg"></div>
 		<div className="content-container">
 			<Switch>
-				<Route path="/home">
-					<DashboardPage/>
+				<Route path="/home/">
+					{this.props.loggedIn ? (<DashboardPage loggedIn={this.props.loggedIn}/>) : (<FrontPage/>)}
 				</Route>
 				<Route exact path="/">
-					<DashboardPage/>
+					{this.props.loggedIn ? (<DashboardPage loggedIn={this.props.loggedIn}/>) : (<FrontPage/>)}
 				</Route> 
 				<Route path="/search">
-					<SearchPage/>
+					<SearchPage loggedIn={this.props.loggedIn}/>
 				</Route> 
 				<Route path="/flashcards">
-					<FlashcardsPage/>
+					<FlashcardsPage loggedIn={this.props.loggedIn}/>
 				</Route> 
 				<Route exact path="/cards/:idNumber">
-					<CardPage/>
+					<CardPage loggedIn={this.props.loggedIn}/>
 				</Route>
 				<Route exact path="/login">
 					<Login auth={this.props.auth}/>

@@ -24,7 +24,7 @@ export default class MainApp extends React.Component {
 	    <React.Fragment>
 	    <Router>
 	    <NavBar loggedIn={this.state.loggedIn}/>
-	    <ContentContainer auth={this.handleLogin} />
+	    <ContentContainer auth={this.handleLogin} loggedIn={this.state.loggedIn} />
 	    </Router>
 	    </React.Fragment>
   );

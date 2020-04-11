@@ -1,0 +1,29 @@
+.swimlane-container{
+	width: 100%;
+	height: 250px;
+	background: rgb(83,2,76);
+background: linear-gradient(180deg, rgba(83,2,76,1) 0%, rgba(237,0,140,1) 0%, rgba(126,0,153,1) 100%);
+}
+
+.swimlane-content{
+	display: flex;
+	justify-content: center;
+	flex-flow: column;
+	
+}
+
+.swimlane-content h1, .swimlane-content h4{
+	text-align:center;
+	color: white;
+}
+
+.swimlane-content h1{
+	font-size: 48px;
+	font-weight: 500;
+}
+
+
+.swimlane-content h4{
+	font-size: 24px;
+	font-weight: 500;
+}

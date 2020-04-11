@@ -15,8 +15,24 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 
 
 
-export default function Container(props){
-	return(
+export default class Container extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			pathname : window.location.pathname
+		}
+	}
+
+	handleClick = e =>{
+		this.setState({pathname : window.location.pathname});
+
+	}
+
+	
+	
+	render(){
+		let pathname = window.location.pathname;
+		return(
 		<div className="dashboard-content">
 		
 				<div className="dashboard-sticky-container">
@@ -24,23 +40,23 @@ export default function Container(props){
 						<div className="dashboard">
 							<div className="dashboard-title">Dashboard</div>
 							<div className="dashboard-menu">
-								<NavLink to="/home/folders" className={props === '/home' ? 'selected' : 'notActive'} exact activeClassName="selected">
+								<NavLink to="/home/folders" className={(pathname === '/home') ? 'selected' : 'notActive'} exact activeClassName="selected" >
 									<div className="dashboard-menu-item-container">
 										<div className="dashboard-menu-item">Folders</div>
 									</div>
 								</NavLink>
-								<NavLink to="/home/cards" activeClassName="selected">
+								<NavLink to="/home/cards" activeClassName="selected" onClick={this.handleClick}>
 								<div className="dashboard-menu-item-container">
 									<div className="dashboard-menu-item">Cards</div>
 								</div>
 								</NavLink>
-								<NavLink to="/home/favorites" activeClassName="selected">
+								<NavLink to="/home/favorites" activeClassName="selected" onClick={this.handleClick}>
 								<div className="dashboard-menu-item-container">
 									<div className="dashboard-menu-item">Favorites</div>
 								</div>
 								</NavLink>
 
-								<NavLink to="/home/newcard" activeClassName="selected">
+								<NavLink to="/home/newcard" activeClassName="selected" onClick={this.handleClick}>
 								<div className="dashboard-menu-item-container">
 									<div className="dashboard-menu-item"><PostAddIcon/></div>
 								</div>
@@ -82,5 +98,8 @@ export default function Container(props){
 				</div>
 			
 		</div>
+	
+	
 		)
+		}
 }
