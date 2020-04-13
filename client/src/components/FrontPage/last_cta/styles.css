@@ -1,0 +1,81 @@
+.last-cta-container{
+	height: 85vh;
+	background-color: white;
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.last-cta-left-column{
+	width: 55%;
+	display: block;
+	height: 100%;
+	box-sizing: border-box;
+	padding-top: 15%;
+	padding-left: 100px;
+}
+
+.last-cta-left-column h1{
+	font-family: "Roboto Regular", sans-serif;
+	font-weight: 300;
+	font-size: 56px;
+	margin-bottom: 10px;
+}
+
+.last-cta-left-column h3{
+	font-family: "Roboto Light", sans-serif;
+	font-weight: 100;
+	font-size: 32px;
+	margin-top: 0px;
+	margin-bottom: 75px;
+}
+
+
+.last-cta-right-column{
+	width: 45%;
+	display: block;
+	box-sizing: border-box;
+}
+
+
+
+.student-sitting-img{
+	max-width: 600px;
+	max-height: 489px;
+	width: 100%;
+	height: auto;
+
+}
+
+.last-cta-img-container{
+	max-width: 600px;
+	max-height: 489px;
+	width: 100%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20%;
+
+}
+
+.last-cta-btn{
+	width: 200px;
+	height: 40px;
+	background-color: #ec008c;
+	border-radius: 5px;
+	color: white;
+	border: none;
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-family: "Roboto", sans-serif;
+	border-bottom: 3px solid #d0027c;
+}
+
+.last-cta-btn:hover{
+
+	background-color: #ff119e;
+
+}

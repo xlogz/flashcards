@@ -3,6 +3,7 @@ import MainCTA from './main_cta';
 import Swimlane from './swimlane';
 import ThreeIcons from './three_icons'
 import Quotes from './quotes'
+import LastCTA from './last_cta'
 import './styles.css'
 
 export default function FrontPage(){
@@ -12,7 +13,7 @@ export default function FrontPage(){
 				<MainCTA/>
 				<ThreeIcons/>
 				<Swimlane/>
-				
+				<LastCTA/>
 			</div>
 
 		</div>
