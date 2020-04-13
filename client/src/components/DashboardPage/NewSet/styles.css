@@ -17,11 +17,6 @@
 	opacity: .1;
 }
 
-.input-spacer{
-	width: 50px;
-	display: inline-block;
-}
-
 .new-set-submit-btn{
 	position: relative;
 	float: right;

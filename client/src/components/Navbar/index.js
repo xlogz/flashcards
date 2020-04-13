@@ -5,6 +5,7 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 
 
 
+
 export default class NavBar extends React.Component {
 
     constructor(props){
@@ -17,6 +18,11 @@ export default class NavBar extends React.Component {
        console.log(searchUnderline)
        searchUnderline.style.opacity = 1;
        searchUnderline.style.width = "200px";
+    }
+
+    logOut(){
+        this.props.logOut();
+        console.log('logged out');
     }
 
     render(){
@@ -45,7 +51,7 @@ export default class NavBar extends React.Component {
                     </Link>
                 </div>
                 <div className="menu-item">
-                    Logout
+                    <Link to="/" onClick={this.props.logOut}>Logout</Link>
                 </div>
             </div>)
 
@@ -70,7 +76,11 @@ export default class NavBar extends React.Component {
             </div>
             <div className="menu-item search" onClick={this.handleClick.bind(this)}>
 
-                <div className="navbar-search-text">Search</div>
+                <div className="navbar-search-text">
+                    <Link to="/search">
+                        Search
+                    </Link>
+                </div>
 
                 <div className="navbar-search-underline">&nbsp;</div>
             </div>

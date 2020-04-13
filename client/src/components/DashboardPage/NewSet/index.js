@@ -1,17 +1,41 @@
 import React from 'react';
 import './styles.css';
 import AddIcon from '@material-ui/icons/Add';
+import QAField from './QAField';
 
 
 export default class NewSet extends React.Component{
 	constructor(props){
 		super(props);
 
-		this.state = {};
-		
+		this.state = {
+			fields : [{Q:"", A:""},
+					  {Q:"", A:""},
+					  {Q:"", A:""},
+					  {Q:"", A:""}]
+		};
+	}
+
+	addInput = e => {
+		e.preventDefault();
+		this.setState({fields: [...this.state.fields, {Q:"", A:""} ]});
+	}
+
+	deleteItem = index => e =>{
+		e.preventDefault();
+		const arrayStart = this.state.fields.slice(0, index);
+		const arrayEnd = this.state.fields.slice(index+1);
+		const newArray = arrayStart.concat(arrayEnd);
+		console.log(newArray);
+		this.setState({fields: newArray});
 	}
 
 	render(){
+		let inputs;
+		inputs = this.state.fields.map((pair, index) => {
+			return  <QAField key={index} Question={pair.Q} Answer={pair.A} deleteItem={this.deleteItem} index={index}/>
+		})
+
 		return(
 			<div className="newset-outer-container">
 				<div className="container"><div className="newset-yellow-bg">&nbsp;</div>
@@ -31,62 +55,12 @@ export default class NewSet extends React.Component{
 							    	 <br/>
 						    	 </div>
 							     
-							     <input type="text" name="name" placeholder="Question or Term"/>
-						     
-								<div className="input-spacer">&nbsp;</div>
-						   
-							
-							     <input type="text" name="name" placeholder="Answer or Definition"/>
-							     
-							     <hr/>
+							    {inputs}
 
-							      <input type="text" name="name" placeholder="Question or Term"/>
-						     
-								<div className="input-spacer">&nbsp;</div>
-						   
-							
-							     <input type="text" name="name" placeholder="Answer or Definition"/>
-							      <hr/>
-
-
-
-							      <input type="text" name="name" placeholder="Question or Term"/>
-						     
-								<div className="input-spacer">&nbsp;</div>
-						   
-							
-							     <input type="text" name="name" placeholder="Answer or Definition"/>
-							      <hr/>
-
-
-							      <input type="text" name="name" placeholder="Question or Term"/>
-						     
-								<div className="input-spacer">&nbsp;</div>
-						   
-							
-							     <input type="text" name="name" placeholder="Answer or Definition"/>
-							      <hr/>
-
-
-							      <input type="text" name="name" placeholder="Question or Term"/>
-						     
-								<div className="input-spacer">&nbsp;</div>
-						   
-							
-							     <input type="text" name="name" placeholder="Answer or Definition"/>
-							      <hr/>
-
-							      <input type="text" name="name" placeholder="Question or Term"/>
-						     
-								<div className="input-spacer">&nbsp;</div>
-						   
-							
-							     <input type="text" name="name" placeholder="Answer or Definition"/>
-
-							      <hr/>
+							      
 
 							      <div className="button-container">
-						     <button type="submit" value="Submit" className="new-set-add-card-btn" ><AddIcon/> </button>
+						     <button className="new-set-add-card-btn" onClick={this.addInput} ><AddIcon className="add-icon"/></button>
 						     <br/>
 						     <br/>
 						  	<button type="submit" value="Submit" className="new-set-submit-btn" >Submit </button>
