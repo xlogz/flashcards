@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const User = require('./app/Models/User.js');
 const CardSet = require('./app/Models/CardSet.js');
 const bodyParser = require("body-parser");
+const dotenv = require('dotenv').config();
 
-
-const db = mongoose.connect(process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/flashcards', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, function(err) {
+const db = mongoose.connect(process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || process.env.MONGO_LOCAL_CONN_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, function(err) {
 	if (err) {
 		console.error('Could not connect to MongoDB!');
 		console.log(err);
