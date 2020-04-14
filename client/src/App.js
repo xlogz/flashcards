@@ -17,7 +17,7 @@ export default class MainApp extends React.Component {
 		this.updateUsername = this.updateUsername.bind(this);
 		this.updateUserId = this.updateUserId.bind(this);
 		this.state = {
-			loggedIn : false,
+			loggedIn : null,
 			username: "",
 			userId: ""
 		}
@@ -40,7 +40,7 @@ export default class MainApp extends React.Component {
 		this.setState({userId : id});
 	}
 
-	  obtainUserFromToken(token){
+	 obtainUserFromToken(token){
 		const results = axios.put('/user/token',token);
 		return results;
 	
@@ -48,11 +48,8 @@ export default class MainApp extends React.Component {
 
 	async componentDidMount(){
 		const cookieToken = cookies.get('token');
-		console.log('this is the current token');
-		console.log(cookieToken);
 		const results = await this.obtainUserFromToken(cookieToken);
 		if(results.error === undefined){
-			console.log('no errors');
 			this.updateUserId(results.userId);
 			this.updateUsername(results.username);
 			this.handleLogin();
