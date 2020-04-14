@@ -8,7 +8,7 @@ controller.newCardSet = function(req, res){
 	data.folder = 'Sports';
 	data.owner = 'userId';
 	console.log(data);
-	const cardSet = new CardSet();
+	const cardSet = new CardSet(data);
 	cardSet.save();
 	res.status(200).send('Card Set has successfully been created');
 }
