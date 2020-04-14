@@ -1,8 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+
 const User = require('./app/Models/User.js');
 const CardSet = require('./app/Models/CardSet.js');
+const Token = require('./app/Models/Token.js');
+
 const bodyParser = require("body-parser");
+
 const dotenv = require('dotenv').config();
 
 const db = mongoose.connect(process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || process.env.MONGO_LOCAL_CONN_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, function(err) {
