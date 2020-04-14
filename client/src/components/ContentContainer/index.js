@@ -29,10 +29,11 @@ export default class ContentContainer extends React.Component{
 		<div className="content-container">
 			<Switch>
 				<Route path="/home/">
-					{this.props.loggedIn ? (<DashboardPage loggedIn={this.props.loggedIn}/>) : (<FrontPage/>)}
+					{ this.props.loggedIn === null ? "" :  this.props.loggedIn === true ? (<DashboardPage loggedIn={this.props.loggedIn}/>) : (<FrontPage/>)}
+
 				</Route>
 				<Route exact path="/">
-					{this.props.loggedIn ? (<DashboardPage loggedIn={this.props.loggedIn}/>) : (<FrontPage/>)}
+					{ this.props.loggedIn === null ? "" :  this.props.loggedIn === true ? (<DashboardPage loggedIn={this.props.loggedIn}/>) : (<FrontPage/>)}
 				</Route> 
 				<Route path="/search">
 					<SearchPage loggedIn={this.props.loggedIn}/>
