@@ -44,7 +44,11 @@ export default class ContentContainer extends React.Component{
 					<CardPage loggedIn={this.props.loggedIn}/>
 				</Route>
 				<Route exact path="/login">
-					<Login auth={this.props.auth}/>
+					<Login auth={this.props.auth}
+						   updateUsername={this.props.updateUsername}
+						   updateUserId={this.props.updateUserId}
+						   />
+						   
 				</Route>
 				<Route exact path="/signup">
 					<SignUp/>

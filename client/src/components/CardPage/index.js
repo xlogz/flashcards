@@ -6,7 +6,6 @@ class CardPage extends React.Component{
 		super(props);
 	}
 componentDidMount(){
-	console.log(this.props.location);
 }
 
 componentWillReceiveProps(nextProps) {

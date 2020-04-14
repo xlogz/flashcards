@@ -24,8 +24,7 @@ export default class Card extends React.Component{
 
 	render(){
 		let contents = "";
-		if(this.state.show === true){
-			console.log('show is true');
+		if(this.state.show === true){;
 			 contents = (
 
 			 	<Tilt className="Tilt dashboard-card-two" key={this.props.key} options={{ max : 25 }} style={{ height: 225, width: 450 }}>

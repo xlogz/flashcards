@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from "axios";
-import { Redirect, Switch } from 'react-router-dom'
+import { Redirect, Switch } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 import './styles.css';
+const cookies = new Cookies();
 
 export default class Login extends React.Component{
 	state = {
@@ -59,7 +61,6 @@ export default class Login extends React.Component{
 		const data = {username : this.state.username,
 					  password: this.state.password}
 		axios.put('/user/login', data).then(results => {
-			console.log(results);
 
 			if(results.data.noUsername){
 					this.setState({'usernameError' : 'Username could not be found'});	
@@ -70,6 +71,10 @@ export default class Login extends React.Component{
 						this.setState({'passwordError' : ''})
 						console.log('You logged in!');
 						this.props.auth();
+						this.props.updateUsername(results.data.username);
+						this.props.updateUserId(results.data.userId);
+						cookies.set('token', results.data.token);
+
 						this.setState({redirect: true});
 						
 					}else{
