@@ -87,8 +87,7 @@ export default class NavBar extends React.Component {
             
 
             <div className="right-side">
-                { this.props.loggedIn && newCard}
-                { !this.props.loggedIn && loginSignUp}
+            { this.props.loggedIn === null ? "" :  this.props.loggedIn === true ? newCard : loginSignUp}
 
             </div>
             </div>
