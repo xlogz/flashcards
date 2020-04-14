@@ -18,8 +18,6 @@ export default class Card extends React.Component{
 
     handleClick() {
         this.setState({ show: !this.state.show });
-        console.log('card clicked');
-        console.log('show state: ' + this.state.show);
     }
 
 	render(){
@@ -48,7 +46,6 @@ export default class Card extends React.Component{
 					</Tilt>
 				)
 			}else{
-				console.log('show is false');
 				 contents = (
 					<Tilt className="Tilt dashboard-card-one" key={this.props.key} options={{ max : 15 }} style={{ height: 225, width: 450 }}>
 

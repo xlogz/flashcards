@@ -9,7 +9,6 @@ componentDidMount(){
 }
 
 componentWillReceiveProps(nextProps) {
-	console.log(nextProps);
     if (nextProps.location !== this.props.location) {
       this.setState({ prevPath: this.props.location })
     }

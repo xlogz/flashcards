@@ -262,8 +262,6 @@ export default class CardContainer extends React.Component{
 				)
 			}
 		})
-		
-		console.log(singleCard);
 		return (
 			<Fragment>
 			
