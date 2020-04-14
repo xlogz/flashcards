@@ -9,6 +9,7 @@ import Cards from "./Cards";
 import Folders from "./Folders";
 import Favorites from "./Favorites";
 import NewSet from './NewSet';
+import Modal from './Modal';
 
 
 import PostAddIcon from '@material-ui/icons/PostAdd';
@@ -23,10 +24,12 @@ export default class Container extends React.Component{
 		}
 	}
 
-	handleClick = e =>{
+	handleClick = e => {
 		this.setState({pathname : window.location.pathname});
 
 	}
+
+
 
 	
 	
@@ -96,6 +99,7 @@ export default class Container extends React.Component{
 					</Switch>
 
 				</div>
+
 			
 		</div>
 	

@@ -82,3 +82,8 @@
 .folder-add-new-btn:active{
 	padding: 0;
 }
+
+.container{
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
