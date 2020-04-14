@@ -11,7 +11,7 @@ export default class MainApp extends React.Component {
 		super(props);
 		this.handleLogin = this.handleLogin.bind(this);
 		this.handleLogout = this.handleLogout.bind(this);
-		this.state = {loggedIn : false
+		this.state = {loggedIn : true
 		}
 	}
 

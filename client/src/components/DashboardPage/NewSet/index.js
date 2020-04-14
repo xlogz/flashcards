@@ -1,8 +1,8 @@
 import React from 'react';
-import './styles.css';
+import axios from 'axios';
 import AddIcon from '@material-ui/icons/Add';
 import QAField from './QAField';
-
+import './styles.css';
 
 export default class NewSet extends React.Component{
 	constructor(props){
@@ -12,7 +12,8 @@ export default class NewSet extends React.Component{
 			fields : [{Q:"", A:""},
 					  {Q:"", A:""},
 					  {Q:"", A:""},
-					  {Q:"", A:""}]
+					  {Q:"", A:""}],
+			title: ""
 		};
 	}
 
@@ -22,18 +23,48 @@ export default class NewSet extends React.Component{
 	}
 
 	deleteItem = index => e =>{
+		const length = this.state.fields.length;
 		e.preventDefault();
-		const arrayStart = this.state.fields.slice(0, index);
-		const arrayEnd = this.state.fields.slice(index+1);
-		const newArray = arrayStart.concat(arrayEnd);
-		console.log(newArray);
-		this.setState({fields: newArray});
+		if(length === 2){
+			console.log('You need a minimum of 2 cards to create a new set');
+		}else{
+
+			const arrayStart = this.state.fields.slice(0, index);
+			const arrayEnd = this.state.fields.slice(index+1);
+			const newArray = arrayStart.concat(arrayEnd);
+			console.log(newArray);
+			this.setState({fields: newArray});
+		}
+		
+	}
+
+	updateTitle = e => {
+		this.setState({title: e.target.value});
+	}
+
+	updateField = (index,content) =>{
+		let newArray = [...this.state.fields];
+		newArray[index] = content;
+		this.setState({fields:newArray});
+	}
+
+	handleSubmit = e =>{
+		axios.post('/newcard/submit', this.state).then(results => {
+			console.log(results);
+		});
 	}
 
 	render(){
 		let inputs;
 		inputs = this.state.fields.map((pair, index) => {
-			return  <QAField key={index} Question={pair.Q} Answer={pair.A} deleteItem={this.deleteItem} index={index}/>
+			return  <QAField 
+						key={index} 
+						Question={pair.Q}
+						Answer={pair.A}
+						deleteItem={this.deleteItem}
+						index={index}
+						updateField={this.updateField}
+					/>
 		})
 
 		return(
@@ -41,9 +72,10 @@ export default class NewSet extends React.Component{
 				<div className="container"><div className="newset-yellow-bg">&nbsp;</div>
 					<div className="newset-container">
 
-						<form>	<div className="title-folder-header">
+						<form onSubmit={this.handleSubmit}>	<div className="title-folder-header">
 									<div className="new-card-header">New Set of Cards</div>
-							    	 <input type="text" name="name" placeholder="Title"/> <div className="input-spacer">&nbsp;</div>
+									<div className="new-card-header-underline">&nbsp;</div>
+							    	 <input type="text" name="title" placeholder="Title" onChange={this.updateTitle}/> <div className="input-spacer">&nbsp;</div>
 
 							    	 <select className="select-dropdown">
 										<option value="Sports">Sports</option>
@@ -60,7 +92,7 @@ export default class NewSet extends React.Component{
 							      
 
 							      <div className="button-container">
-						     <button className="new-set-add-card-btn" onClick={this.addInput} ><AddIcon className="add-icon"/></button>
+						     <div className="new-set-add-card-btn" onClick={this.addInput} ><AddIcon className="add-icon"/></div>
 						     <br/>
 						     <br/>
 						  	<button type="submit" value="Submit" className="new-set-submit-btn" >Submit </button>

@@ -2,3 +2,18 @@
 	width: 50px;
 	display: inline-block;
 }
+
+.newset-deleteinput{
+	color: transparent;
+	display: inline-block;
+	transition: .5s all;
+}
+
+.newset-deleteinput:hover{
+	color: black;
+}
+
+.newset-inputentry:hover > .newset-deleteinput{
+	color: lightgrey;
+
+}
