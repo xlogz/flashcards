@@ -1,6 +1,7 @@
 import React,{Fragment} from 'react';
 import Card from '../Card';
 import './styles.css';
+import axios from 'axios';
 
 let cards = [
 		{title: 'Random Card',
@@ -206,11 +207,17 @@ let cards = [
 export default class CardContainer extends React.Component{
 	constructor(props){
 		super(props);
+		this.state = {
+			cards: []
+		}
 	}
 
+
 	render(){
+		console.log(this.props.cards);
 		
-		const singleCard = cards.map((card,index)=>{
+
+		const singleCard = this.props.cards.map((card,index)=>{
 			if(card.tags === this.props.category && card.tags !== ""){
 				return (
 						

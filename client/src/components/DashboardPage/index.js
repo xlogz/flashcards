@@ -22,18 +22,33 @@ export default class Container extends React.Component{
 		super(props);
 		this.state = {
 			pathname : window.location.pathname,
-			folders: []
+			currentFolderId: "",
+			folders: [],
+			cards: []
 		}
 	}
 
-	fetchFolders = async() =>{
-	 	console.log('fetching folders');
-		await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(results => {
-			console.log(results);
-			this.setState({folders: results.data});
-			return this.state.folders;
-		});
+	deleteFolder = async() => {
+		console.log(this.state.folders);
+		if(this.state.folders.length < 1 ){
+			//no folders to delete
+		}else{
+			await axios.delete('/cards/folders', {data: {folderId : this.state.currentFolderId}}).then(results => {
+			console.log(this.state.currentFolderId);
+			this.fetchFolders();
+			this.setState({currentFolderId: this.state.folders[0]._id});
+			console.log('new folder id after deleting: ' + this.state.currentFolderId)
+			});
+		}
+		
 	}
+
+	updateCurrentFolderId = (id) =>{
+		this.setState({currentFolderId: id});
+
+	}
+
+
 
 	populateDropdown = () => {
 		return this.state.folders.map(folder=>{
@@ -46,8 +61,31 @@ export default class Container extends React.Component{
 
 	}
 
+	fetchFolders = async() => {
+	 	console.log('fetching folders');
+		await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(results => {
+			console.log(results);
+			this.setState({folders: results.data});
+			return this.state.folders;
+		});
+	}
 
+	obtainCards = async (id,cb) =>{
+		await axios.get('/cards/set', {headers: {folderid: id}}).then(cards => {
+			this.setState({cards: cards.data}, function(){
+				console.log(this.state.cards);
+			});
+			return this.state.cards;
+		})
+	}
 
+	 handleSelectChange = async e =>{
+		console.log(e.target.value);
+		await this.setState({currentFolderId: e.target.value});
+		await this.obtainCards(this.state.currentFolderId);
+		
+
+	}
 	
 	
 	render(){
@@ -102,24 +140,57 @@ export default class Container extends React.Component{
 						<Route exact path="/home/folders">
 							<Folders 
 								userId={this.props.userId}
+								handleSelectChange={this.handleSelectChange}
+								populateDropdown = {this.populateDropdown}
+								fetchFolders = {this.fetchFolders}
+								deleteFolder = {this.deleteFolder}
+								currentFolderId = {this.currentFolderId}
+								updateCurrentFolderId = {this.updateCurrentFolderId}
+								folders = {this.state.folders}
+								obtainCards = {this.obtainCards}
+								cards = {this.state.cards}
 							/>
 						</Route>
 						<Route exact path="/home/">
 							<Folders 
 								userId={this.props.userId}
+								handleSelectChange={this.handleSelectChange}
+								populateDropdown = {this.populateDropdown}
+								fetchFolders = {this.fetchFolders}
+								deleteFolder = {this.deleteFolder}
+								currentFolderId = {this.currentFolderId}
+								updateCurrentFolderId = {this.updateCurrentFolderId}
+								folders = {this.state.folders}
+								obtainCards = {this.obtainCards}
+								cards = {this.state.cards}
 							/>
 						</Route>
 
 						<Route exact path="/home/newcard">
 							<NewSet 
 								userId={this.props.userId}
+								handleSelectChange={this.handleSelectChange}
 								fetchFolders = {this.fetchFolders}
 								populateDropdown = {this.populateDropdown}
+								currentFolderId = {this.state.currentFolderId}
+								updateCurrentFolderId = {this.updateCurrentFolderId}
+								folders = {this.state.folders}
 							/>
 						</Route>
 
 						<Route path="/">
-							<Folders/>
+							<Folders
+								userId={this.props.userId}
+								handleSelectChange={this.handleSelectChange}
+								populateDropdown = {this.populateDropdown}
+								fetchFolders = {this.fetchFolders}
+								deleteFolder = {this.deleteFolder}
+								currentFolderId = {this.currentFolderId}
+								updateCurrentFolderId = {this.updateCurrentFolderId}
+								folders = {this.state.folders}
+								obtainCards = {this.obtainCards}
+								cards = {this.state.cards}
+							/>
 						</Route>
 					</Switch>
 

@@ -10,6 +10,7 @@ const routes = function(app){
 	app.route( '/cards/newfolder' ).post(cards.newCardFolder);
 	app.route( '/cards/folders' ).get(cards.fetchFolders);
 	app.route( '/cards/folders' ).delete(cards.deleteCardFolder);
+	app.route( '/cards/set' ).get(cards.fetchCards);
 }
 
 module.exports=routes;
