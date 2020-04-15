@@ -5,7 +5,7 @@ import Modal from '../Modal';
 
 
 
-class Folders extends React.Component{
+export default class Folders extends React.Component{
 
 constructor(props){
 	super(props);
@@ -16,7 +16,7 @@ constructor(props){
 	}
 }
 
-toggleModal (){
+toggleModal(){
 	console.log(document.getElementsByClassName('modal-wrapper')[0]);
 	document.getElementsByClassName('modal-wrapper')[0].style.display = 'block';
 	document.getElementById("root").style.overflow = 'hidden';
@@ -24,11 +24,8 @@ toggleModal (){
 
 
 componentDidMount(){
-
 	console.log(this.props);
 	this.props.fetchFolders();
-	this.props.fetchCards();
-	this.setState({dropDownData: this.props.populateDropdown()})
 }
 
 // populateDropdown = () => {
@@ -39,7 +36,6 @@ componentDidMount(){
 
 render(){
 
-
 	return(
 		<Fragment>
 		<Modal userId={this.props.userId} updateFolders={this.props.fetchFolders}/>
@@ -48,7 +44,7 @@ render(){
 				<div>
 					<select className="select-dropdown" onClick={this.props.handleSelectChange} onChange={this.props.handleSelectChange}>
 							
-					{this.state.dropDownData}	
+					{this.props.populateDropdown()}	
 
 					</select>
 				</div>
@@ -66,5 +62,3 @@ render(){
 		)
 }
 }
-
-export default Folders;

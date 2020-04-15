@@ -40,8 +40,8 @@ export default class MainApp extends React.Component {
 		this.setState({userId : id});
 	}
 
-	 obtainUserFromToken(token){
-		const results = axios.put('/user/token',token);
+	async obtainUserFromToken(token){
+		const results = await axios.put('/user/token',token);
 		return results;
 	
 	}
@@ -53,8 +53,11 @@ export default class MainApp extends React.Component {
 		const results = await this.obtainUserFromToken(cookieToken);
 		console.log(results);
 		if(results.error === undefined){
+			console.log(this.state.userId)
 			this.updateUserId(results.data.userId);
 			this.updateUsername(results.data.username);
+			console.log(this.state.userId)
+			console.log(this.state.username)
 			this.handleLogin();
 		}
 		

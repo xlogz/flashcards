@@ -23,8 +23,17 @@ export default class Container extends React.Component{
 			pathname : window.location.pathname,
 			folders: [],
 			currentFolderId: "",
-			cards: []
+			cards: [],
+			userId: this.props.userId
 		}
+
+		this.handleClick = this.handleClick.bind(this);
+		this.fetchFolders = this.fetchFolders.bind(this);
+		this.fetchCards = this.fetchCards.bind(this);
+		this.setFolders = this.setFolders.bind(this);
+		this.handleSelectChange = this.handleSelectChange.bind(this);
+		this.populateDropdown = this.populateDropdown.bind(this);
+		this.deleteFolder = this.deleteFolder.bind(this);
 	}
 
 	handleClick(){
@@ -32,10 +41,15 @@ export default class Container extends React.Component{
 	}
 
 	async fetchFolders(){
-		await axios.put('/cards/folders',{userId: this.props.userId }).then(results => {
-		console.log(results.data);
-		this.setState({folders: results.data});
-		});
+		if (this.state.userId){
+			await axios.put('/cards/folders',{userId: this.props.userId}).then(results => {
+			console.log(results.data);
+			this.setState({folders: results.data});
+			});
+		}else{
+			console.log('could not fetch folders for user')
+		}
+		
 	}
 
 	async fetchCards(){
@@ -58,7 +72,7 @@ export default class Container extends React.Component{
 
 
 	populateDropdown(){
-		return [1,2,3,4].map(folder=>{
+		return this.state.folders.map(folder=>{
 			return <option value={folder._id}>{folder.title}</option>
 		})
 	}
@@ -132,8 +146,6 @@ export default class Container extends React.Component{
 							fetchFolders={this.fetchFolders}
 							fetchCards={this.fetchCards}
 							deleteFolder={this.deleteFolder}
-
-
 							/>
 						</Route>
 						<Route exact path="/home/">
@@ -147,7 +159,6 @@ export default class Container extends React.Component{
 							fetchFolders={this.fetchFolders}
 							fetchCards={this.fetchCards}
 							deleteFolder={this.deleteFolder}
-
 							/>
 						</Route>
 

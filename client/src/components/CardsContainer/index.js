@@ -28,9 +28,6 @@ export default class CardContainer extends React.Component{
 
 	componentDidMount(){
 
-		console.log('this is card set data');
-		console.log(this.props.cardsData);
-
 
 		const singleCard = this.state.cards.map((card,index)=>{
 			if(card._id === this.props.currentFolderId){
