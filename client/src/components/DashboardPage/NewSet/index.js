@@ -55,6 +55,11 @@ export default class NewSet extends React.Component{
 		});
 	}
 
+	componentDidMount(){
+		this.props.fetchFolders();
+	}
+
+
 	render(){
 		let inputs;
 		inputs = this.state.fields.map((pair, index) => {
@@ -78,11 +83,8 @@ export default class NewSet extends React.Component{
 									<div className="new-card-header-underline">&nbsp;</div>
 							    	 <input type="text" name="title" placeholder="Title" onChange={this.updateTitle}/> <div className="input-spacer">&nbsp;</div>
 
-							    	 <select className="select-dropdown">
-										<option value="Sports">Sports</option>
-										<option value="Cooking">Cooking</option>
-										<option value="Science">Science</option>
-
+							    	 <select className="select-dropdown" onChange={this.props.handleSelectChange}>
+										{this.props.populateDropdown()}
 									</select>
 							    	 <br/>
 							    	 <br/>

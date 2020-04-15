@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import './styles.css';
 import CardsContainer from '../../CardsContainer';
 import Modal from '../Modal';
-import axios from 'axios';
+
 
 
 class Folders extends React.Component{
@@ -21,33 +21,9 @@ toggleModal = e =>{
 	document.getElementById("root").style.overflow = 'hidden';
 }
 
-fetchFolders = () =>{
-	axios.get('/cards/folders').then(results => {
-		console.log(results.data);
-		this.setState({folders: results.data});
-	});
-}
-
-handleSelectChange = e =>{
-	console.log(e.target.value);
-	this.setState({currentFolderId: e.target.value});
-}
-
-populateDropdown = () => {
-	return this.state.folders.map(folder=>{
-		return <option value={folder._id}>{folder.title}</option>
-	})
-}
-
-deleteFolder = () => {
-	axios.delete('/cards/folders', {data: {folderId : this.state.currentFolderId}}).then(results => {
-		console.log(results.data);
-		this.fetchFolders();
-	});
-}
 
 componentDidMount(){
-	this.fetchFolders();
+	this.props.fetchFolders();
 	console.log(this.state.folders);
 }
 
@@ -57,18 +33,18 @@ render(){
 
 	return(
 		<Fragment>
-		<Modal userId={this.props.userId} updateFolders={this.fetchFolders}/>
+		<Modal userId={this.props.userId} updateFolders={this.props.fetchFolders}/>
 		<div  className="container">
 			<div className="dashboard-folder-title-container">
 				<div>
-					<select className="select-dropdown" onChange={this.handleSelectChange}>
+					<select className="select-dropdown" onChange={this.props.handleSelectChange}>
 							
-					{this.populateDropdown()}
+					{this.props.populateDropdown()}
 
 					</select>
 				</div>
 				<button className="folder-add-new-btn" onClick={this.toggleModal}>New Folder</button>
-				<button className="folder-delete-new-btn" onClick={this.deleteFolder}>Delete Folder</button>
+				<button className="folder-delete-new-btn" onClick={this.props.deleteFolder}>Delete Folder</button>
 	    	</div>
 	    	<br/>
     		<CardsContainer folder="sports"/>
