@@ -9,7 +9,7 @@ import Cards from "./Cards";
 import Folders from "./Folders";
 import Favorites from "./Favorites";
 import NewSet from './NewSet';
-import Modal from './Modal';
+
 
 
 import PostAddIcon from '@material-ui/icons/PostAdd';
@@ -83,10 +83,10 @@ export default class Container extends React.Component{
 
 
 						<Route exact path="/home/folders">
-							<Folders/>
+							<Folders userId={this.props.userId}/>
 						</Route>
 						<Route exact path="/home/">
-							<Folders/>
+							<Folders userId={this.props.userId}/>
 						</Route>
 
 						<Route exact path="/home/newcard">

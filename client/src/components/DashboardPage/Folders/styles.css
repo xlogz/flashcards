@@ -59,6 +59,28 @@
 }
 
 
+.folder-delete-new-btn{
+	float: right;
+	position: relative;
+	margin-top: 50px;
+	top: -30px;
+	width: 120px;
+	height: 40px;
+	background-color: white;
+	border-radius: 5px;
+	color: #0a93e3;
+	border: 2px solid #0a93e3;
+	font-size: 16px;
+
+}
+
+.folder-delete-new-btn:hover{
+	background-color: red;
+	border: 0px solid black;
+	color: white;
+	cursor: pointer;
+}
+
 .folder-add-new-btn{
 	float: right;
 	position: relative;

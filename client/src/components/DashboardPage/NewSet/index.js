@@ -50,7 +50,7 @@ export default class NewSet extends React.Component{
 
 	handleSubmit = e =>{
 		e.preventDefault();
-		axios.post('/cards/newSet', this.state).then(results => {
+		axios.post('/cards/newset', this.state).then(results => {
 			console.log(results);
 		});
 	}

@@ -3,10 +3,14 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 FolderSchema = new Schema({
-	name: String,
+	title: String,
 	createdon: Date,
-	owner: { type: mongoose.Schema.Types.ObjectId,
+	userId: { type: mongoose.Schema.Types.ObjectId,
 			 ref: 'User'}
 });
+
+FolderSchema.methods.updateTitle = title =>{
+	this.title = title;
+}
 
 module.exports = mongoose.model('Folder', FolderSchema)

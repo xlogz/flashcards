@@ -72,6 +72,7 @@ controller.signIn = function(req, res){
 								console.log(err);
 							}else{
 								console.log('dbtoken and username saved successfully');
+								dbToken.
 								res.send(results);
 							}
 						});
@@ -89,7 +90,7 @@ controller.signIn = function(req, res){
 	})
 }	
 
-controller.obtainUserFromToken = function(req,res){
+controller.obtainUserFromToken = (req, res) =>{
 	let results = {};
 	Token.find({token: req.body.token}).then(user => {
 		if(user){
