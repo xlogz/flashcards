@@ -10,7 +10,7 @@
 }
 
 .modal-background{
-	opacity: .3;
+	opacity: .4;
 	background-color: black;
 	height: 100%;
 	width: 100%;
@@ -24,14 +24,15 @@
 	border-radius: 10px;
 	width: 500px;
 	height: 400px;
-	margin-top: 5%;
+	margin-top: 8%;
 	position: relative;
 	top: 0;
 	z-index: 4;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
 	padding-top: 50px;
 	padding-bottom: 50px;
+	box-sizing: border-box;
 	
 }
 
@@ -45,11 +46,17 @@
 	justify-content: center;
 }
 
-.modal-body{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+.modal-header{
+	font-size: 26px;
+	font-family: 'Roboto';
+	color: #0a93e3
+}
+
+.modal-body-content{
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 150px;
+	width: 400px;
 }
 
 .modal-body input{
@@ -57,10 +64,12 @@
 	border-bottom: 1px solid black;
 	display: block;
 	margin-bottom: 50px;
-	width: 200px;
+	width: 100%;
+	font-size: 16px;
 }
 
 .modal-add-new-btn{
+	float: right;
 	position: relative;
 	margin-top: 50px;
 	top: -30px;
