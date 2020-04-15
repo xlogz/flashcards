@@ -5,6 +5,7 @@ import {
   Route,
   NavLink
 } from "react-router-dom";
+import axios from 'axios';
 import Cards from "./Cards";
 import Folders from "./Folders";
 import Favorites from "./Favorites";
@@ -20,8 +21,24 @@ export default class Container extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			pathname : window.location.pathname
+			pathname : window.location.pathname,
+			folders: []
 		}
+	}
+
+	fetchFolders = async() =>{
+	 	console.log('fetching folders');
+		await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(results => {
+			console.log(results);
+			this.setState({folders: results.data});
+			return this.state.folders;
+		});
+	}
+
+	populateDropdown = () => {
+		return this.state.folders.map(folder=>{
+			return <option value={folder._id}>{folder.title}</option>
+		})
 	}
 
 	handleClick = e => {
@@ -83,14 +100,22 @@ export default class Container extends React.Component{
 
 
 						<Route exact path="/home/folders">
-							<Folders userId={this.props.userId}/>
+							<Folders 
+								userId={this.props.userId}
+							/>
 						</Route>
 						<Route exact path="/home/">
-							<Folders userId={this.props.userId}/>
+							<Folders 
+								userId={this.props.userId}
+							/>
 						</Route>
 
 						<Route exact path="/home/newcard">
-							<NewSet/>
+							<NewSet 
+								userId={this.props.userId}
+								fetchFolders = {this.fetchFolders}
+								populateDropdown = {this.populateDropdown}
+							/>
 						</Route>
 
 						<Route path="/">

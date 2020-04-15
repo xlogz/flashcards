@@ -13,7 +13,8 @@ export default class NewSet extends React.Component{
 					  {Q:"", A:""},
 					  {Q:"", A:""},
 					  {Q:"", A:""}],
-			title: ""
+			title: "",
+			userId: ""
 		};
 	}
 
@@ -49,10 +50,16 @@ export default class NewSet extends React.Component{
 	}
 
 	handleSubmit = e =>{
+		this.setState({userId: this.props.userId})
 		e.preventDefault();
 		axios.post('/cards/newset', this.state).then(results => {
 			console.log(results);
 		});
+	}
+
+	async componentDidMount(){
+		await this.props.fetchFolders();
+		
 	}
 
 	render(){
@@ -68,6 +75,8 @@ export default class NewSet extends React.Component{
 					/>
 		})
 
+		
+
 		return(
 			<div className="newset-outer-container">
 				<div className="container"><div className="newset-yellow-bg">&nbsp;</div>
@@ -79,9 +88,7 @@ export default class NewSet extends React.Component{
 							    	 <input type="text" name="title" placeholder="Title" onChange={this.updateTitle}/> <div className="input-spacer">&nbsp;</div>
 
 							    	 <select className="select-dropdown">
-										<option value="Sports">Sports</option>
-										<option value="Cooking">Cooking</option>
-										<option value="Science">Science</option>
+										{this.props.populateDropdown()}
 
 									</select>
 							    	 <br/>
