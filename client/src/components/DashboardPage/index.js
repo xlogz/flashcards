@@ -18,7 +18,7 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 
 export default class Container extends React.Component{
 	constructor(props){
-		super(props);
+		super(props)
 		this.state = {
 			pathname : window.location.pathname,
 			folders: [],
@@ -27,19 +27,18 @@ export default class Container extends React.Component{
 		}
 	}
 
-	handleClick = e => {
+	handleClick(){
 		this.setState({pathname : window.location.pathname});
-
 	}
 
-	fetchFolders = async() =>{
+	async fetchFolders(){
 		await axios.put('/cards/folders',{userId: this.props.userId }).then(results => {
 		console.log(results.data);
 		this.setState({folders: results.data});
 		});
 	}
 
-	fetchCards = async() =>{
+	async fetchCards(){
 		await axios.put('/cards/set',{folderId: this.state.currentFolderId}).then(results=>{
 			console.log(results);
 			this.setState({cards: results.data});
@@ -47,24 +46,24 @@ export default class Container extends React.Component{
 	}
 
 
-	setFolders = (folders) =>{
+	setFolders(folders){
 		this.setState({folders: folders});
 	}
 
-	handleSelectChange = e =>{
+	handleSelectChange(e){
 		console.log(e.target.value);
 		this.setState({currentFolderId: e.target.value});
 		this.fetchCards();
 	}
 
 
-	populateDropdown = () => {
-		return this.state.folders.map(folder=>{
+	populateDropdown(){
+		return [1,2,3,4].map(folder=>{
 			return <option value={folder._id}>{folder.title}</option>
 		})
 	}
 
-	deleteFolder = async () => {
+	async deleteFolder() {
 		await axios.delete('/cards/folders', {data: {folderId : this.state.currentFolderId}}).then(results => {
 			console.log(results.data);
 			this.fetchFolders();
@@ -174,5 +173,5 @@ export default class Container extends React.Component{
 	
 	
 		)
-		}
+	}
 }

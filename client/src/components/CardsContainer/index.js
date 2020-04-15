@@ -25,15 +25,12 @@ export default class CardContainer extends React.Component{
 
 	}
 
-	fetchCards(){
-		axios.put('/cards/set',{folderId: this.props.currentFolderId}).then(results=>{
-			this.setState({cards: results.data});
-		})
-	}
 
 	componentDidMount(){
 
-		this.fetchCards();
+		console.log('this is card set data');
+		console.log(this.props.cardsData);
+
 
 		const singleCard = this.state.cards.map((card,index)=>{
 			if(card._id === this.props.currentFolderId){
@@ -41,7 +38,7 @@ export default class CardContainer extends React.Component{
 						
 				// <Link to={'/cards/' + index} >
 				<div className="card-flip-container">
-					<Card key={index} title={card.title} cardcount={card.cardcount} highestScore={card.highestScore}/>
+					<Card key={index} cardcount={card.cardcount} highestScore={card.highestScore}/>
 				
 				</div>
 				// </Link>

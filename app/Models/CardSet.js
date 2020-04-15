@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const CardSet = new Schema({
-	name: String,
+	title: String,
 	createdon: Date,
 	userId: { type: mongoose.Schema.Types.ObjectId,
 			 ref: 'User'},

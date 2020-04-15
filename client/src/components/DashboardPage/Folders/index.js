@@ -11,11 +11,12 @@ constructor(props){
 	super(props);
 	this.state = {
 		folders : [],
-		currentFolderId : ""
+		currentFolderId : "",
+		dropDownData: ""
 	}
 }
 
-toggleModal = e =>{
+toggleModal (){
 	console.log(document.getElementsByClassName('modal-wrapper')[0]);
 	document.getElementsByClassName('modal-wrapper')[0].style.display = 'block';
 	document.getElementById("root").style.overflow = 'hidden';
@@ -23,8 +24,11 @@ toggleModal = e =>{
 
 
 componentDidMount(){
-	// this.props.fetchFolders();
+
 	console.log(this.props);
+	this.props.fetchFolders();
+	this.props.fetchCards();
+	this.setState({dropDownData: this.props.populateDropdown()})
 }
 
 // populateDropdown = () => {
@@ -44,7 +48,7 @@ render(){
 				<div>
 					<select className="select-dropdown" onClick={this.props.handleSelectChange} onChange={this.props.handleSelectChange}>
 							
-					{this.props.populateDropdown()}
+					{this.state.dropDownData}	
 
 					</select>
 				</div>
@@ -52,7 +56,7 @@ render(){
 				<button className="folder-delete-new-btn" onClick={this.props.deleteFolder}>Delete Folder</button>
 	    	</div>
 	    	<br/>
-    		<CardsContainer folder={this.props.currentFolderId}/>
+    		<CardsContainer folder={this.props.currentFolderId} cardsData={this.props.folders}/>
     	{/* Should be folders props*/}
     	</div>
     	
