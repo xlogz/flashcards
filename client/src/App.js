@@ -38,22 +38,29 @@ export default class MainApp extends React.Component {
 
 	updateUserId(id){
 		this.setState({userId : id});
+		console.log('setting userid: ' + this.state.userId)
 	}
 
-	 obtainUserFromToken(token){
-		const results = axios.put('/user/token',token);
+	async obtainUserFromToken(token){
+		const results = await axios.put('/user/token',token);
 		return results;
 	
 	}
 
 	async componentDidMount(){
 		const cookieToken = cookies.get('token');
-		const results = await this.obtainUserFromToken(cookieToken);
-		if(results.error === undefined){
-			this.updateUserId(results.userId);
-			this.updateUsername(results.username);
-			this.handleLogin();
+		if(cookieToken !== undefined){
+			const results = await this.obtainUserFromToken(cookieToken);
+			console.log(results.data.userId);
+			if(results.error === undefined){
+				this.updateUserId(results.data.userId);
+				this.updateUsername(results.data.username);
+				this.handleLogin();
+			}
+		}else{
+			this.setState({loggedIn : false});
 		}
+		
 		
 	}
 

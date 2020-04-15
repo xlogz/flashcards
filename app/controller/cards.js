@@ -16,6 +16,7 @@ controller.newCardSet = (req, res) =>{
 
 controller.newCardFolder = (req, res) =>{
 	const data = req.body;
+	console.log(req.body);
 	data.date = new Date();
 	const folder = new Folder(data);
 	folder.save();
@@ -23,7 +24,7 @@ controller.newCardFolder = (req, res) =>{
 }
 
 controller.fetchFolders = (req, res) =>{
-	const userId = req.body.userId;
+	const userId = req.headers.userid;
 
 	Folder.find({userId: userId}).then(results=>{
 		if(results){
@@ -33,8 +34,10 @@ controller.fetchFolders = (req, res) =>{
 }
 
 controller.deleteCardFolder = (req, res) =>{
+	console.log(req.body);
 	const folderId = req.body.folderId;
 	Folder.deleteOne({_id: folderId}).then(result=>{
+		console.log(result);
 		res.status(200).send(result);
 	})
 

@@ -25,6 +25,7 @@ componentDidMount(){
 handleForm = e =>{
 	e.preventDefault();
 	const data = {};
+	console.log(this.props.userId);
 	data.title = this.state.title;
 	data.userId = this.props.userId;
 	axios.post('/cards/newfolder', data).then(results =>{

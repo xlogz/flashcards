@@ -21,10 +21,12 @@ toggleModal = e =>{
 	document.getElementById("root").style.overflow = 'hidden';
 }
 
-fetchFolders = () =>{
-	axios.get('/cards/folders').then(results => {
-		console.log(results.data);
+ fetchFolders = async() =>{
+ 	console.log('fetching folders');
+	await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(results => {
+		console.log(results);
 		this.setState({folders: results.data});
+		return this.state.folders;
 	});
 }
 
@@ -39,16 +41,28 @@ populateDropdown = () => {
 	})
 }
 
-deleteFolder = () => {
-	axios.delete('/cards/folders', {data: {folderId : this.state.currentFolderId}}).then(results => {
-		console.log(results.data);
+deleteFolder = async() => {
+	if(this.state.folders.length < 1 ){
+		//no folders to delete
+	}else{
+		await axios.delete('/cards/folders', {data: {folderId : this.state.currentFolderId}}).then(results => {
+		console.log(this.state.currentFolderId);
 		this.fetchFolders();
-	});
+		this.setState({currentFolderId: this.state.folders[0]._id});
+		console.log('new folder id after deleting: ' + this.state.currentFolderId)
+		});
+	}
+	
 }
 
-componentDidMount(){
-	this.fetchFolders();
-	console.log(this.state.folders);
+async componentDidMount(){
+	await this.fetchFolders();
+	if(this.state.folders.length < 1){
+
+	}else{
+		this.setState({currentFolderId: this.state.folders[0]._id});
+	}
+	
 }
 
 
