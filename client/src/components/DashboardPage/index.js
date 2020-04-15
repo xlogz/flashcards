@@ -22,7 +22,8 @@ export default class Container extends React.Component{
 		this.state = {
 			pathname : window.location.pathname,
 			folders: [],
-			currentFolderId: ""
+			currentFolderId: "",
+			cards: []
 		}
 	}
 
@@ -31,17 +32,31 @@ export default class Container extends React.Component{
 
 	}
 
-	fetchFolders = () =>{
-		axios.get('/cards/folders').then(results => {
+	fetchFolders = async() =>{
+		await axios.put('/cards/folders',{userId: this.props.userId }).then(results => {
 		console.log(results.data);
 		this.setState({folders: results.data});
 		});
 	}
 
+	fetchCards = async() =>{
+		await axios.put('/cards/set',{folderId: this.state.currentFolderId}).then(results=>{
+			console.log(results);
+			this.setState({cards: results.data});
+		})
+	}
+
+
+	setFolders = (folders) =>{
+		this.setState({folders: folders});
+	}
+
 	handleSelectChange = e =>{
 		console.log(e.target.value);
 		this.setState({currentFolderId: e.target.value});
+		this.fetchCards();
 	}
+
 
 	populateDropdown = () => {
 		return this.state.folders.map(folder=>{
@@ -49,8 +64,8 @@ export default class Container extends React.Component{
 		})
 	}
 
-	deleteFolder = () => {
-		axios.delete('/cards/folders', {data: {folderId : this.state.currentFolderId}}).then(results => {
+	deleteFolder = async () => {
+		await axios.delete('/cards/folders', {data: {folderId : this.state.currentFolderId}}).then(results => {
 			console.log(results.data);
 			this.fetchFolders();
 		});
@@ -112,9 +127,11 @@ export default class Container extends React.Component{
 							userId={this.props.userId}
 							folders={this.state.folders}
 							currentFolderId={this.state.currentFolderId}
+							cards={this.cards}
 							handleSelectChange={this.handleSelectChange}
 							populateDropdown={this.populateDropdown}
 							fetchFolders={this.fetchFolders}
+							fetchCards={this.fetchCards}
 							deleteFolder={this.deleteFolder}
 
 
@@ -125,16 +142,22 @@ export default class Container extends React.Component{
 							userId={this.props.userId}
 							folders={this.state.folders}
 							currentFolderId={this.state.currentFolderId}
+							cards={this.cards}
 							handleSelectChange={this.handleSelectChange}
 							populateDropdown={this.populateDropdown}
 							fetchFolders={this.fetchFolders}
-							deleteFolder={this.deleteFolder}/>
+							fetchCards={this.fetchCards}
+							deleteFolder={this.deleteFolder}
+
+							/>
 						</Route>
 
 						<Route exact path="/home/newcard">
 							<NewSet
-								fetchFolders={this.fetchFolders}
 								currentFolderId={this.state.currentFolderId}
+								userId={this.props.userId}
+								fetchFolders={this.fetchFolders}
+								handleSelectChange={this.handleSelectChange}
 								populateDropdown={this.populateDropdown}
 							/>
 						</Route>

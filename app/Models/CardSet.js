@@ -4,10 +4,12 @@ const { Schema } = mongoose;
 const CardSet = new Schema({
 	name: String,
 	createdon: Date,
-	owner: { type: mongoose.Schema.Types.ObjectId,
+	userId: { type: mongoose.Schema.Types.ObjectId,
 			 ref: 'User'},
     category: [String],
-    folder: String  
+    folderId: String,
+    highScore: Number,
+    fields: [Object] 
 			});
 
 module.exports = mongoose.model('CardSet', CardSet);

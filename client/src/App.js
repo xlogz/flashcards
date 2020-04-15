@@ -48,10 +48,13 @@ export default class MainApp extends React.Component {
 
 	async componentDidMount(){
 		const cookieToken = cookies.get('token');
+		console.log('initial mount');
+		console.log(cookieToken);
 		const results = await this.obtainUserFromToken(cookieToken);
+		console.log(results);
 		if(results.error === undefined){
-			this.updateUserId(results.userId);
-			this.updateUsername(results.username);
+			this.updateUserId(results.data.userId);
+			this.updateUsername(results.data.username);
 			this.handleLogin();
 		}
 		

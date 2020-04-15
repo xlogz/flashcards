@@ -23,10 +23,15 @@ toggleModal = e =>{
 
 
 componentDidMount(){
-	this.props.fetchFolders();
-	console.log(this.state.folders);
+	// this.props.fetchFolders();
+	console.log(this.props);
 }
 
+// populateDropdown = () => {
+// 		return this.props.folders.map(folder=>{
+// 			return <option value={folder._id}>{folder.title}</option>
+// 		})
+// 	}
 
 render(){
 
@@ -37,7 +42,7 @@ render(){
 		<div  className="container">
 			<div className="dashboard-folder-title-container">
 				<div>
-					<select className="select-dropdown" onChange={this.props.handleSelectChange}>
+					<select className="select-dropdown" onClick={this.props.handleSelectChange} onChange={this.props.handleSelectChange}>
 							
 					{this.props.populateDropdown()}
 
@@ -47,7 +52,7 @@ render(){
 				<button className="folder-delete-new-btn" onClick={this.props.deleteFolder}>Delete Folder</button>
 	    	</div>
 	    	<br/>
-    		<CardsContainer folder="sports"/>
+    		<CardsContainer folder={this.props.currentFolderId}/>
     	{/* Should be folders props*/}
     	</div>
     	

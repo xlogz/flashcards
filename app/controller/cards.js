@@ -6,8 +6,6 @@ const Folder = mongoose.model('Folder');
 controller.newCardSet = (req, res) =>{
 	const data = req.body;
 	data.date = new Date();
-	data.folder = 'Sports';
-	data.owner = 'userId';
 	console.log(data);
 	const cardSet = new CardSet(data);
 	cardSet.save();
@@ -24,10 +22,26 @@ controller.newCardFolder = (req, res) =>{
 
 controller.fetchFolders = (req, res) =>{
 	const userId = req.body.userId;
-
+	console.log(req.body.userId)
 	Folder.find({userId: userId}).then(results=>{
 		if(results){
 			res.status(200).send(results);
+		}
+	})
+}
+
+controller.fetchCardsforFolder = (req,res) => {
+	console.log('fetching cardsets for folder');
+	console.log(req.body);
+
+	CardSet.find({folderId: req.body.folderId}).then(results => {
+		console.log('this is the result')
+		console.log(results);
+		if(results){
+			return results;
+			res.send(results);
+		}else{
+			res.send('Could not find folder');
 		}
 	})
 }

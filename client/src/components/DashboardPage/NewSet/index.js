@@ -13,7 +13,10 @@ export default class NewSet extends React.Component{
 					  {Q:"", A:""},
 					  {Q:"", A:""},
 					  {Q:"", A:""}],
-			title: ""
+			title: "",
+			highscore: 0,
+			userId: this.props.userId,
+			folderId: this.props.currentFolderId
 		};
 	}
 
@@ -50,6 +53,7 @@ export default class NewSet extends React.Component{
 
 	handleSubmit = e =>{
 		e.preventDefault();
+		console.log(this.props.currentFolderId);
 		axios.post('/cards/newset', this.state).then(results => {
 			console.log(results);
 		});
