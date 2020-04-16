@@ -221,10 +221,10 @@ export default class CardContainer extends React.Component{
 			
 				return (<div className="card-flip-container" key={index}>
 					<Card 
-						id={index}
+						id={card._id}
 						title={card.title}
-						cardcount={card.cardcount}
-						highestScore={card.highestScore}
+						cardcount={card.fields.length}
+						highestScore={card.highestScore || "N/A"}
 						previousLocation="categories"
 						questionAnswers={card.fields}/>
 						

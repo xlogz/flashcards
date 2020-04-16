@@ -40,7 +40,7 @@ export default class Card extends React.Component{
 							
 						</div>
 						<div className="Tilt-inner" id={this.props.tabIndex} onClick={this.handleClick}>
-							<Link to={'/cards/' + this.props.key} ><button className="dashboard-card-quiz-btn"> Quizme </button></Link>
+							<Link to={'/cards?id=' + this.props.id} ><button className="dashboard-card-quiz-btn"> Quizme </button></Link>
 
 						</div>
 					</Tilt>

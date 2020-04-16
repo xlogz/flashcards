@@ -48,6 +48,10 @@
 	
 }
 
+.hide{
+	display: none;
+}
+
 .card-text{
 	max-width: 500px;
 	text-align: center;

@@ -45,7 +45,7 @@ export default class ContentContainer extends React.Component{
 				<Route path="/flashcards">
 					<FlashcardsPage loggedIn={this.props.loggedIn}/>
 				</Route> 
-				<Route exact path="/cards/:idNumber">
+				<Route path="/cards/">
 					<CardPage loggedIn={this.props.loggedIn}/>
 				</Route>
 				<Route exact path="/login">
