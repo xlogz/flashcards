@@ -10,10 +10,13 @@ class CardPage extends React.Component{
 			questionAnswers: this.props.questionAnswers,
 			fields: [],
 			title: "",
-			score: [],
+			record: [],
+			score: 0,
 			answer: "",
 			index: 0,
-			cardElements: []
+			cardElements: [],
+			exclamation: "",
+			showScore: false
 
 		}
 	}
@@ -43,7 +46,9 @@ componentWillReceiveProps(nextProps) {
 async obtainFields (id){
 	await axios.get('/cards/data', {headers: {cardid: id}}).then(results =>{
 		console.log(results.data);
-		this.setState({fields : results.data.fields});
+		this.setState({fields : results.data.fields}, () => {
+			this.setState({fields: [...this.state.fields, {Q: "", A: ""}]})
+		});
 		this.setState({title: results.data.title});
 
 	})
@@ -51,24 +56,55 @@ async obtainFields (id){
 
 handleAnswer = async(e) =>{
 	e.preventDefault();
-	if(this.state.index !== this.state.fields.length -1){
+	console.log(this.state.answer.toLowerCase());
+	console.log(this.state.fields[this.state.index].A.toLowerCase());
+	console.log(this.state.answer.toLowerCase() === this.state.fields[this.state.index].A.toLowerCase())
+	
+	if(this.state.index !== this.state.fields.length -1 ){
 		if(this.state.answer.toLowerCase() === this.state.fields[this.state.index].A.toLowerCase()){
-			this.setState({score: [...this.state.score,1]})
+			this.setState({record: [...this.state.record, 1]}, ()=>{
+				console.log(this.state.record);
+			})
+			
 		}else{
-			this.setState({score: [...this.state.score,0]})
+			this.setState({record: [...this.state.record, 0]})
+			console.log(this.state.record);
 		}
+
 		this.state.cardElements[this.state.index].classList.add("hide");
 		await this.setState({index : this.state.index + 1});
-		if(this.state.index === this.state.fields.length){
-			console.log(this.state.score);
-			console.log("You've reached the last card!")
-		}else{
-			console.log('revealing element ' + this.state.index);
-			this.state.cardElements[this.state.index].classList.remove("hide");
+
+		if(this.state.index === this.state.fields.length-1){
+		for(var i = 0; i < this.state.fields.length-1 ; i++){
+			if(this.state.record[i] === 1){
+				await this.setState({score: this.state.score + 1}, ()=>{
+				});
+
+			}
+			}
+			this.setState({showScore: true});
 		}
 		
+
+		console.log('revealing element ' + this.state.index);
+		if(this.state.index < this.state.fields.length -1){
+			this.state.cardElements[this.state.index].classList.remove("hide");
+
+		}
+		document.getElementsByClassName("answer-input")[0].focus();
+		document.getElementsByClassName("answer-input")[0].value = "";
+		
+		
 	}else{
-		console.log(this.state.score);
+
+		
+		console.log((this.state.score/this.state.fields.length))
+		if((this.state.score/this.state.fields.length) > .8){
+				this.setState({exclamation: "Congrats! "})
+			}else{
+				this.setState({exclamation: "Keep on studying! "})
+			}
+
 		console.log("You've reached the last card!")
 	}
 	
@@ -92,6 +128,8 @@ render(){
 				)
 	})
 
+	const score = (<div className="score"><div> You scored {this.state.score} out of {this.state.fields.length-1}!</div></div>)
+
 	return(
 		<Fragment>
 		
@@ -100,6 +138,7 @@ render(){
 				<div className="card-page-content">
 					<div>
 						{cards}
+						{this.state.showScore ? score : "" }
 						<div className="card-page-answer-input">
 							<form onSubmit={this.handleAnswer}>
 								<input type="text" className="answer-input" required=" " onChange={this.handleChange}/>

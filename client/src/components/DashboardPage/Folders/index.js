@@ -9,6 +9,9 @@ class Folders extends React.Component{
 
 constructor(props){
 	super(props);
+	this.state = {
+		initialUpdate: false
+	}
 }
 
 toggleModal = e =>{
@@ -20,10 +23,17 @@ toggleModal = e =>{
 
 
 async componentDidMount(){
-	await this.props.fetchFolders();
-	 this.props.updateCurrentFolderId(this.props.folders[0]._id);
-	 this.props.obtainCards(this.props.folders[0]._id);
+	const folders = await this.props.fetchFolders();
+	console.log(this.props.folders[0])
+	if(this.state.initialUpdate === false){
+		await this.props.updateCurrentFolderId(this.props.folders[0]._id);
+		this.props.obtainCards("folder",this.props.folders[0]._id);
+		this.setState({initialUpdate: true})
+	}else{
+		return;
+	}
 }
+
 
 
 render(){
@@ -45,7 +55,10 @@ render(){
 				<button className="folder-delete-new-btn" onClick={this.props.deleteFolder}>Delete Folder</button>
 	    	</div>
 	    	<br/>
-    		<CardsContainer currentFolderId={this.props.currentFolderId} userId={this.props.userId} cards={this.props.cards} />
+    		<CardsContainer 
+    			currentFolderId={this.props.currentFolderId}
+    			userId={this.props.userId}
+    			cards={this.props.cards} />
     	{/* Should be folders props*/}
     	</div>
     	

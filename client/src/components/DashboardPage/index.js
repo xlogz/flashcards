@@ -63,10 +63,10 @@ export default class Container extends React.Component{
 
 	fetchFolders = async() => {
 	 	console.log('fetching folders');
-		await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(results => {
-			console.log(results);
-			this.setState({folders: results.data});
-			return this.state.folders;
+		await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(async results => {
+			await this.setState({folders: results.data});
+			console.log(this.state.folders);
+			return results.data;
 		});
 	}
 
@@ -84,6 +84,12 @@ export default class Container extends React.Component{
 					console.log(this.state.cards);
 				});
 				return this.state.cards;
+			})
+		}else if(type === "favorites"){
+			await axios.get('/cards/favorite', {headers: {userid: id}}).then(cards =>{
+				this.setState({cards: cards.data}, function(){
+					console.log(this.state.cards);
+				})
 			})
 		}else{
 			console.log('Incorrect input for obtainCards');
@@ -149,7 +155,11 @@ export default class Container extends React.Component{
 						</Route>
 
 						<Route exact path="/home/favorites">
-							<Favorites/>
+							<Favorites
+								cards={this.state.cards}
+								userId={this.props.userId}
+								obtainCards = {this.obtainCards}/>
+							/>
 						</Route>
 
 

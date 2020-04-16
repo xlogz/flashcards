@@ -24,8 +24,11 @@ controller.newCardFolder = (req, res) =>{
 
 controller.fetchFolders = (req, res) =>{
 	const userId = req.headers.userid;
-
+	console.log('this is req.headers.userid');
+	console.log(req.headers.userid)
 	Folder.find({userId: userId}).then(results=>{
+		console.log('this is fetchifn folders function');
+		console.log(results);
 		if(results){
 			res.status(200).send(results);
 		}
@@ -67,6 +70,12 @@ controller.deleteCardFolder = (req, res) =>{
 		res.status(200).send(result);
 	})
 
+}
+
+controller.fetchCardData = (req, res) => {
+	CardSet.find({_id: req.headers.cardid}).then(results=>{
+		res.status(200).send(results[0]);
+	})
 }
 
 module.exports = controller;

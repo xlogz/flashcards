@@ -11,6 +11,7 @@ const routes = function(app){
 	app.route( '/cards/folders' ).get(cards.fetchFolders);
 	app.route( '/cards/folders' ).delete(cards.deleteCardFolder);
 	app.route( '/cards/set' ).get(cards.fetchCards);
+	app.route( '/cards/:cardid' ).get(cards.fetchCardData);
 }
 
 module.exports=routes;

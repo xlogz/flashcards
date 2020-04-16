@@ -5,6 +5,8 @@ import Flip from 'react-reveal/Flip';
 // import UndoIcon from '@material-ui/icons/Undo';
 import { Link } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
+import StarRateIcon from '@material-ui/icons/StarRate';
+
 
 
 
@@ -51,6 +53,7 @@ export default class Card extends React.Component{
 
 						<div className="Tilt-inner" id={this.props.tabIndex} onClick={this.handleClick} >
 							<div className="dashboard-card-edit-btn"><EditIcon/></div>
+							<div className="dashboard-card-favorite-btn"><StarRateIcon/></div>
 							<div className="dashboard-card-title">{this.props.title}</div>
 							<div className="dashboard-card-count"># of cards: {this.props.cardcount}</div>
 							<div className="dashboard-card-highscore">Highest Score: {this.props.highestScore}</div>
