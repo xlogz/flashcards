@@ -4,6 +4,9 @@ import './styles.css';
 class CardPage extends React.Component{
 	constructor(props){
 		super(props);
+		this.state={
+			questionAnswers: this.props.questionAnswers
+		}
 	}
 componentDidMount(){
 }
@@ -25,7 +28,7 @@ render(){
 					<div>
 						<div className="card">
 							<div className="card-text">
-								What is it called when you can only access a variable within a functions environment?
+								{this.state.questionAnswers}
 							</div>
 						</div>
 						<div className="card-page-answer-input">

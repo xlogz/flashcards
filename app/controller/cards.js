@@ -33,14 +33,30 @@ controller.fetchFolders = (req, res) =>{
 }
 
 controller.fetchCards = (req, res) =>{
-	console.log(req.headers.folderid);
+	console.log('is for folder?')
+	console.log(req.headers.hasOwnProperty("folderid"))
 
-	CardSet.find({folderId: req.headers.folderid}).then(results=>{
+		console.log('is for card?')
+	console.log(req.headers.hasOwnProperty("cardid"))
+	console.log(req.headers);
+	if(req.headers.hasOwnProperty('folderid')){
+		CardSet.find({folderId: req.headers.folderid}).then(results=>{
+		console.log('results for searching up cardset for user');
 		console.log(results);
 		if(results){
 			res.status(200).send(results);
 		}
-	})
+		})
+	}else if(req.headers.hasOwnProperty('userid')){
+		CardSet.find({userId: req.headers.userid}).then(results=>{
+		console.log('results for searching up cardset for user');
+		console.log(results);
+		if(results){
+			res.status(200).send(results);
+		}
+		})
+	}
+	
 }
 
 controller.deleteCardFolder = (req, res) =>{

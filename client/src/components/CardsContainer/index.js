@@ -218,56 +218,19 @@ export default class CardContainer extends React.Component{
 		
 
 		const singleCard = this.props.cards.map((card,index)=>{
-			if(card.tags === this.props.category && card.tags !== ""){
-				return (
-						
-				// <Link to={'/cards/' + index} >
-				<div className="card-flip-container">
-					<Card id={index} title={card.title} cardcount={card.cardcount} highestScore={card.highestScore} previousLocation="categories"/>
-				
-				</div>
-				// </Link>
 			
-
-				)
-
-			}else if(card.folder === this.props.folder && card.folder !== ""){
-				return (
+				return (<div className="card-flip-container" key={index}>
+					<Card 
+						id={index}
+						title={card.title}
+						cardcount={card.cardcount}
+						highestScore={card.highestScore}
+						previousLocation="categories"
+						questionAnswers={card.fields}/>
 						
-				// <Link to={'/cards/' + index} >
-				<div className="card-flip-container">
-					<Card id={index} title={card.title} cardcount={card.cardcount} highestScore={card.highestScore}/>
 				
-				</div>
-				// </Link>
-			
-
-				)
-			}else if(card.owner === this.props.owner && card.owner !== ""){
-				return (
-						
-				// <Link to={'/cards/' + index} >
-				<div className="card-flip-container">
-					<Card id={index} title={card.title} cardcount={card.cardcount} highestScore={card.highestScore}/>
+				</div>)
 				
-				</div>
-				// </Link>
-			
-
-				)
-			}else if(card.favorite === true){
-				return (
-						
-				// <Link to={'/cards/' + index} >
-				<div className="card-flip-container">
-					<Card id={index} title={card.title} cardcount={card.cardcount} highestScore={card.highestScore}/>
-				
-				</div>
-				// </Link>
-			
-
-				)
-			}
 		})
 		return (
 			<Fragment>

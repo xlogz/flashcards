@@ -70,19 +70,32 @@ export default class Container extends React.Component{
 		});
 	}
 
-	obtainCards = async (id,cb) =>{
-		await axios.get('/cards/set', {headers: {folderid: id}}).then(cards => {
-			this.setState({cards: cards.data}, function(){
-				console.log(this.state.cards);
-			});
-			return this.state.cards;
-		})
+	obtainCards = async (type,id) =>{
+		if(type==="folder"){
+			await axios.get('/cards/set', {headers: {folderid: id}}).then(cards => {
+				this.setState({cards: cards.data}, function(){
+					console.log(this.state.cards);
+				});
+				return this.state.cards;
+			})
+		}else if(type === "user"){
+			await axios.get('/cards/set', {headers: {userid: id}}).then(cards => {
+				this.setState({cards: cards.data}, function(){
+					console.log(this.state.cards);
+				});
+				return this.state.cards;
+			})
+		}else{
+			console.log('Incorrect input for obtainCards');
+			return;
+		}
+		
 	}
 
 	 handleSelectChange = async e =>{
 		console.log(e.target.value);
 		await this.setState({currentFolderId: e.target.value});
-		await this.obtainCards(this.state.currentFolderId);
+		await this.obtainCards("folder",this.state.currentFolderId);
 		
 
 	}
@@ -129,7 +142,10 @@ export default class Container extends React.Component{
 						
 
 						<Route exact path="/home/cards">
-							<Cards/>
+							<Cards
+								cards={this.state.cards}
+								userId={this.props.userId}
+								obtainCards = {this.obtainCards}/>
 						</Route>
 
 						<Route exact path="/home/favorites">
