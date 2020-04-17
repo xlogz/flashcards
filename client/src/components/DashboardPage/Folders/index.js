@@ -110,6 +110,7 @@ render(){
     			currentFolderId={this.props.currentFolderId}
     			userId={this.props.userId}
     			cards={this.props.cards} />
+    			
     	{/* Should be folders props*/}
     	</div>
     	

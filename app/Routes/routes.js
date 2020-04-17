@@ -1,5 +1,6 @@
 const authentication = require('../controller/authentication.js');
 const cards = require('../controller/cards.js');
+const favorites = require('../controller/favorites.js');
 
 const routes = function(app){
 	app.route( '/user/signup' ).post(authentication.signUp)
@@ -12,10 +13,11 @@ const routes = function(app){
 	app.route( '/cards/folders' ).delete(cards.deleteCardFolder);
 	app.route( '/cards/set' ).get(cards.fetchCards);
 	app.route( '/cards/:cardid' ).get(cards.fetchCardData);
-	app.route( '/cards/favorite' ).get(cards.fetchUserFavorites)
-	app.route( '/cards/favorite' ).put(cards.addUserFavorite)
-	app.route( '/cards/favorite' ).delete(cards.deleteUserFavorite)
-	app.route( '/cards/checkfavorite' ).put(cards.checkUserFavorite)
+
+	app.route( '/favorites/add' ).put(favorites.addUserFavorite);
+	app.route( '/favorites/delete' ).delete(favorites.deleteUserFavorite);
+	app.route( '/favorites/set' ).get(favorites.fetchUserFavorites);
+	app.route( '/favorites/check' ).put(favorites.checkUserFavorite);
 }
 
 module.exports=routes;

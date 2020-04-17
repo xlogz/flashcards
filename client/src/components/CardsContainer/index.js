@@ -15,25 +15,30 @@ export default class CardContainer extends React.Component{
 
 	render(){
 		console.log(this.props.cards);
+		let singleCard;
 		
-
-		const singleCard = this.props.cards.map((card,index)=>{
+		if(this.props.cards.length === 0 || !Array.isArray(this.props.cards)){
+			singleCard = (<div> You have no cards here </div>)
+		}else{
+			singleCard = this.props.cards.map((card,index)=>{
+		
+			return (<div className="card-flip-container" key={index} index={index}>
+				<Card 
+					id={card._id}
+					title={card.title}
+					cardcount={card.fields.length}
+					highestScore={card.highestScore || "N/A"}
+					previousLocation="categories"
+					questionAnswers={card.fields}
+					userId = {this.props.userId}
+					/>
+					
 			
-				return (<div className="card-flip-container" key={index} index={index}>
-					<Card 
-						id={card._id}
-						title={card.title}
-						cardcount={card.fields.length}
-						highestScore={card.highestScore || "N/A"}
-						previousLocation="categories"
-						questionAnswers={card.fields}
-						userId = {this.props.userId}
-						/>
-						
-				
-				</div>)
+			</div>)
 				
 		})
+		}
+
 		return (
 			<Fragment>
 			

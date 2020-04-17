@@ -33,7 +33,7 @@ export default class Card extends React.Component{
     		console.log('handle favorite clicked');
     		console.log('deleting favorites');
     		console.log('cardset + this.props.id')
-    		axios.delete('/cards/favorite',{headers : {userId: this.props.userId, cardSetId: this.props.id}}).then(results=>{
+    		axios.delete('/favorites/delete',{headers : {userId: this.props.userId, cardSetId: this.props.id}}).then(results=>{
     			console.log(results);
 
     			this.setState({favorite: false});
@@ -42,7 +42,7 @@ export default class Card extends React.Component{
     		console.log('handle favorite clicked');
     		console.log('adding favorites');
     		console.log('userId ' + this.props.userId + " // cards " + this.props.id)
-    		axios.put('/cards/favorite', {userId: this.props.userId, cardSetId: this.props.id}).then(results=>{
+    		axios.put('/favorites/add', {userId: this.props.userId, cardSetId: this.props.id}).then(results=>{
     			console.log(results);
     			this.setState({favorite: true})
     		});
@@ -51,7 +51,7 @@ export default class Card extends React.Component{
     }
 
     isFavorite = async() =>{
-    	await axios.put('/cards/checkfavorite', {userId: this.props.userId, cardSetId: this.props.id}).then(results=>{
+    	await axios.put('/favorites/check', {userId: this.props.userId, cardSetId: this.props.id}).then(results=>{
     		console.log('results from checking is favorite');
     		console.log(results.data);
     		    console.log(this.state.favorite);

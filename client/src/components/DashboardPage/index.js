@@ -24,7 +24,8 @@ export default class Container extends React.Component{
 			pathname : window.location.pathname,
 			currentFolderId: "",
 			folders: [],
-			cards: []
+			cards: [],
+			favorites: []
 		}
 	}
 
@@ -96,9 +97,11 @@ export default class Container extends React.Component{
 				return this.state.cards;
 			})
 		}else if(type === "favorites"){
-			await axios.get('/cards/favorite', {headers: {userid: id}}).then(cards =>{
+			console.log('obtaining favorite cards for user: ' + this.props.userId);
+			await axios.get('/favorites/set',{headers: {userid: this.props.userId}}).then(cards =>{
+				console.log(cards.data);
 				this.setState({cards: cards.data}, function(){
-					console.log(this.state.cards);
+					console.log(cards);
 				})
 			})
 		}else{
