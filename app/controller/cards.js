@@ -16,6 +16,7 @@ controller.newCardSet = (req, res) =>{
 }
 
 controller.newCardFolder = (req, res) =>{
+	console.log('this is adding new folder');
 	const data = req.body;
 	console.log(req.body);
 	data.date = new Date();
@@ -26,8 +27,6 @@ controller.newCardFolder = (req, res) =>{
 
 controller.fetchFolders = (req, res) =>{
 	const userId = req.headers.userid;
-	console.log('this is req.headers.userid');
-	console.log(req.headers.userid)
 	Folder.find({userId: userId}).then(results=>{
 		console.log('this is fetchifn folders function');
 		console.log(results);

@@ -28,17 +28,27 @@ export default class Container extends React.Component{
 		}
 	}
 
-	deleteFolder = async() => {
+	deleteFolder = name => async(e) => {
+		e.preventDefault();
 		console.log(this.state.folders);
+		console.log('this is the name of the delete folder class');
+		console.log(name);
 		if(this.state.folders.length < 1 ){
 			//no folders to delete
 		}else{
+			console.log('attempting to delete folder');
+			console.log(this.state.currentFolderId);
+
 			await axios.delete('/cards/folders', {data: {folderId : this.state.currentFolderId}}).then(results => {
 			console.log(this.state.currentFolderId);
 			this.fetchFolders();
 			this.setState({currentFolderId: this.state.folders[0]._id});
 			console.log('new folder id after deleting: ' + this.state.currentFolderId)
+			
 			});
+
+			document.getElementsByClassName(name)[0].style.display = 'none';
+			document.getElementById("root").style.overflow = 'inherit';
 		}
 		
 	}

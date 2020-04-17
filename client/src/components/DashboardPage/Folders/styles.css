@@ -71,6 +71,7 @@
 	color: #0a93e3;
 	border: 2px solid #0a93e3;
 	font-size: 16px;
+	margin-right: 20px;
 
 }
 
@@ -103,6 +104,10 @@
 
 .folder-add-new-btn:active{
 	padding: 0;
+}
+
+.modal-body-content .folder-delete-new-btn{
+	margin-left: 100px;
 }
 
 .container{
