@@ -6,7 +6,7 @@ import Flip from 'react-reveal/Flip';
 import { Link } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import StarRateIcon from '@material-ui/icons/StarRate';
-
+import axios from 'axios';
 
 
 
@@ -14,12 +14,61 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 export default class Card extends React.Component{
     constructor(props) {
         super(props);
-        this.state = { show: false };
-        this.handleClick = this.handleClick.bind(this);
+        this.state = { show: false,
+        				favorite: false}
+
     }
 
-    handleClick() {
+    handleClick = () => {
         this.setState({ show: !this.state.show });
+    }
+
+    handleEdit = () => {
+    	console.log('editing');
+    }
+
+    handleFavorite = () => {
+
+    	if(this.state.favorite === true){
+    		console.log('handle favorite clicked');
+    		console.log('deleting favorites');
+    		console.log('cardset + this.props.id')
+    		axios.delete('/cards/favorite',{headers : {userId: this.props.userId, cardSetId: this.props.id}}).then(results=>{
+    			console.log(results);
+
+    			this.setState({favorite: false});
+    		})
+    	}else{
+    		console.log('handle favorite clicked');
+    		console.log('adding favorites');
+    		console.log('userId ' + this.props.userId + " // cards " + this.props.id)
+    		axios.put('/cards/favorite', {userId: this.props.userId, cardSetId: this.props.id}).then(results=>{
+    			console.log(results);
+    			this.setState({favorite: true})
+    		});
+    	}
+
+    }
+
+    isFavorite = async() =>{
+    	await axios.put('/cards/checkfavorite', {userId: this.props.userId, cardSetId: this.props.id}).then(results=>{
+    		console.log('results from checking is favorite');
+    		console.log(results.data);
+    		    console.log(this.state.favorite);
+    			console.log(this.state.favorite);
+    			console.log(this.state.favorite);
+    			console.log(this.state.favorite);
+    		if(results.data){
+    			this.setState({favorite: true});
+    		}else{
+    			this.setState({favorite: false});
+    		}
+    	})
+    }
+
+    async componentDidMount(){
+    	await this.isFavorite();
+
     }
 
 	render(){
@@ -51,12 +100,33 @@ export default class Card extends React.Component{
 				 contents = (
 					<Tilt className="Tilt dashboard-card-one" key={this.props.key} options={{ max : 15 }} style={{ height: 225, width: 450 }}>
 
-						<div className="Tilt-inner" id={this.props.tabIndex} onClick={this.handleClick} >
-							<div className="dashboard-card-edit-btn"><EditIcon/></div>
-							<div className="dashboard-card-favorite-btn"><StarRateIcon/></div>
-							<div className="dashboard-card-title">{this.props.title}</div>
-							<div className="dashboard-card-count"># of cards: {this.props.cardcount}</div>
-							<div className="dashboard-card-highscore">Highest Score: {this.props.highestScore}</div>
+						<div className="Tilt-inner" id={this.props.tabIndex}  >
+							<div className="card-buttons">
+								<div className="dashboard-card-edit-btn">
+									<EditIcon onClick={this.handleEdit}/>
+								</div>
+								{this.state.favorite === true ? 
+									(<div className="dashboard-card-favorite-btn yellow">
+										<StarRateIcon  onClick={this.handleFavorite}/>
+									</div>)
+								:
+
+								(<div className="dashboard-card-favorite-btn white">
+									<StarRateIcon  onClick={this.handleFavorite}/>
+								</div>)
+								}
+								
+
+								
+
+
+							</div>
+							<div className="card-content" onClick={this.handleClick}>
+								
+								<div className="dashboard-card-title">{this.props.title}</div>
+								<div className="dashboard-card-count"># of cards: {this.props.cardcount}</div>
+								<div className="dashboard-card-highscore">Highest Score: {this.props.highestScore}</div>
+							</div>
 
 						</div>
 						{/*<div className="lines">

@@ -5,7 +5,7 @@ const User = require('./app/Models/User.js');
 const CardSet = require('./app/Models/CardSet.js');
 const Token = require('./app/Models/Token.js');
 const Folder = require('./app/Models/Folder.js')
-
+const Favorite = require('./app/Models/Favorite.js')
 
 const bodyParser = require("body-parser");
 

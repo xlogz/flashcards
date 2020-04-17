@@ -45,7 +45,6 @@ export default class Container extends React.Component{
 
 	updateCurrentFolderId = (id) =>{
 		this.setState({currentFolderId: id});
-
 	}
 
 
@@ -65,7 +64,8 @@ export default class Container extends React.Component{
 	 	console.log('fetching folders');
 		await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(async results => {
 			await this.setState({folders: results.data});
-			console.log(this.state.folders);
+			console.log('fetch folders folders ')
+			console.log( this.state.folders);
 			return results.data;
 		});
 	}
@@ -98,13 +98,19 @@ export default class Container extends React.Component{
 		
 	}
 
+
+
 	 handleSelectChange = async e =>{
 		console.log(e.target.value);
 		await this.setState({currentFolderId: e.target.value});
 		await this.obtainCards("folder",this.state.currentFolderId);
-		
-
 	}
+
+	async componentDidMount(){
+		await this.fetchFolders();
+		console.log('currentFolderId '+this.state.currentFolderId);
+	}
+
 	
 	
 	render(){
@@ -158,7 +164,7 @@ export default class Container extends React.Component{
 							<Favorites
 								cards={this.state.cards}
 								userId={this.props.userId}
-								obtainCards = {this.obtainCards}/>
+								obtainCards = {this.obtainCards}
 							/>
 						</Route>
 
@@ -175,6 +181,7 @@ export default class Container extends React.Component{
 								folders = {this.state.folders}
 								obtainCards = {this.obtainCards}
 								cards = {this.state.cards}
+								updateUserId={this.props.updateUserId}
 							/>
 						</Route>
 						<Route exact path="/home/">
@@ -189,6 +196,7 @@ export default class Container extends React.Component{
 								folders = {this.state.folders}
 								obtainCards = {this.obtainCards}
 								cards = {this.state.cards}
+								updateUserId={this.props.updateUserId}
 							/>
 						</Route>
 
@@ -216,6 +224,7 @@ export default class Container extends React.Component{
 								folders = {this.state.folders}
 								obtainCards = {this.obtainCards}
 								cards = {this.state.cards}
+								updateUserId={this.props.updateUserId}
 							/>
 						</Route>
 					</Switch>

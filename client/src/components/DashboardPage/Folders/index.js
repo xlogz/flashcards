@@ -25,9 +25,10 @@ toggleModal = e =>{
 async componentDidMount(){
 	const folders = await this.props.fetchFolders();
 	console.log(this.props.folders[0])
-	if(this.state.initialUpdate === false){
+	if(this.state.initialUpdate === false && this.props.folders[0] !== undefined){
 		await this.props.updateCurrentFolderId(this.props.folders[0]._id);
 		this.props.obtainCards("folder",this.props.folders[0]._id);
+		this.props.updateUserId(this.props.folders[0].userId);
 		this.setState({initialUpdate: true})
 	}else{
 		return;

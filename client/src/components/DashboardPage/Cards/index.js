@@ -22,6 +22,7 @@ render(){
 		<div className="container">
 			<CardsContainer userId={this.props.userId}
 				cards = {this.props.cards}
+				updateUserId={this.props.updateUserId}
 			/>
 
 		</div>
