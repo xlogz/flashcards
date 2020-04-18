@@ -27,12 +27,9 @@ async componentDidMount(){
 	let card;
 	const cards = document.getElementsByClassName("card");
 	this.setState({cardElements : cards});
-	console.log(cards);
 
 	for(var i = 1; i < this.state.fields.length; i++){
-		console.log(card);
 		cards[i].classList.add("hide");
-		console.log(cards[i].classList);
 	}
 
 }
@@ -45,7 +42,6 @@ componentWillReceiveProps(nextProps) {
 
 async obtainFields (id){
 	await axios.get('/cards/data', {headers: {cardid: id}}).then(results =>{
-		console.log(results.data);
 		this.setState({fields : results.data.fields}, () => {
 			this.setState({fields: [...this.state.fields, {Q: "", A: ""}]})
 		});
@@ -55,11 +51,7 @@ async obtainFields (id){
 }
 
 handleAnswer = async(e) =>{
-	e.preventDefault();
-	console.log(this.state.answer.toLowerCase());
-	console.log(this.state.fields[this.state.index].A.toLowerCase());
-	console.log(this.state.answer.toLowerCase() === this.state.fields[this.state.index].A.toLowerCase())
-	
+	e.preventDefault();	
 	if(this.state.index !== this.state.fields.length -1 ){
 		if(this.state.answer.toLowerCase() === this.state.fields[this.state.index].A.toLowerCase()){
 			this.setState({record: [...this.state.record, 1]}, ()=>{
@@ -115,6 +107,9 @@ handleChange = (e) =>{
 	this.setState({answer: e.target.value});
 }
 
+handleFavoriteClick = () =>{
+	
+}
 render(){
 
 

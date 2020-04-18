@@ -51,12 +51,18 @@ export default class NewSet extends React.Component{
 	}
 
 	handleSubmit = e =>{
-		this.setState({userId: this.props.userId})
-		this.setState({folderId: this.props.currentFolderId})
 		e.preventDefault();
-		axios.post('/cards/newset', this.state).then(results => {
-			console.log(results);
-		});
+		this.setState({userId: this.props.userId}, ()=>{
+			this.setState({folderId: this.props.currentFolderId}, ()=>{
+				console.log(this.props.currentFolderId);
+				axios.post('/cards/newset', this.state).then(results => {
+					console.log(results);
+				});
+			})
+		})
+		
+		
+		
 	}
 
 	async componentDidMount(){

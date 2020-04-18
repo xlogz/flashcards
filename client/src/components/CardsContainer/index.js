@@ -18,7 +18,7 @@ export default class CardContainer extends React.Component{
 		let singleCard;
 		
 		if(this.props.cards.length === 0 || !Array.isArray(this.props.cards)){
-			singleCard = (<div> You have no cards here </div>)
+			singleCard = (<div className="no-cards"> You have no cards here </div>)
 		}else{
 			singleCard = this.props.cards.map((card,index)=>{
 		

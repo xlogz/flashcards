@@ -60,10 +60,17 @@ export default class Container extends React.Component{
 
 
 
-	populateDropdown = () => {
-		return this.state.folders.map(folder=>{
+	 populateDropdown = () => {
+		console.log('populating dropdown');
+		let firstFolderId = this.state.folders;
+		console.log(this.state.currentFolderId);
+		return this.state.folders.map((folder,index)=>{
+			
 			return <option value={folder._id}>{folder.title}</option>
 		})
+
+		
+		
 	}
 
 	handleClick = e => {
@@ -75,9 +82,15 @@ export default class Container extends React.Component{
 	 	console.log('fetching folders');
 		await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(async results => {
 			await this.setState({folders: results.data});
-			console.log('fetch folders folders ')
-			console.log( this.state.folders);
-			return results.data;
+			if(results.data[0] !== undefined){
+				await this.setState({currentFolderId: results.data[0]._id});
+				console.log('fetch folders folders ')
+				console.log( this.state.folders);
+				console.log(this.props.userId);
+				console.log(this.state.currentFolderId);
+				return results.data;
+			}
+			
 		});
 	}
 

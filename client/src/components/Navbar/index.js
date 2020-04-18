@@ -70,10 +70,10 @@ export default class NavBar extends React.Component {
             </div>
             <div className="menu-item">
                 {this.props.loggedIn ? folders : frontPage}
-            </div>
+            </div>{/*}
             <div className="menu-item">
                 <Link to="/flashcards">Flashcards</Link>
-            </div>
+            </div>*/}
             <div className="menu-item search" onClick={this.handleClick.bind(this)}>
 
                 <div className="navbar-search-text">
