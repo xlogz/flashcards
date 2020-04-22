@@ -2,7 +2,7 @@ const controller = {};
 const mongoose = require('mongoose');
 const CardSet = mongoose.model('CardSet');
 const Folder = mongoose.model('Folder');
-const Favorite = mongoose.model('Favorite');
+
 
 
 controller.newCardSet = (req, res) =>{
@@ -76,6 +76,15 @@ controller.deleteCardFolder = (req, res) =>{
 controller.fetchCardData = (req, res) => {
 	CardSet.find({_id: req.headers.cardid}).then(results=>{
 		res.status(200).send(results[0]);
+	})
+}
+
+controller.searchCards = (req, res) => {
+	console.log('searching for this term');
+	console.log(req.headers.terms);
+	CardSet.find({title: { "$regex": req.headers.terms, "$options": "i" }}).then(results => {
+		console.log(results);
+		res.status(200).send(results);
 	})
 }
 

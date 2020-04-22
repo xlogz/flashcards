@@ -12,13 +12,6 @@ export default class NavBar extends React.Component {
         super(props);
     }
 
-    handleClick(){
-       let searchText = document.getElementsByClassName("navbar-search-text")[0];
-       let searchUnderline = document.getElementsByClassName("navbar-search-underline")[0];
-       console.log(searchUnderline)
-       searchUnderline.style.opacity = 1;
-       searchUnderline.style.width = "200px";
-    }
 
     logOut(){
         this.props.logOut();
@@ -74,7 +67,7 @@ export default class NavBar extends React.Component {
             <div className="menu-item">
                 <Link to="/flashcards">Flashcards</Link>
             </div>*/}
-            <div className="menu-item search" onClick={this.handleClick.bind(this)}>
+            <div className="menu-item search">
 
                 <div className="navbar-search-text">
                     <Link to="/search">

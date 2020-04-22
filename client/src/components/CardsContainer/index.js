@@ -2,7 +2,7 @@ import React,{Fragment} from 'react';
 import Card from '../Card';
 import './styles.css';
 import axios from 'axios';
-
+import { Link } from "react-router-dom";
 
 export default class CardContainer extends React.Component{
 	constructor(props){
@@ -16,8 +16,11 @@ export default class CardContainer extends React.Component{
 	render(){
 		console.log(this.props.cards);
 		let singleCard;
-		
-		if(this.props.cards.length === 0 || !Array.isArray(this.props.cards)){
+		if(this.props.mode === "search" && this.props.cards.length === 0){
+			singleCard = (<div className="no-cards"> 
+				<Link to="/search">Search Again</Link>
+				</div>);
+		}else if(this.props.cards.length === 0 || !Array.isArray(this.props.cards)){
 			singleCard = (<div className="no-cards"> You have no cards here </div>)
 		}else{
 			singleCard = this.props.cards.map((card,index)=>{

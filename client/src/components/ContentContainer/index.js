@@ -14,6 +14,7 @@ import Login from '../Authentication/Login';
 import SignUp from '../Authentication/SignUp';
 import NotLoggedInPage from '../NotLoggedInPage';
 import FrontPage from '../FrontPage';
+import ResultsPage from '../ResultsPage';
 
 
 export default class ContentContainer extends React.Component{
@@ -39,9 +40,13 @@ export default class ContentContainer extends React.Component{
 				<Route exact path="/">
 					{ this.props.loggedIn === null ? "" :  this.props.loggedIn === true ? (<DashboardPage loggedIn={this.props.loggedIn} userId={this.props.userId} updateUserId={this.props.updateUserId}/>) : (<FrontPage/>)}
 				</Route> 
-				<Route path="/search">
+				<Route path="/search/results">
+					<ResultsPage loggedIn={this.props.loggedIn}/>
+				</Route> 
+				<Route path="/search" exact>
 					<SearchPage loggedIn={this.props.loggedIn}/>
 				</Route> 
+
 				<Route path="/flashcards">
 					<FlashcardsPage loggedIn={this.props.loggedIn}/>
 				</Route> 

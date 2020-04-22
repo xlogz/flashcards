@@ -18,6 +18,8 @@ const routes = function(app){
 	app.route( '/favorites/delete' ).delete(favorites.deleteUserFavorite);
 	app.route( '/favorites/set' ).get(favorites.fetchUserFavorites);
 	app.route( '/favorites/check' ).put(favorites.checkUserFavorite);
+
+	app.route( '/search/').get(cards.searchCards);
 }
 
 module.exports=routes;
