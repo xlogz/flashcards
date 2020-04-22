@@ -92,6 +92,7 @@ controller.signIn = function(req, res){
 
 controller.obtainUserFromToken = (req, res) =>{
 	let results = {};
+	console.log(req.body);
 	Token.find({token: req.body.token}).then(user => {
 		if(user){
 			results.username = user[0].username;
