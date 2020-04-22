@@ -20,7 +20,16 @@ const db = mongoose.connect(process.env.MONGOHQ_URL || process.env.MONGOLAB_URI 
 
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
+if(process.env.NODE_ENV === 'production'){
+	// Express will serve up production assets
+	// like our main js file, or main css file!
+	app.use(express.static('client/build'));
+
+	//Express will serve uip the index.html file 
+	//if it doesnt recognize the route
+}else{
+	app.use(express.static(__dirname + '/public'));
+}
 
 app.use(bodyParser.json())
 app.use(bodyParser.text({ type: 'text/html' }))
@@ -32,6 +41,7 @@ app.get('/',
 function(req, res) {
   res.render('index');
 });
+
 
 app.get('*', (req, res) =>{
 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
