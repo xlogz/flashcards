@@ -1,5 +1,7 @@
 import React from 'react';
-import './styles.css'
+import './styles.css';
+import { Link } from 'react-router-dom';
+
 
 export default function LastCTA(props){
 	return (
@@ -7,7 +9,7 @@ export default function LastCTA(props){
 			
 			<div className="last-cta-right-column">
 				<div className="last-cta-img-container">
-					<img className="student-sitting-img" src="/images/student_sitting_lg_shadow.png"/>
+					<img className="student-sitting-img" src="/images/student_sitting_lg_girl_shadow.png"/>
 				</div>
 			</div>
 <div className="last-cta-left-column">
@@ -18,7 +20,7 @@ export default function LastCTA(props){
 					<h3>
 					Don't ever forget that definition again!
 					</h3>
-					<button className="last-cta-btn">Remember Now</button>
+					<Link to="/signup"><button className="last-cta-btn">Remember Now</button></Link>
 				</div>
 
 			</div>

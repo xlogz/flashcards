@@ -5,6 +5,7 @@
 	width: 100%;
 	display: flex;
 	flex-direction: row;
+	min-height: 600px;
 }
 
 .last-cta-left-column{
@@ -12,7 +13,7 @@
 	display: block;
 	height: 100%;
 	box-sizing: border-box;
-	padding-top: 15%;
+	padding-top: 10%;
 	padding-left: 100px;
 }
 

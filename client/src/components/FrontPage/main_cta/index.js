@@ -1,5 +1,6 @@
 import React from 'react';
-import './styles.css'
+import './styles.css';
+import { Link } from 'react-router-dom';
 
 export default function MainCTA(props){
 	return (
@@ -13,7 +14,7 @@ export default function MainCTA(props){
 					<h3>
 					And remember it.
 					</h3>
-					<button className="main-cta-btn">Get Started!</button>
+					<Link to="/signup"><button className="main-cta-btn">Get Started!</button></Link>
 				</div>
 
 			</div>
