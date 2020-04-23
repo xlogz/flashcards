@@ -48,4 +48,4 @@ const PORT = process.env.PORT || 3001;
 console.log('Application is running on port ' + PORT);
 app.listen(PORT);
 
-const routes = require('./app/Routes/Routes.js')(app);
+const routes = require('./app/Routes/routes.js')(app);
