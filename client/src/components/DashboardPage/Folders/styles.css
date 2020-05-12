@@ -8,6 +8,10 @@
 	padding-top: 100px;
 }
 
+.dashboard-folder-title-container button{
+	outline: none;
+}
+
 .dashboard-folder-title{
 	float: left;
 	display: inline-block;

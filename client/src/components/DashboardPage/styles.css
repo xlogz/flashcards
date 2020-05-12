@@ -13,6 +13,10 @@
 
 }
 
+
+.dashboard-menu a{
+	outline: none;
+}
 .dashboard-menu-container{
 	min-width: 200px;
 	/*border-bottom: 10px solid #ec1092;*/

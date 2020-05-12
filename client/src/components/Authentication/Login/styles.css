@@ -46,17 +46,11 @@ align-items: center;
 }
 
 .login-container input{
-	margin-bottom: 20px;
-	width: 200px;
-	border: 0;
-	border-bottom: 1px solid #c3c3c3;
-}
-
-.login-container input{
 	margin-bottom: 30px;
 	width: 200px;
 	border: 0;
 	border-bottom: 1px solid #c3c3c3;
+	outline: none;
 
 }
 

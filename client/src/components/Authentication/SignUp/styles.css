@@ -72,6 +72,7 @@ height: 50px;
 	z-index: 99;
 	border-bottom: 1px solid #c3c3c3;
 	height: 20px;
+	outline: none;
 }
 
 .sign-up-form-email-label input{
@@ -80,6 +81,7 @@ height: 50px;
 	z-index: 99;
 	border-bottom: 1px solid #c3c3c3;
 	height: 20px;
+	outline: none;
 }
 
 .sign-up-form-password-label input{
@@ -88,6 +90,7 @@ height: 50px;
 	z-index: 99;
 	border-bottom: 1px solid #c3c3c3;
 	box-sizing: border-box;
+	outline: none;
 
 }
 
