@@ -55,7 +55,7 @@ export default class NewSet extends React.Component{
 		e.preventDefault();
 		this.setState({containsBlanks : false});
 		for(var i = 0; i < this.state.fields.length; i++){
-			if(this.state.fields[i].Q === "" || this.state.fields[i].A){
+			if(this.state.fields[i].Q === "" || this.state.fields[i].A === ""){
 				this.setState({containsBlanks: true});
 			}
 		}
