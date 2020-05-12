@@ -48,33 +48,30 @@ export default class NewSet extends React.Component{
 	updateField = (index,content) =>{
 		let newArray = [...this.state.fields];
 		newArray[index] = content;
-		this.setState({fields:newArray});
+		this.setState({fields:newArray, containsBlanks: false}, ()=>{
+			for(let i = 0 ; i < this.state.fields.length; i++){
+				if(this.state.fields[i].Q === "" || this.state.fields[i].A === ""){
+					this.setState({containsBlanks: true});
+				}
+			}
+		});
 	}
 
 	handleSubmit = e =>{
 		e.preventDefault();
-		this.setState({containsBlanks : false});
-		for(var i = 0; i < this.state.fields.length; i++){
-			if(this.state.fields[i].Q === "" || this.state.fields[i].A === ""){
-				this.setState({containsBlanks: true});
-			}
-		}
-
-		if(this.state.containsBlanks === true){
-			console.log("You cannot have any blank fields")
-		}else{
+		if(!this.state.containsBlanks){
 			this.setState({userId: this.props.userId}, ()=>{
-			this.setState({folderId: this.props.currentFolderId}, ()=>{
-				console.log(this.props.currentFolderId);
-				axios.post('/cards/newset', this.state).then(results => {
-					window.location="/cards?id=" + results.data;
+				this.setState({folderId: this.props.currentFolderId}, ()=>{
+					console.log(this.props.currentFolderId);
+					axios.post('/cards/newset', this.state).then(results => {
+						window.location="/cards?id=" + results.data;
 
-				});
+					});
+				})
 			})
-			})
+		}else{
+			console.log("Form contains blanks");
 		}
-
-		
 		
 		
 		
