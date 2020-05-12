@@ -22,6 +22,11 @@
 a, a:active, a:focus{
 	outline: none;
 }
+
+input, input:focus, input:active{
+  outline: none;
+}
+
 .navbar{
 	height: 75px;
 	width: 100%;
