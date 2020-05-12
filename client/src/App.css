@@ -39,6 +39,7 @@ body{
 
 input:focus{
   border: 0;
+  outline: none;
 }
 
 
