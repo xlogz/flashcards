@@ -19,6 +19,9 @@
 	line-height: 15px;
 }
 
+a, a:active, a:focus{
+	outline: none;
+}
 .navbar{
 	height: 75px;
 	width: 100%;

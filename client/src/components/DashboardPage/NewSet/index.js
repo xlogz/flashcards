@@ -15,7 +15,8 @@ export default class NewSet extends React.Component{
 					  {Q:"", A:""}],
 			title: "",
 			userId: "",
-			folderId: ""
+			folderId: "",
+			containsBlanks: true
 		};
 	}
 
@@ -52,7 +53,17 @@ export default class NewSet extends React.Component{
 
 	handleSubmit = e =>{
 		e.preventDefault();
-		this.setState({userId: this.props.userId}, ()=>{
+		this.setState({containsBlanks : false});
+		for(var i = 0; i < this.state.fields.length; i++){
+			if(this.state.fields[i].Q === "" || this.state.fields[i].A){
+				this.setState({containsBlanks: true});
+			}
+		}
+
+		if(this.state.containsBlanks === true){
+			console.log("You cannot have any blank fields")
+		}else{
+			this.setState({userId: this.props.userId}, ()=>{
 			this.setState({folderId: this.props.currentFolderId}, ()=>{
 				console.log(this.props.currentFolderId);
 				axios.post('/cards/newset', this.state).then(results => {
@@ -60,7 +71,11 @@ export default class NewSet extends React.Component{
 
 				});
 			})
-		})
+			})
+		}
+
+		
+		
 		
 		
 		
