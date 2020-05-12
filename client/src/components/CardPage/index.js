@@ -2,6 +2,8 @@ import React,{Fragment} from 'react';
 import './styles.css';
 import axios from "axios";
 import qs from 'qs';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 class CardPage extends React.Component{
 	constructor(props){
@@ -16,7 +18,10 @@ class CardPage extends React.Component{
 			index: 0,
 			cardElements: [],
 			exclamation: "",
-			showScore: false
+			showScore: false,
+			showResults: false,
+			showInput: true,
+			results: []
 
 		}
 	}
@@ -52,19 +57,30 @@ async obtainFields (id){
 
 handleAnswer = async(e) =>{
 	e.preventDefault();	
+	let currentResult = {};
 	if(this.state.index !== this.state.fields.length -1 ){
 		if(this.state.answer.toLowerCase() === this.state.fields[this.state.index].A.toLowerCase()){
 			this.setState({record: [...this.state.record, 1]}, ()=>{
 				console.log(this.state.record);
+				currentResult.correct = true
+				this.setState({results : [...this.state.results, currentResult]})
 			})
 			
 		}else{
-			this.setState({record: [...this.state.record, 0]})
+			this.setState({record: [...this.state.record, 0]}, ()=>{
+				currentResult.correct = false
+			})
 			console.log(this.state.record);
+
 		}
 
 		this.state.cardElements[this.state.index].classList.add("hide");
-		await this.setState({index : this.state.index + 1});
+		await this.setState({index : this.state.index + 1},()=>{
+			currentResult.Q = this.state.fields[this.state.index-1].Q;
+			currentResult.A = this.state.fields[this.state.index-1].A;
+			currentResult.userAnswer = this.state.answer;
+			this.setState({results : [...this.state.results, currentResult]})
+		});
 
 		if(this.state.index === this.state.fields.length-1){
 		for(var i = 0; i < this.state.fields.length-1 ; i++){
@@ -107,8 +123,20 @@ handleChange = (e) =>{
 	this.setState({answer: e.target.value});
 }
 
+handleResults = (e) =>{
+	this.setState({showScore: false, showInput: false},()=>{
+		this.setState({showResults: true});
+	})
+}
+
 handleFavoriteClick = () =>{
 	
+}
+
+handleRetry = () =>{
+	this.setState({showInput: true, showResults: false, score: 0, record: [], index: 0, results: []}, () => {
+		this.state.cardElements[this.state.index].classList.remove("hide");
+	})
 }
 render(){
 
@@ -123,7 +151,63 @@ render(){
 				)
 	})
 
-	const score = (<div className="score"><div> You scored {this.state.score} out of {this.state.fields.length-1}!</div></div>)
+	const score = (  <div className="score">
+						<div>
+							You scored {this.state.score} out of {this.state.fields.length-1}!<br/>
+							<a href="#" onClick={this.handleResults}>See Results</a>
+						</div>
+
+					</div>)
+
+	const results = (  <div className="results">
+						<div>
+							{this.state.results.map((resultsObj, index) =>{
+
+								if(resultsObj.correct){
+									return(
+										<div><div className="correct-answer">
+										<CheckCircleIcon/>
+{resultsObj.Q} <br/>
+
+</div>
+Your Answer: {resultsObj.userAnswer} <br/><br/>
+										</div>
+									)
+								}else{
+									return(
+										<div>
+										<div className="incorrect-answer">
+										<CancelIcon/>
+											{resultsObj.Q} <b>
+											{resultsObj.A}</b>
+											
+										</div>
+										
+											Your Answer: {resultsObj.userAnswer}<br/><br/>
+										</div>
+										)
+								}
+
+								
+							})}
+
+							<div> <a href="#" onClick={this.handleRetry}>Try Again?</a> </div>
+						</div>
+
+					</div>)
+	const answerInput = (
+		<div className="card-page-answer-input">
+							<form onSubmit={this.handleAnswer}>
+								<input type="text" className="answer-input" required=" " onChange={this.handleChange}/>
+									<label>Answer</label>
+									<span></span>
+								<div className="answers">
+									<button className="card-page-submit-btn">Submit</button>
+								</div>
+							</form>
+						</div>
+		)
+
 
 	return(
 		<Fragment>
@@ -134,16 +218,8 @@ render(){
 					<div>
 						{cards}
 						{this.state.showScore ? score : "" }
-						<div className="card-page-answer-input">
-							<form onSubmit={this.handleAnswer}>
-								<input type="text" className="answer-input" required=" " onChange={this.handleChange}/>
-									<label>Answer</label>
-									<span></span>
-								<div className="answers">
-									<button className="card-page-submit-btn">Submit</button>
-								</div>
-							</form>
-						</div>
+						{this.state.showResults ? results : "" }
+						{this.state.showInput ? answerInput : ""}
 						
 					</div>
 
