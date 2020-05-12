@@ -37,6 +37,9 @@ body{
   height: 100%;
 }
 
+input:focus{
+  border: 0;
+}
 
 
 @keyframes App-logo-spin {
