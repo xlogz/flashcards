@@ -37,7 +37,7 @@ body{
   height: 100%;
 }
 
-input:focus{
+input:focus, select: focus{
   border: 0;
   outline: none;
 }
