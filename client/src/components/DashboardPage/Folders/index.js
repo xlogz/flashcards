@@ -69,7 +69,7 @@ render(){
 		<Modal userId={this.props.userId}
 			   updateFolders={this.props.fetchFolders}
 			   name="addfolder"
-			   header="Add New Modal"
+			   header="Add New Folder"
 			   handleTitle={this.handleTitle}
 			   handleForm={this.handleForm}
 			   body={(<div className="modal-body-content">
@@ -103,7 +103,7 @@ render(){
 					</select>
 				</div>
 				<button className="folder-add-new-btn" onClick={this.toggleModal("addfolder")}>New Folder</button>
-				<button className="folder-delete-new-btn" onClick={this.toggleModal("deletefolder")}>Delete Folder</button>
+				{/*<button className="folder-delete-new-btn" onClick={this.toggleModal("deletefolder")}>Delete Folder</button>*/}
 	    	</div>
 	    	<br/>
     		<CardsContainer 

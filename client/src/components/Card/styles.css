@@ -235,3 +235,16 @@
 	z-index: 99;
 	cursor: pointer;
 }
+
+.quizme-link{
+	font-weight: 800;
+	color: #0b90e4;
+	font-family: 'Kalam', cursive;
+	font-size: 48px;
+	z-index: 10;
+	text-decoration: none;
+}
+
+.quizme-link:hover{
+	color: #2facf5;
+}

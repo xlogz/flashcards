@@ -53,11 +53,6 @@ export default class Card extends React.Component{
     isFavorite = async() =>{
     	await axios.put('/favorites/check', {userId: this.props.userId, cardSetId: this.props.id}).then(results=>{
     		console.log('results from checking is favorite');
-    		console.log(results.data);
-    		    console.log(this.state.favorite);
-    			console.log(this.state.favorite);
-    			console.log(this.state.favorite);
-    			console.log(this.state.favorite);
     		if(results.data){
     			this.setState({favorite: true});
     		}else{
@@ -91,7 +86,7 @@ export default class Card extends React.Component{
 							
 						</div>
 						<div className="Tilt-inner" id={this.props.tabIndex} onClick={this.handleClick}>
-							<Link to={'/cards?id=' + this.props.id} ><button className="dashboard-card-quiz-btn"> Quizme </button></Link>
+							<Link to={'/cards?id=' + this.props.id} ><div className="quizme-link"> Let's go! </div></Link>
 
 						</div>
 					</Tilt>
@@ -102,9 +97,10 @@ export default class Card extends React.Component{
 
 						<div className="Tilt-inner" id={this.props.tabIndex}  >
 							<div className="card-buttons">
-								<div className="dashboard-card-edit-btn">
+						{/*<div className="dashboard-card-edit-btn">
 									<EditIcon onClick={this.handleEdit}/>
-								</div>
+								</div>*/}
+								
 								{this.state.favorite === true ? 
 									(<div className="dashboard-card-favorite-btn yellow">
 										<StarRateIcon  onClick={this.handleFavorite}/>

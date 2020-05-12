@@ -66,6 +66,13 @@
 	margin-right: auto;
 }
 
+.score div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 
 .hide{
 	display: none;
@@ -169,4 +176,26 @@
 
 html{
 	overflow-y: scroll;
+}
+
+.try-again-link a{
+	font-weight: 800;
+	color: #0b90e4;
+	font-family: 'Kalam', cursive;
+	font-size: 20px;
+	z-index: 10;
+	text-decoration: none;
+}
+
+.see-results-link a{
+	font-weight: 800;
+	color: #0b90e4;
+	font-family: 'Kalam', cursive;
+	font-size: 20px;
+	z-index: 10;
+	text-decoration: none;
+}
+
+.see-results-link a:hover{
+	color: #0a93e3;
 }

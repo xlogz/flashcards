@@ -56,7 +56,8 @@ export default class NewSet extends React.Component{
 			this.setState({folderId: this.props.currentFolderId}, ()=>{
 				console.log(this.props.currentFolderId);
 				axios.post('/cards/newset', this.state).then(results => {
-					console.log(results);
+					window.location="/cards?id=" + results.data;
+
 				});
 			})
 		})

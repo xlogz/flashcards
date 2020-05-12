@@ -154,7 +154,7 @@ render(){
 	const score = (  <div className="score">
 						<div>
 							You scored {this.state.score} out of {this.state.fields.length-1}!<br/>
-							<a href="#" onClick={this.handleResults}>See Results</a>
+							<div className="see-results-link"><a href="#" onClick={this.handleResults}>See Results</a></div>
 						</div>
 
 					</div>)
@@ -191,7 +191,7 @@ Your Answer: {resultsObj.userAnswer} <br/><br/>
 								
 							})}
 
-							<div> <a href="#" onClick={this.handleRetry}>Try Again?</a> </div>
+							<div className="try-again-link"> <a href="#" onClick={this.handleRetry}>Try Again?</a> </div>
 						</div>
 
 					</div>)

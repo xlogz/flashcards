@@ -12,7 +12,7 @@ controller.newCardSet = (req, res) =>{
 	console.log(data);
 	const cardSet = new CardSet(data);
 	cardSet.save();
-	res.status(200).send('Card Set has successfully been created');
+	res.status(200).send(cardSet._id);
 }
 
 controller.newCardFolder = (req, res) =>{
