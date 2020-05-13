@@ -2,14 +2,12 @@ import React from 'react';
 import NavBar from './components/Navbar'
 import ContentContainer from './components/ContentContainer'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
 } from "react-router-dom";
 import Cookies from 'universal-cookie'
 import axios from 'axios';
-import { createBrowserHistory } from 'history';
 
 const cookies = new Cookies();
-const customHistory = createBrowserHistory();
 
 export default class MainApp extends React.Component {
 	constructor(props){
