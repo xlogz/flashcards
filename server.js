@@ -24,12 +24,11 @@ if(process.env.NODE_ENV === 'production'){
 	// Express will serve up production assets
 	// like our main js file, or main css file!
 	app.use(express.static('client/build'));
-	app.get('*', (req, res) => res.sendFile(path.resolve('client','build','index.html')));
+	
 	//Express will serve uip the index.html file 
 	//if it doesnt recognize the route
 }else{
 	app.use(express.static(__dirname + '/public'));
-	
 }
 
 app.use(bodyParser.json())
@@ -37,6 +36,8 @@ app.use(bodyParser.text({ type: 'text/html' }))
 app.use(bodyParser.text({ type: 'text/xml' }))
 app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
 app.use(bodyParser.json({ type: 'application/*+json' }))
+
+const path = require('path');
 
 app.get('/',
 function(req, res) {

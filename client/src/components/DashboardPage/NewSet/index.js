@@ -3,8 +3,11 @@ import axios from 'axios';
 import AddIcon from '@material-ui/icons/Add';
 import QAField from './QAField';
 import './styles.css';
+import { withRouter } from "react-router";
+import {useHistory,
+  useLocation} from 'react-router-dom';
 
-export default class NewSet extends React.Component{
+class NewSet extends React.Component{
 	constructor(props){
 		super(props);
 
@@ -59,12 +62,13 @@ export default class NewSet extends React.Component{
 
 	handleSubmit = e =>{
 		e.preventDefault();
+		const {history} = this.props;
 		if(!this.state.containsBlanks){
 			this.setState({userId: this.props.userId}, ()=>{
 				this.setState({folderId: this.props.currentFolderId}, ()=>{
 					console.log(this.props.currentFolderId);
 					axios.post('/cards/newset', this.state).then(results => {
-						window.location="/cards?id=" + results.data;
+						history.push("/cards?id=" + results.data);
 
 					});
 				})
@@ -85,6 +89,7 @@ export default class NewSet extends React.Component{
 	}
 
 	render(){
+		
 		let inputs;
 		inputs = this.state.fields.map((pair, index) => {
 			return  <QAField 
@@ -134,3 +139,5 @@ export default class NewSet extends React.Component{
 			)
 	}
 }
+
+export default withRouter(NewSet);

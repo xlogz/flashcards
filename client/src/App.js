@@ -6,8 +6,10 @@ import {
 } from "react-router-dom";
 import Cookies from 'universal-cookie'
 import axios from 'axios';
-const cookies = new Cookies();
+import { createBrowserHistory } from 'history';
 
+const cookies = new Cookies();
+const customHistory = createBrowserHistory();
 
 export default class MainApp extends React.Component {
 	constructor(props){
@@ -68,7 +70,7 @@ export default class MainApp extends React.Component {
 		return (
     
 	    <React.Fragment>
-	    <Router>
+	    <Router history={customHistory}>
 	    <NavBar
 	    	loggedIn={this.state.loggedIn}
 	    	logOut={this.handleLogout}
