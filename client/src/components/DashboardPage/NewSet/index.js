@@ -19,7 +19,8 @@ class NewSet extends React.Component{
 			title: "",
 			userId: "",
 			folderId: "",
-			containsBlanks: true
+			containsBlanks: true,
+			containsBlankTitle: true
 		};
 	}
 
@@ -46,6 +47,11 @@ class NewSet extends React.Component{
 
 	updateTitle = e => {
 		this.setState({title: e.target.value});
+		if(e.target.value === ""){
+			this.setState({containsBlankTitle : true})
+		}else{
+			this.setState({containsBlankTitle : false})
+		}
 	}
 
 	updateField = (index,content) =>{
@@ -63,7 +69,7 @@ class NewSet extends React.Component{
 	handleSubmit = e =>{
 		e.preventDefault();
 		const {history} = this.props;
-		if(!this.state.containsBlanks){
+		if(!this.state.containsBlanks && !this.state.containsBlankTitle){
 			this.setState({userId: this.props.userId}, ()=>{
 				this.setState({folderId: this.props.currentFolderId}, ()=>{
 					console.log(this.props.currentFolderId);
