@@ -195,6 +195,7 @@ Your Answer: {resultsObj.userAnswer} <br/><br/>
 						</div>
 
 					</div>)
+
 	const answerInput = (
 		<div className="card-page-answer-input">
 							<form onSubmit={this.handleAnswer}>
@@ -206,6 +207,11 @@ Your Answer: {resultsObj.userAnswer} <br/><br/>
 								</div>
 							</form>
 						</div>
+		)
+
+	const currentCardCount = (<div>
+		{this.state.index+1} / {this.state.fields.length-1}
+		</div>
 		)
 
 
@@ -220,7 +226,7 @@ Your Answer: {resultsObj.userAnswer} <br/><br/>
 						{this.state.showScore ? score : "" }
 						{this.state.showResults ? results : "" }
 						{this.state.showInput ? answerInput : ""}
-						
+						{!this.state.showScore && !this.state.showResults ?  currentCardCount : ""}
 					</div>
 
 				</div>
