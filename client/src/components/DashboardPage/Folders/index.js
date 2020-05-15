@@ -26,6 +26,7 @@ toggleModal = name => e =>{
 
 async componentDidMount(){
 	const folders = await this.props.fetchFolders();
+	console.log('this is initial mount of folders and its folders after fetching');
 	console.log(this.props.folders[0])
 	if(this.state.initialUpdate === false && this.props.folders[0] !== undefined){
 		await this.props.updateCurrentFolderId(this.props.folders[0]._id);

@@ -80,7 +80,9 @@ export default class Container extends React.Component{
 	}
 
 	fetchFolders = async() => {
-	 	console.log('fetching folders');
+	 	console.log('fetching folders for user');
+	 	console.log(this.props.userId);
+
 		await axios.get('/cards/folders',{headers:{userid : this.props.userId}}).then(async results => {
 			await this.setState({folders: results.data});
 			if(results.data[0] !== undefined){
