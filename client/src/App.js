@@ -54,7 +54,10 @@ export default class MainApp extends React.Component {
 		console.log(cookieToken);
 		if(cookieToken !== undefined){
 			console.log(cookieToken);
-			const results = await this.obtainUserFromToken(cookieToken);
+			let results = await this.obtainUserFromToken(cookieToken);
+			while(results === undefined){
+				results = await this.obtainUserFromToken(cookieToken);
+			}
 			console.log(results.data.userId);
 			if(results.error === undefined){
 				this.updateUserId(results.data.userId);
