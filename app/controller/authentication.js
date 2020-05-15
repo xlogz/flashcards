@@ -94,6 +94,7 @@ controller.obtainUserFromToken = (req, res) =>{
 	let results = {};
 	console.log('this is the token that was passed in: ' + req.body.token);
 	if(req.body.token === undefined){
+		console.log('send back undefined cause req.body.token was undefined');
 		res.send(undefined);
 	}
 	console.log(req.body);
