@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from './components/Navbar'
 import ContentContainer from './components/ContentContainer'
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
 } from "react-router-dom";
 import Cookies from 'universal-cookie'
 import axios from 'axios';
@@ -68,7 +68,7 @@ export default class MainApp extends React.Component {
 		return (
     
 	    <React.Fragment>
-	    <Router history={customHistory}>
+	    <Router>
 	    <NavBar
 	    	loggedIn={this.state.loggedIn}
 	    	logOut={this.handleLogout}

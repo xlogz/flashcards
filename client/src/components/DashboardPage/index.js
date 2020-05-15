@@ -13,6 +13,7 @@ import NewSet from './NewSet';
 
 
 
+
 import PostAddIcon from '@material-ui/icons/PostAdd';
 
 
@@ -95,6 +96,10 @@ export default class Container extends React.Component{
 	}
 
 	obtainCards = async (type,id) =>{
+		console.log('this is the type of retrieval for obtain cards');
+		console.log(type);
+		console.log('this is the id to retrieve');
+		console.log(id)
 		if(type==="folder"){
 			await axios.get('/cards/set', {headers: {folderid: id}}).then(cards => {
 				this.setState({cards: cards.data}, function(){
