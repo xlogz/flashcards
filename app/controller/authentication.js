@@ -92,13 +92,15 @@ controller.signIn = function(req, res){
 
 controller.obtainUserFromToken = (req, res) =>{
 	let results = {};
-	console.log('this is the token that was passed in: ' + req.body.token);
-	if(req.body.token === undefined){
+	console.log('this is the token that was passed in: ' + req.headers.token);
+	if(req.headers.token === undefined){
 		console.log('send back undefined cause req.body.token was undefined');
-		res.send(undefined);
+		res.send({results: undefined});
 	}
-	console.log(req.body);
-	Token.find({token: req.body.token}).then(user => {
+	console.log(req.headers);
+	Token.find({hashedToken: req.headers.token}).then(user => {
+		console.log('this is user from token find user:' + user);
+		console.log(user);
 		if(user){
 			console.log('this is the name of the user: ' + user);
 			results.username = user[0].username;

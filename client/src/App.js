@@ -43,10 +43,7 @@ export default class MainApp extends React.Component {
 
 	async obtainUserFromToken(token){
 		console.log('this is the token that was passed to obtainuserfromtoken: '+ token)
-		let results = await axios.put('/user/token',token);
-		while(results === undefined){
-			results = await axios.put('/user/token',token);
-		}
+		let results = await axios.get('/user/token', {headers: {token: token}});
 		console.log(results);
 		return results;
 	
@@ -60,12 +57,6 @@ export default class MainApp extends React.Component {
 			console.log(cookieToken);
 			let results = await this.obtainUserFromToken(cookieToken);
 			console.log('this is results in componentdidmount');
-			console.log(results);
-			while(results === undefined){
-				results = await this.obtainUserFromToken(cookieToken);
-				console.log(results);
-				console.log('this is results in while loop');
-			}
 			console.log(results);
 			if(results.error === undefined){
 				this.updateUserId(results.data.userId);
