@@ -42,6 +42,7 @@ export default class MainApp extends React.Component {
 	}
 
 	async obtainUserFromToken(token){
+		console.log('this is the token that was passed to obtainuserfromtoken: '+ token)
 		const results = await axios.put('/user/token',token);
 		return results;
 	
@@ -52,6 +53,7 @@ export default class MainApp extends React.Component {
 		console.log('this is cookie token');
 		console.log(cookieToken);
 		if(cookieToken !== undefined){
+			console.log(cookieToken);
 			const results = await this.obtainUserFromToken(cookieToken);
 			console.log(results.data.userId);
 			if(results.error === undefined){
