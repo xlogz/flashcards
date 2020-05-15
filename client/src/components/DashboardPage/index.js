@@ -139,7 +139,9 @@ export default class Container extends React.Component{
 
 	async componentDidMount(){
 		await this.fetchFolders();
-		console.log('currentFolderId '+this.state.currentFolderId);
+		console.log('fetching folders after page load');
+		await this.obtainCards("folder",this.state.currentFolderId);
+		console.log('fetching cards for folder after page load')
 	}
 
 	
