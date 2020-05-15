@@ -49,6 +49,8 @@ export default class MainApp extends React.Component {
 
 	async componentDidMount(){
 		const cookieToken = cookies.get('token');
+		console.log('this is cookie token');
+		console.log(cookieToken);
 		if(cookieToken !== undefined){
 			const results = await this.obtainUserFromToken(cookieToken);
 			console.log(results.data.userId);
