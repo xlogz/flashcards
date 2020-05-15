@@ -43,9 +43,9 @@ export default class MainApp extends React.Component {
 
 	async obtainUserFromToken(token){
 		console.log('this is the token that was passed to obtainuserfromtoken: '+ token)
-		const let results = await axios.put('/user/token',token);
+		let results = await axios.put('/user/token',token);
 		while(results === undefined){
-			let results = await axios.put('/user/token',token);
+			results = await axios.put('/user/token',token);
 		}
 		return results;
 	
