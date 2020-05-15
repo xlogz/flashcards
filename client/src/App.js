@@ -57,8 +57,10 @@ export default class MainApp extends React.Component {
 			let results = await this.obtainUserFromToken(cookieToken);
 			while(results === undefined){
 				results = await this.obtainUserFromToken(cookieToken);
+				console.log(results);
+				console.log('this is results in while loop');
 			}
-			console.log(results.data.userId);
+			console.log(results);
 			if(results.error === undefined){
 				this.updateUserId(results.data.userId);
 				this.updateUsername(results.data.username);
