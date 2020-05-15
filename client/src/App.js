@@ -47,6 +47,7 @@ export default class MainApp extends React.Component {
 		while(results === undefined){
 			results = await axios.put('/user/token',token);
 		}
+		console.log(results);
 		return results;
 	
 	}
@@ -59,6 +60,7 @@ export default class MainApp extends React.Component {
 			console.log(cookieToken);
 			let results = await this.obtainUserFromToken(cookieToken);
 			console.log('this is results in componentdidmount');
+			console.log(results);
 			while(results === undefined){
 				results = await this.obtainUserFromToken(cookieToken);
 				console.log(results);
